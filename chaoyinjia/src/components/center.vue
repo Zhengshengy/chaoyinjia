@@ -22,7 +22,11 @@
     </group>
       <div style="margin-top: 5px;background: #fff;padding: 10px 20px">
         <flexbox>
-        <flexbox-item :span="1"><div class="flex-demo"><check-icon :value.sync="demo1"></check-icon></div></flexbox-item>
+        <flexbox-item :span="1"><div class="flex-demo">
+          <div>
+            <img src="../assets/agree.png" style="width: 60%;height: auto;float: right" alt="">
+          </div>
+        </div></flexbox-item>
           <flexbox-item><div class="flex-demo"><div style="color: #5D5D5D">我已认真阅读并完全同意《芝麻银家服务条款》的所有条款</div></div></flexbox-item>
     </flexbox>
 
@@ -106,9 +110,8 @@ export default {
     submit(){
       if (this.sub3==true){
       this.$ajax.get(`https://www.xiaofeishuwangluo.com/agentdetails/saveAgetDetails?uid=${this.uid}&superior_uid=${this.superior_uid}&username=${this.username}&idcard=${this.idcard}&wechatno=${this.wechatno}&userphone=${this.userphone}&checkCode=${this.checkCode}`).then(e=>{
-        console.log(e)
         if (e.data.status==200){
-          this.$router.push('/')
+          this.$router.push('/been')
         } else if (e.data.status==500)
           this.show2 = true
           this.messages = e.data.msg

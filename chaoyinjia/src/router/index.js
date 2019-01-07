@@ -14,6 +14,7 @@ import Minute from '@/components/minute'
 import Invited from '@/components/invited'
 import Promote from '@/components/promote'
 import Registercard from '@/components/registercard'
+import Been from '@/components/been'
 Vue.use(Router)
 
 export default new Router({
@@ -119,6 +120,14 @@ export default new Router({
       component: Registercard,
       meta: {
         title: '推荐办卡'   // 标题设置
+      }
+    },
+    {
+      path: '/been',
+      name: 'Been',
+      component: Been,
+      meta: {
+        title: '关注页面'   // 标题设置
       }
     },
   ]

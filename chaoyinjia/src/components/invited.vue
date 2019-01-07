@@ -53,6 +53,7 @@
       <Retu/>
       <toast v-model="showSuccess">{{text}}</toast>
       <div class="fenxiang" v-show="dis==true">
+
       <img src="../assets/anniu.png" alt="" class="anniu" @click="dis1">
       </div>
       <div v-transfer-dom>
@@ -100,14 +101,14 @@
         this.userphone = localStorage.getItem('userphone')
         this.uid = localStorage.getItem('userid')
         this.username = localStorage.getItem('username')
-
         this.url = encodeURI(location.href.split('#')[0])
         this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/getEncryptJsapiTicket?url='+this.url).then(e=>{
           console.log(e)
+          console.log(this.url)
           if (e.data.status==200){
             wx.config({
               debug:true,
-              appID:e.data.data.appid,
+              appId:e.data.data.appid,
               timestamp:e.data.data.timestamp,
               nonceStr:e.data.data.noncestr,
               signature:e.data.data.signature,
@@ -115,8 +116,9 @@
             })
             wx.ready(function () {
               wx.onMenuShareTimeline({
-                title: this.username+'邀请你加入芝麻银家', // 分享标题
-                link: this.url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                title: '免费零投入，全民创业梦，跟着银行一起创业去！', // 分享标题
+                desc:"跟着银行的脚步，推卡反佣金,吃的喝的全都有，没毛病！",
+                link: 'https://www.xiaofeishuwangluo.com/blank', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
                 success: function () {
                   this.showSuccess = true
@@ -129,7 +131,7 @@
               });
               wx.onMenuShareAppMessage({
                 title: this.username+'邀请你加入芝麻银家', // 分享标题
-                link: this.url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                link: 'https://www.xiaofeishuwangluo.com/blank', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
                 success: function () {
                   this.showSuccess = true
@@ -166,7 +168,6 @@
           this.dis = false
         },
         fenxiang(){
-          console.log(111)
           this.dis = true
         },
         wexin(){
@@ -208,7 +209,7 @@
     width: 30%;
     height: auto;
     position: absolute;
-    top: 35%;
+    top: 45%;
     left: 33%;
   }
 

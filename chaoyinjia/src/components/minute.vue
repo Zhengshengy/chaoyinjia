@@ -53,5 +53,9 @@ import Retu from '@/components/retu'
 <style scoped>
 .fonfor{
     padding: 10px;
+
 }
+  .heidh{
+    background: #fff;
+  }
 </style>

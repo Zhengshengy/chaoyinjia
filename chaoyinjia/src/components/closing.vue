@@ -10,7 +10,7 @@
                 <input type="text" style="outline:none;" v-model="alipayno">
             </div>
             <div class="vitext">手机号：
-                <input type="text" style="width: 60%;" v-model="userphone">
+                <input type="text" style="width: 60%;" v-model="userphone" disabled>
                 <div @click="checkcode" v-if="huocode==true" style="color: #f9c63c;float: right" >
                 获取验证码
                 </div>
@@ -88,6 +88,9 @@ export default {
       time:60,
     }
   },
+    mounted(){
+      this.userphone = localStorage.getItem('userphone').replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')
+    },
     methods:{
         submit(){
             let uid = localStorage.getItem('userid')
@@ -99,12 +102,11 @@ export default {
             })
         },
         checkcode(){
-            if (this.userphone){
-        this.$ajax.get('https://www.xiaofeishuwangluo.com/sms/sendingSMS?userphone='+this.userphone).then(e=>{
+          let phone = localStorage.getItem('userphone')
+        this.$ajax.get('https://www.xiaofeishuwangluo.com/sms/sendingSMS?userphone='+phone).then(e => {
           this.huocode = false
           this.start = true
       })
-      }
         },
         finish (index) {
       this.huocode = true
@@ -131,12 +133,13 @@ export default {
   .bonsave input{
       outline:none;border-width: 0;
       font-size: 14px; color: #000000;
+      background: #fff;
   }
   .vitext{
       width: 100%;
       border-bottom: 1px solid #c1c1c1;
       font-size: 14px; color: #5d5d5d;
-      padding: 20px 0;
+      padding: 13px 0;
   }
     .text_cn{
         background: #FBFBFB;

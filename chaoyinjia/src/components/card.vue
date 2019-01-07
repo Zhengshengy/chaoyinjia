@@ -16,30 +16,20 @@
       </div></flexbox-item>
     </flexbox>
     </div>
-    <div class="main" style="padding: 10px">
+    <div class="main" style="padding: 10px 10px 0">
       <span style="font-weight: 600;">推荐银行</span>
-      <grid :cols="3">
-      <grid-item v-for="i in 10" :key="i" style="text-align: center;color: black;background: #fff">
-        <img src="" alt="">
-        <divider>
-        </divider>
-        <div style="width: 100%;height: 2px;background: #F5F5F5;margin: 15px 0;position: relative">
-          <div class="text">
-            <span style="color: #fff;">自动结算</span>
-          </div>
-        </div>
-        <span>交通银行</span><br>
-        <span style="font-size: 13px">超长免息</span>
-      </grid-item>
-    </grid>
+      <Banka style="margin-top: 5px" />
     </div>
-    <Footer />
+      <div>
+         <Footer />
+      </div>
   </div>
 </template>
 
 <script>
 import { Flexbox, FlexboxItem,Grid, GridItem,Divider} from 'vux'
 import Footer from '@/components/footer'
+import Banka from '@/components/banka'
 
   export default {
   name:'Card',
@@ -49,21 +39,41 @@ import Footer from '@/components/footer'
     Grid,
     GridItem,
     Divider,
-    Footer
+    Footer,
+    Banka
   },
 
   data () {
     return {
-
+      username:'',
+      headImgUrl:''
     }
   },
   beforeCreate() {
-    // if (!localStorage.getItem("user")) {
-    //   window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=1'
-    // }
+    if (localStorage.getItem('openid')) {
+        this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid)
+      .then(response => {
+        console.log(response)
+          .catch(error => {
+            console.log(error)
+          })
+      })
+    }else {
+      let openid=this.getUrlKey("openid");
+      if (!openid)  {
+        window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=1'
+      }else {
+        let openid = this.getUrl(openid)
+        this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid).then(e=>{
+          console.log(e)
+        })
+
+      }
+    }
   },
   methods:{
-
+    getUrlKey(name){//获取url 参数
+   return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null;}
   }
 }
 </script>
