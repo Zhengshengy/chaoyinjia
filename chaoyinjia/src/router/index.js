@@ -15,6 +15,9 @@ import Invited from '@/components/invited'
 import Promote from '@/components/promote'
 import Registercard from '@/components/registercard'
 import Been from '@/components/been'
+import Invit from '@/components/invit'
+import Blankmain from '@/components/blankmain'
+
 Vue.use(Router)
 
 export default new Router({
@@ -128,6 +131,22 @@ export default new Router({
       component: Been,
       meta: {
         title: '关注页面'   // 标题设置
+      }
+    },
+    {
+      path: '/invit',
+      name: 'Invit',
+      component: Invit,
+      meta: {
+        title: '加入芝麻银家'   // 标题设置
+      }
+    },
+    {
+      path: '/blankmain',
+      name: 'Blankmain',
+      component: Blankmain,
+      meta: {
+        title: '银行卡'   // 标题设置
       }
     },
   ]

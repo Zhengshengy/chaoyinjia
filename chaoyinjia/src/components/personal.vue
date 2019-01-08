@@ -130,12 +130,16 @@
     },
     created(){
     if (localStorage.getItem('openid')) {
-       let openid = localStorage.getItem("openid")
+        let openid = localStorage.getItem("openid")
         this.username = localStorage.getItem("username")
         this.headImgUrl = localStorage.getItem("headImgUrl")
         this.userId = localStorage.getItem("userid")
-       let that = this
-
+        let that = this
+        this.$ajax.get('https://www.xiaofeishuwangluo.com/agentdetails/selectMoney?userid='+this.userId).then(e=>{
+        this.totalIncome = that.outputmoney(e.data.data.totalIncome)
+        this.completeSettlement = that.outputmoney(e.data.data.completeSettlement)
+        this.notcompleteSettlement = that.outputmoney(e.data.data.notcompleteSettlement)
+    })
         this.$ajax.get('https://www.xiaofeishuwangluo.com/user/selectUserByOpenid?openid='+openid)
       .then(response => {
         localStorage.setItem('ustatus', response.data.data)
@@ -264,6 +268,7 @@
         that.completeSettlement = that.outputmoney(e.data.data.completeSettlement)
         that.notcompleteSettlement = that.outputmoney(e.data.data.notcompleteSettlement)
         localStorage.setItem('grade', that.grade)
+        alert("更新成功")
       }).catch((error)=>{
         console.log(error)
           })

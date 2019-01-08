@@ -102,9 +102,29 @@ export default {
       }
     }
 },
-  mounted(){
-    this.uid = localStorage.getItem('userid')
-    this.superior_uid = this.$route.query.superior_uid?this.$route.query.superior_uid: '1'
+    created(){
+    this.superior_uid = this.$route.query.userid?this.$route.query.userid: '1'
+      console.log(this.superior_uid)
+    if (localStorage.getItem('openid')) {
+        let openid = localStorage.getItem("openid")
+        this.username = localStorage.getItem("username")
+        this.headImgUrl = localStorage.getItem("headImgUrl")
+        this.uid = localStorage.getItem("userid")
+    }else {
+      let openid=getUrlKey("openid");
+      if (!openid)  {
+        window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=4'
+      }else {
+        this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/selectUserByOpenid?openid='+openid)
+      .then(response => {
+        localStorage.setItem('openid', response.data.data.openid)
+      })
+      }
+    }
+
+    function getUrlKey(name){//获取url 参数
+   return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null;}
+
   },
   methods:{
     submit(){

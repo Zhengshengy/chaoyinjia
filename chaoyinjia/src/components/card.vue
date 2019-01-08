@@ -59,7 +59,9 @@ import Banka from '@/components/banka'
           })
       })
     }else {
-      let openid=this.getUrlKey("openid");
+      function getUrlKey(name){//获取url 参数
+   return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null;}
+      let openid=getUrlKey("openid");
       if (!openid)  {
         window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=1'
       }else {
@@ -72,8 +74,7 @@ import Banka from '@/components/banka'
     }
   },
   methods:{
-    getUrlKey(name){//获取url 参数
-   return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null;}
+
   }
 }
 </script>

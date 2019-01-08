@@ -11,37 +11,32 @@
             <div class="vontfor" v-for="(i,n) in con" :key="n" @click="cell(i.userphone)">
                 <flexbox :gutter="0" wrap="wrap" >
                   <flexbox-item :span="2/3"><div class="flex-demo">
-                      <flexbox>
-                          <flexbox-item :span="4"><div class="flex-demo">
-                              <div style="width:94%;border-radius: 50%;margin-left: 10%;">
-                                 <img :src="i.headimgurl" alt="" width="82%">
-                              </div>
-
-                          </div></flexbox-item>
-                          <flexbox-item><div class="flex-demo" style="font-size: 14px;color: #5D5D5D">
-                              <flexbox orient="vertical" :gutter="0">
-                                  <flexbox-item><div class="flex-demo" >
-                                      昵称：<span>{{i.nickname}}</span>
-                                  </div></flexbox-item>
-                                  <flexbox-item><div class="flex-demo">工号：<span>{{i.userid}}</span></div></flexbox-item>
-                                  <flexbox-item><div class="flex-demo">手机号：<span>{{i.phone1}}</span></div></flexbox-item>
-                                   <flexbox-item><div class="flex-demo" ><span style="font-size: 14px;">{{i.createtime}}</span></div></flexbox-item>
-
-                                </flexbox>
-                          </div></flexbox-item>
-
-                        </flexbox>
-                  </div></flexbox-item>
-                  <flexbox-item :span="1/3"><div class="flex-demo">
-                      <flexbox orient="vertical" :gutter="0">
-                        <flexbox-item><div class="flex-demo" style="text-align: center;margin-bottom: 6px;color: #5D5D5D;font-size: 14px">推荐办卡数</div></flexbox-item>
-                        <flexbox-item><div class="flex-demo"  style="text-align: center;margin-bottom: 6px"><span style="font-size: 14px;color: #FF5050;">{{i.recommendNum}}张</span></div></flexbox-item>
-                          <flexbox-item><div class="flex-demo" style="text-align: center;color: #5D5D5D;font-size: 14px">职务：<span>{{i.text}}</span></div></flexbox-item>
-
-                    </flexbox>
-                  </div></flexbox-item>
+                    <flexbox :gutter="0">
+                      <flexbox-item :span="1/4"><div class="flex-demo" style="margin-left: 5px">
+                          <div class="userhead">
+                             <img :src="i.headimgurl" alt="">
+                          </div>
+                      </div></flexbox-item>
+                      <flexbox-item :span="3/4"><div class="flex-demo" style="margin-left: 5px;margin-top: -6px">
+                  <flexbox orient="vertical" :gutter="0">
+                      <flexbox-item><div class="flex-demo" >
+                        <span style="font-size: 16px;color: #6e6e6e;">{{i.nickname}}<span> ({{i.text}})</span></span>
+                      </div></flexbox-item>
+                      <flexbox-item><div class="flex-demo" style="font-size: 12px;color:#6E6E6E;margin-top: 2px;">工号：<span>{{i.userid}}</span></div></flexbox-item>
+                      <flexbox-item><div class="flex-demo" style="font-size: 12px;color:#6E6E6E;margin-top: 2px;">手机号：<span>{{i.phone1}}</span></div></flexbox-item>
+                      </flexbox>
+                    </div></flexbox-item>
+                  </flexbox>
+                </div></flexbox-item>
+              <flexbox-item :span="1/3"><div class="flex-demo" >
+                  <flexbox orient="vertical" :gutter="0">
+                    <div class="tonp" style="margin-top: 19px"></div>
+                    <flexbox-item><div class="flex-demo" style="text-align: center;margin-bottom: 6px;color: #A4A4A4;font-size: 12px">推荐办卡数：<span style="font-size: 12px;color: #FF5050;">{{i.recommendNum}}张</span></div></flexbox-item>
+                    <flexbox-item><div class="flex-demo" style="text-align: center;"><span style="font-size: 10px;transform: scale(0.9);color:#a4a4a4">{{i.createtime}}</span></div></flexbox-item>
                 </flexbox>
-                <div class="xian"></div>
+              </div></flexbox-item>
+            </flexbox>
+              <div class="xian"></div>
             </div>
         </div>
         <div style="width: 70%;margin: 20px auto">
@@ -90,7 +85,6 @@ import Retu from '@/components/retu'
     mounted(){
         this.uid = localStorage.getItem('userid')
         this.$ajax.get(`https://www.xiaofeishuwangluo.com/agentdetails/selectCustomerBySuperiorUid?superiorUid=${this.uid}&page=1`).then(e=>{
-            console.log(e)
 
             this.pageCount = e.data.data.pageTotal
             this.currentPage = e.data.data.currentPage
@@ -113,7 +107,6 @@ import Retu from '@/components/retu'
                 this.con.push(obj)
             })
         })
-        console.log(this.con)
     },
     methods:{
         query(){
@@ -257,5 +250,13 @@ import Retu from '@/components/retu'
     text-align: center;
     background: #ccc;
     padding: 5px 0;
+  }
+  .userhead{
+   width:100%;
+  }
+  .userhead img{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
   }
 </style>

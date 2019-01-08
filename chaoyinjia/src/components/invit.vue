@@ -34,28 +34,13 @@
             </div>
         </div>
         <div style="height: 55px"></div>
-        <div class="bottom">
-            <flexbox>
-              <flexbox-item><div class="flex-demo" v-clipboard:copy="copyurl"
-        v-clipboard:success="onCopy"
-        v-clipboard:error="onError">
-                  <div class="tonm" >
-                      <img src="../assets/haoyou.png" width="100%" alt="">
-                  </div>
-              </div></flexbox-item>
-              <flexbox-item><div class="flex-demo" @click="fenxiang">
-                  <div class="tonm" >
-                      <img src="../assets/yaoqin.png" width="100%" alt="">
-                  </div>
-              </div></flexbox-item>
-            </flexbox>
+        <div class="bottom" @click="tocenter">
+            <div class="btn">
+              <span>下一步</span>
+            </div>
         </div>
       <Retu/>
       <toast v-model="showSuccess">{{text}}</toast>
-      <div class="fenxiang" v-show="dis==true">
-
-      <img src="../assets/anniu.png" alt="" class="anniu" @click="dis1">
-      </div>
       <div v-transfer-dom>
       <x-dialog v-model="show1" class="dialog-demo">
         <div class="img-box">
@@ -92,64 +77,17 @@
           url:'',
           showSuccess:false,
           text:'',
-          dis:false,
           show1:false,
           username:"",
+          superior_uid:''
         }
       },
     created(){
         this.userphone = localStorage.getItem('userphone')
         this.uid = localStorage.getItem('userid')
         this.username = localStorage.getItem('username')
-        this.copyurl = window.location.href+'?userid='+this.uid
-        this.url = encodeURI(location.href.split('#')[0])
-        var link = 'https://www.xiaofeishuwangluo.com/blank/#/center?userid='+this.uid
-        var desc="跟着银行的脚步，推卡反佣金,吃的喝的全都有，没毛病！";
-        this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/getEncryptJsapiTicket?url='+this.url).then(e=>{
-          if (e.data.status==200){
-            wx.config({
-              debug:false,
-              appId:e.data.data.appid,
-              timestamp:e.data.data.timestamp,
-              nonceStr:e.data.data.noncestr,
-              signature:e.data.data.signature,
-              jsApiList:['onMenuShareTimeline','onMenuShareAppMessage']
-            })
-            wx.ready(function () {
-              wx.onMenuShareTimeline({
-                title: '免费零投入，全民创业梦，跟着银行一起创业去！', // 分享标题
+        this.superior_uid = this.getUrlKey('userid')
 
-                link:  link,// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
-                success: function () {
-                  alert('分享成功')
-                },
-                cancel: function () {
-                  // this.showSuccess = true
-                  // this.text = "分享失败"
-                  alert('分享失败')
-                }
-              });
-              wx.onMenuShareAppMessage({
-                title: '免费零投入，全民创业梦，跟着银行一起创业去！', // 分享标题
-                link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                desc: desc,
-                imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
-                success: function () {
-                  // this.showSuccess = true
-                  // this.text = "分享成功"
-                  alert('分享成功')
-                },
-                cancel: function () {
-                  // this.showSuccess = true
-                  // this.text = "分享失败"
-                  alert('分享失败')
-                }
-              })
-
-            });
-          }
-        })
      },
       methods:{
         tell(){
@@ -159,18 +97,18 @@
           this.text = "复制成功"
           this.showSuccess = true
         },
-      onError(e){
+        onError(e){
         this.text = "复制失败"
           this.showSuccess = true
-      },
-        dis1(){
-          this.dis = false
-        },
-        fenxiang(){
-          this.dis = true
         },
         wexin(){
           this.show1 = true
+        },
+        tocenter(){
+          this.$router.push('/center')
+        },
+        getUrlKey(name){//获取url 参数
+   return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null;
         }
       }
 }
@@ -187,9 +125,14 @@
         width: 100%;
         position: fixed;
         bottom: 0;
-        box-shadow: 0px -2px 0 0 rgba(0,0,0,.1);
-        background: #fff;
+        background: #f6c93c;
         padding: 5px;
+    }
+    .btn{
+      text-align: center;
+      padding: 10px;
+      color: #fff;
+      font-size: 14px;
     }
     .tonm{
         text-align: center;width:90%;margin: 0 auto;

@@ -106,12 +106,11 @@ export default {
   },
   mounted(){
     this.uid = localStorage.getItem('userid')
-    // this.total = this.outputmoney(this.$route.query.total)
-    // this.complete = this.outputmoney(this.$route.query.complete)
-    // this.notcomplete = this.outputmoney(this.$route.query.notcomplete)
-    this.$ajax.get('api/agentdetails/selectMoney?userid=3').then(e=>{
+    this.$ajax.get('https://www.xiaofeishuwangluo.com/agentdetails/selectMoney?userid='+this.uid).then(e=>{
       console.log(e)
-
+        this.total = this.outputmoney(e.data.data.totalIncome)
+        this.complete = this.outputmoney(e.data.data.completeSettlement)
+        this.notcomplete = this.outputmoney(e.data.data.notcompleteSettlement)
     })
 
     this.$ajax.get(`https://www.xiaofeishuwangluo.com/accountsdetails/selectAccountsDetailsByUserid?userid=${this.uid}&page=1`).then(e=>{
