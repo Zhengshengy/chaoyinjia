@@ -19,8 +19,8 @@
                   <flexbox-item><div class="flex-demo">
                         <flexbox orient="vertical" :gutter="0">
                           <flexbox-item><div class="flex-demo" style="padding: 10px 10px 0 0">
-                              <span style="font-size: 14px;color:#000;font-weight: 600">芝麻银家</span><br>
-                              <span style="font-size: 12px;color:#4F4F4F;padding-top: 5px;">工号：<span>1</span></span>
+                              <span style="font-size: 14px;color:#000;font-weight: 600">{{accountNummber}}</span><br>
+                              <span style="font-size: 12px;color:#4F4F4F;padding-top: 5px;">工号：<span>{{uid}}</span></span>
                           </div></flexbox-item>
                           <flexbox-item><div class="flex-demo" style="padding-top: 10px;">
                               <flexbox>
@@ -95,9 +95,19 @@
           dis:false,
           show1:false,
           username:"",
+          accountNummber:'',
+          accountsUrl:'',
+          wxNumber:''
         }
       },
     created(){
+        this.$ajax.get('https://www.xiaofeishuwangluo.com/base/publicSysData').then(e=>{
+          this.uid = e.data.data.uuid
+          this.userphone = e.data.data.mobile
+          this.accountNummber = e.data.data.accountNummber
+          this.accountsUrl = e.data.data.accountsUrl
+          this.wxNumber = e.data.data.wxNumber
+        })
         this.userphone = localStorage.getItem('userphone')
         this.uid = localStorage.getItem('userid')
         this.username = localStorage.getItem('username')

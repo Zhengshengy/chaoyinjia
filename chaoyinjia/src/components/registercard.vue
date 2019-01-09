@@ -1,46 +1,15 @@
 <template>
-    <div class="ntom">
+    <div class="ntom" id="ntom">
         <div class="boif">
             <div class="img">
                 <div class="for">
-                    <img src="../assets/dream3.png" alt="">
-                </div>
-                <div class="right_bontb">
-                    <flexbox :gutter="0">
-                      <flexbox-item ><div class="flex-demo">
-                        <flexbox :gutter="0">
-                          <flexbox-item :span="4"><div class="flex-demo">
-                              <div class="fontinmg">
-                                  <img :src="heardImg" width="100%" alt="">
-                              </div>
-                          </div></flexbox-item>
-                          <flexbox-item ><div class="flex-demo">
-                              <div class="fontinmgs">
-                              <div style="color: #000;font-size: 12px">芝麻银行</div>
-                                  <div style="color: #5F5A50">
-                                      <span style="font-size: 12px">职务:</span>
-                                      <span style="font-size: 12px">{{grade}}</span><br>
-                                      <span style="font-size: 12px">ID:</span>
-                                      <span style="margin-right: 5px;font-size: 12px">{{id}}</span>
-                                  </div>
-                              </div>
-                          </div></flexbox-item>
-                        </flexbox>
-                      </div></flexbox-item>
-                      <flexbox-item :span="4"><div class="flex-demo">
-                            <div class="fontimges">
-                               <img :src="qrcode" width="15%" alt="">
-                             </div>
-                      </div></flexbox-item>
-                    </flexbox>
+                    <img :src="posterBlank" alt="">
                 </div>
             </div>
             <div class="bottm">
-                <div class="texe">
-                    <div class="font" style="margin-top: 18%"></div>
-                </div>
-                <div class="rout" style="width: 40%;margin: 10px auto 0">
-                    <img src="../assets/yaoqin.png" alt="">
+
+                <div class="rout" >
+                    <span>分享链接邀请好友</span>
                 </div>
                 <div class="boncom">
                     <div class="fonbomone">
@@ -56,32 +25,34 @@
                 </div>
             </div>
         </div>
+      <toast v-model="show2" type="text">长按保存图片</toast>
     </div>
 </template>
 <script>
-    import { Flexbox, FlexboxItem, Divider } from 'vux'
+    import { Flexbox, FlexboxItem, Toast, } from 'vux'
     export default {
     name:'Registercard',
         components: {
            Flexbox,
            FlexboxItem,
+            Toast
         },
         data(){
           return{
             heardImg:'',
-            grade:'',
+            posterBlank:'',
             id:'',
-            qrcode:''
+            show2:false
           }
         },
         mounted(){
-            let url = encodeURI(window.location.href)
-              this.$ajax.get('www.xiaofeishuwangluo.com/user/getQrcode?url='+url).then(e=>{
-            this.qrcode = e.data.data
+          this.id = localStorage.getItem('userid')
+            var mobileHeight=window.innerHeight+"px";
+            document.getElementById('ntom').style.minHeight=mobileHeight;
+              this.$ajax.get('https://www.xiaofeishuwangluo.com/userposter/selectPoster?userid='+this.id).then(e=>{
+              this.posterBlank = e.data.data.posterBlank
         })
-            this.grade = localStorage.getItem('grade')
-            this.heardImg = localStorage.getItem('headImgUrl')
-            this.id = localStorage.getItem('userid')
+
         },
         methods:{
             dabcake() {
@@ -92,51 +63,35 @@
 </script>
 <style scoped>
  .ntom{
-    padding: 30px 0 0px;
-    background: #363636;
-}
+   width:100%;height: 100%;
+   position: relative;background: #363636;
+ }
+ .boif{
+   padding-top: 30px;
+ }
+ .for{
+   width: 100%;
+   height: 100%;
+ }
  .img{
      width: 80%;
      margin: 0 auto;
      position: relative;
      bottom: 0;
 }
- img{
-    width: 100%;
+ .for img{
+    width: 80%;display: block;
     height: auto;
+    margin: 0 auto;
   }
- .right_bontb{
-    position: absolute;
-    bottom:35%;
-    right: 0;
-    width: 60%;
-    font-size: 12px;
-}
- .fontinmg{
-    position: absolute;
-    width: 14%;
-    left: 7%;
-    bottom: -70px;
-    height:26px ;
-}
-.fontinmgs{
-    position: absolute;
-    font-size:12px;
-    transform:scale(0.8);
-    left: 23%;
-    bottom: -70px;
-}
-.fontimges{
-    position: absolute;
-    width: 20%;
-    right: 24%;
-    top:32px;
-}
 .bottm{
     padding-top: 10%;
     text-align: center;
     font-size: 14px;
     color: #fff;
+}
+.yaoqing{
+  border:1px solid #f6c93c;color:#f6c93c;
 }
     .boncom{
         background: #E6E6E6;
@@ -152,4 +107,14 @@
         padding: 8px 0;
         width: 90%;
     }
+  .bottm{
+     position: fixed;bottom: 0;width: 100%;
+  }
+  .rout{
+    width: 40%;margin: 0 auto 10%;
+    border: 1px solid #f6c93c;
+    color: #f6c93c;
+    padding: 5px;
+  }
+
 </style>

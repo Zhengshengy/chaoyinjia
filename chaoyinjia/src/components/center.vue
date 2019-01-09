@@ -106,10 +106,8 @@ export default {
     this.superior_uid = this.$route.query.userid?this.$route.query.userid: '1'
       console.log(this.superior_uid)
     if (localStorage.getItem('openid')) {
-        let openid = localStorage.getItem("openid")
-        this.username = localStorage.getItem("username")
-        this.headImgUrl = localStorage.getItem("headImgUrl")
         this.uid = localStorage.getItem("userid")
+        this.$router.push('/')
     }else {
       let openid=getUrlKey("openid");
       if (!openid)  {
@@ -118,6 +116,7 @@ export default {
         this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/selectUserByOpenid?openid='+openid)
       .then(response => {
         localStorage.setItem('openid', response.data.data.openid)
+        this.uid = response.data.data.userid
       })
       }
     }

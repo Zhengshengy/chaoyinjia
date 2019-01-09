@@ -49,7 +49,7 @@ import Banka from '@/components/banka'
       headImgUrl:''
     }
   },
-  beforeCreate() {
+  created() {
     if (localStorage.getItem('openid')) {
         this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid)
       .then(response => {
@@ -65,7 +65,7 @@ import Banka from '@/components/banka'
       if (!openid)  {
         window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=1'
       }else {
-        let openid = this.getUrl(openid)
+        let openid = getUrlKey(openid)
         this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid).then(e=>{
           console.log(e)
         })

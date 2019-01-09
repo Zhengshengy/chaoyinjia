@@ -54,7 +54,7 @@
         <img slot="icon" src="../assets/img4.png">
         <span slot="label" class="bantext">专属客服</span>
       </grid-item>
-      <grid-item link="/promote" @on-item-click="">
+      <grid-item link="/promote">
         <img slot="icon" src="../assets/img5.png">
         <span slot="label" class="bantext">专属海报</span>
       </grid-item>
@@ -78,7 +78,7 @@
             <Footer></Footer>
         </div>
     <Become v-show="dis==true"></Become>
-    <Service :kefu="kefu" v-on:onshow="onshow"></Service>
+    <Service v-show="kefu==true" :kefu="kefu" v-on:success="success"></Service>
   </div>
 </template>
 
@@ -339,8 +339,8 @@
     kefu1(){
         this.kefu = true
     },
-    onshow(show){
-        this.kefu = show
+    success(){
+        this.kefu = false
     }
   }
 }
