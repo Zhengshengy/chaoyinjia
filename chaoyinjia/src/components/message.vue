@@ -1,30 +1,41 @@
 <!--消息通知-->
 <template>
     <div id="message"  style="position: relative;">
-        <div class="hetoch" >
+        <div class="hetoch">
             <flexbox :gutter="0">
               <flexbox-item><div class="flex-demo" style="text-align: center">
-                  <div @click="mess" style="width: 12%;margin: 0 auto 5px"><img src="../assets/message.png" width="100%" alt="" ></div>
-                  <span style="font-size: 12px;color: #181617">消息通知</span>
+                  <div class="fontstext" @click="mess" :class="{active:isactiveA}">消息通知</div>
               </div></flexbox-item>
               <flexbox-item><div class="flex-demo" style="text-align: center">
-                  <div @click="ask" style="width: 12%;margin: 0 auto 5px"><img src="../assets/quersion.png" width="100%" alt=""></div>
-                  <span style="font-size: 12px;color: #181617">常见问题</span>
+                  <div class="fontstext" @click="ask" :class="{active:isactiveB}">常见问题</div>
               </div></flexbox-item>
             </flexbox>
         </div>
         <div class="inforne">
-            <v-touch class="bots" v-for="item in con" :key="item.mid" v-on:tap="check(item.mid)">
-                <flexbox orient="vertical">
-                  <flexbox-item>
-                      <div class="flex-demo">
-                      <span class="text">
-                          {{item.mtitle}}
-                      </span>
-                      <div class="time">{{item.mtime}}</div>
-                  </div></flexbox-item>
-                </flexbox>
-            </v-touch>
+            <div class="bots" v-for="item in con" :key="item.mid" @click="check(item.mid)">
+              <flexbox>
+                <flexbox-item :span="2"><div class="flex-demo"><div class="left">
+                  <div class="img" v-if="isactiveA==true">
+                    <img src="../assets/message.png" alt="">
+                  </div>
+                  <div class="img" v-else-if="isactiveA==false">
+                    <img src="../assets/quersion.png" alt="">
+                  </div>
+                </div>
+                </div></flexbox-item>
+                <flexbox-item :span="9">
+                  <div class="flex-demo">
+                    <div class="font">
+                      <div class="title_left" v-text="item.mtitle"></div>
+                      <div class="time_right">{{item.mtime}}</div>
+                    </div>
+                  </div>
+                </flexbox-item>
+                <flexbox-item ><div class="flex-demo">
+                  <div class="bonts"><img src="../assets/jiantou.png" alt=""></div>
+                </div></flexbox-item>
+              </flexbox>
+            </div>
         </div>
         <div style="width: 70%;margin: 20px auto">
         <flexbox v-show="pageCount>1 && con.length>0">
@@ -70,14 +81,15 @@ export default {
         pageCount:0,
         currentPage:1,
         con:[],
-        mtype:1
+        mtype:1,
+        isactiveA:true,
+        isactiveB:false,
       }
     },
     mounted(){
       var mobileHeight=window.innerHeight+"px";
       document.getElementById('message').style.minHeight=mobileHeight;
       this.$ajax.get(`https://www.xiaofeishuwangluo.com/messagenotification/selectMessageNotificationByMtype?mtype=1&page=1`).then(e=>{
-          console.log(e)
            this.con = e.data.data.content
           this.pageCount = e.data.data.pageTotal
           this.currentPage = e.data.data.currentPage
@@ -101,7 +113,9 @@ export default {
       })
     },
      mess(){
-          this.mtype = 1
+        this.isactiveA=true;
+        this.isactiveB=false;
+        this.mtype = 1;
         this.$ajax.get(`https://www.xiaofeishuwangluo.com/messagenotification/selectMessageNotificationByMtype?mtype=${this.mtype}&page=${this.currentPage}`).then(e=>{
           this.con = e.data.data.content
           this.pageCount = e.data.data.pageTotal
@@ -109,7 +123,8 @@ export default {
       })
      },
      ask(){
-            this.mtype = 2
+         this.isactiveA=false;
+         this.isactiveB=true;
          this.$ajax.get(`https://www.xiaofeishuwangluo.com/messagenotification/selectMessageNotificationByMtype?mtype=${this.mtype}&page=${this.currentPage}`).then(e=>{
           this.con = e.data.data.content
           this.pageCount = e.data.data.pageTotal
@@ -117,7 +132,6 @@ export default {
       })
      },
         check(index){
-            console.log(index)
             this.$router.push({name:'Minute',params:{mid:index}})
         }
     }
@@ -133,7 +147,6 @@ export default {
 }
 .hetoch{
     background: #fff;
-    padding: 8px;
 }
     .inforne{
         padding:0 5px;
@@ -143,19 +156,48 @@ export default {
         background: #fff;
         margin-top: 5px;
     }
-    .text{
+    .left{
+       width:100%;
+    }
+    img{
+      width: 100%;
+      display: block;
+    }
+     .font{
+        width: 100%;
+        margin-top: 8px;
+    }
+    .title_left{
+        width:50%;
+        padding-bottom: 5px;
         font-size: 14px;
         font-weight: 500;
         text-overflow : ellipsis;
         overflow: hidden;
         -o-text-overflow: ellipsis;
         white-space:nowrap;
-        display: block;
+        float: left;
     }
-    .time{
+    .time_right{
         font-size: 12px;
-        color:#A4A4A4;
-        margin-top: 5px;
+        text-overflow : ellipsis;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        white-space:nowrap;
+        float: right;
+        padding-top: 2px;
+        padding-bottom: 5px;
+       color:#9D9D9D;
+    }
+    .vux-flexbox .vux-flexbox-item {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      -webkit-flex: 1;
+      min-width: 25px;
+}
+    .img{
+      padding: 10px;width: 70%;
     }
      .page{
     width: 100%;
@@ -180,5 +222,13 @@ export default {
     text-align: center;
     background: #ccc;
     padding: 5px 0;
+  }
+  .fontstext{
+     font-size: 14px;color: #181617;width:auto;font-weight: 600;
+     padding: 15px 1px 10px;
+  }
+  .active{
+    color:#f6c93c;
+    border-bottom:4px solid #f6c93c;
   }
 </style>

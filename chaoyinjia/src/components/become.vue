@@ -1,8 +1,8 @@
 <template>
     <div class="ecome">
-        <v-touch class="dext" v-on:tap="tocenter">
+        <div class="dext" @click="tocenter">
           <img class="daili" src="../assets/daili.png" alt="" >
-        </v-touch>
+        </div>
     </div>
 </template>
 <script>

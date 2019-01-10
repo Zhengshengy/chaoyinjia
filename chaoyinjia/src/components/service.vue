@@ -4,11 +4,14 @@
           <img class="daili" src="../assets/kefu.png" alt="">
           <div class="tomut">
             <div class="ontom">
-              <div class="font" style="font-size: 20px;text-align: center;font-weight: 600;margin: 10px 0;color: #000">芝麻银家官方客服</div>
-              <img :src="accountsUrl" width="100%" alt="">
-              <div class="number" style="color:#f6c93c;text-align: center;font-weight: 600;margin-top:15px">
-                <div style="font-size: 14px">添加官方客服，为您排忧解惑</div>
-                <div style="font-size: 16px;margin-top: 10px">{{userphone}}</div>
+              <div class="font" style="font-size: 20px;text-align: center;font-weight: 600;margin: 10px 0 6px;color: #000">芝麻银家官方客服</div>
+              <div style="font-size: 14px;color:#C3C3C3;text-align: center">添加官方客服，为您排忧解惑</div>
+              <img :src="accountsUrl" alt="">
+              <div style="font-size: 14px;color:#383838;text-align: center">长按扫一扫</div>
+              <div class="number" >
+                <div @click="tell">
+                  <img src="../assets/pothon.png" alt="">
+                </div>
               </div>
             </div>
           </div>
@@ -17,9 +20,14 @@
     </div>
 </template>
 <script>
+  import { Flexbox, FlexboxItem, Divider } from 'vux'
   export default {
     name:'Service',
-
+    components: {
+      Flexbox,
+      FlexboxItem,
+      Divider
+  },
 
     data(){
       return{
@@ -39,7 +47,11 @@
     methods:{
       dis(){
         this.$emit('success',false)
-      }
+      },
+      tell(){
+          console.log(this.userphone)
+          window.location.href = 'tel://' + this.userphone
+      },
     }
   }
 </script>
@@ -57,7 +69,7 @@
         position: relative;
         left: 0;bottom:0;top: 0px;
         right: 0;margin: auto;
-        width: 80%;
+        width: 75%;
         height: 100%;
     }
     .become .daili{
@@ -71,8 +83,22 @@
        left:0;top: 25%;right: 0;margin: auto;
        width: 72%;z-index: 20;
     }
+    .ontom img{
+      width: 83%;
+      display: block;margin: 0 auto;
+    }
  .dect{
    position: absolute;
    bottom: 15%;z-index: 100;width: 10%;right: 0;left: 0;margin: auto;
  }
+  .number{
+    width: 100%;margin: 30px auto 0;
+  }
+  .posfon img{
+    width: 100%;
+    display: block;
+  }
+   .number img{
+     width: 100%;
+   }
 </style>

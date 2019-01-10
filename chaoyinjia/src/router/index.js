@@ -5,7 +5,6 @@ import Card from '@/components/card'
 import Details from '@/components/details'
 import Schedule from '@/components/schedule'
 import Personal from '@/components/personal'
-import Redlining from '@/components/redlining'
 import Deposit from '@/components/deposit'
 import Message from '@/components/message'
 import Closing from '@/components/closing'
@@ -17,7 +16,9 @@ import Registercard from '@/components/registercard'
 import Been from '@/components/been'
 import Invit from '@/components/invit'
 import Blankmain from '@/components/blankmain'
-
+import SchCenter from '@/components/schCenter'
+import Apply from '@/components/apply'
+import Recommend from '@/components/recommend'
 Vue.use(Router)
 
 export default new Router({
@@ -33,7 +34,18 @@ export default new Router({
     {
       path: '/card',
       name: 'Card',
-      component: Card
+      component: Card,
+      meta: {
+            title: '推荐办卡'   // 标题设置
+      }
+    },
+    {
+      path: '/recommend',
+      name: 'Recommend',
+      component: Recommend,
+      meta: {
+            title: '我要办卡'   // 标题设置
+      }
     },
     {
       path: '/center',
@@ -46,7 +58,18 @@ export default new Router({
     {
       path: '/schedule',
       name: 'Schedule',
-      component: Schedule
+      component: Schedule,
+      meta:{
+        title:'进度查询'
+      }
+    },
+    {
+      path: '/schCenter',
+      name: 'SchCenter',
+      component: SchCenter,
+      meta:{
+        title:'进度查询'
+      }
     },
     {
       path: '/details',
@@ -55,11 +78,6 @@ export default new Router({
       meta: {
         title: '订单明细'   // 标题设置
       }
-    },
-    {
-      path: '/redlining',
-      name: 'Redlining',
-      component: Redlining
     },
     {
       path: '/deposit',
@@ -146,7 +164,15 @@ export default new Router({
       name: 'Blankmain',
       component: Blankmain,
       meta: {
-        title: '银行卡'   // 标题设置
+        title: '信用卡介绍'   // 标题设置
+      }
+    },
+    {
+      path: '/apply',
+      name: 'Apply',
+      component: Apply,
+      meta: {
+        title: '申请人信息'   // 标题设置
       }
     },
   ]

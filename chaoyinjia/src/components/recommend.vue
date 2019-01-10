@@ -25,7 +25,7 @@
     </div>
     <div class="main" style="padding: 10px 10px 0">
       <span style="font-size: 14px;">推荐银行</span>
-      <Banka style="margin-top: 5px" :main="main"  />
+      <Tobanka style="margin-top: 5px" :main="main"  />
     </div>
     <div class="become" v-show="show1==true">
         <div class="dext">
@@ -52,10 +52,10 @@
 <script>
 import { Flexbox, FlexboxItem,Grid, GridItem,Divider} from 'vux'
 import Footer from '@/components/footer'
-import Banka from '@/components/banka'
+import Tobanka from '@/components/tobankas.vue'
 
   export default {
-  name:'Card',
+  name:'Recommend',
   components: {
     Flexbox,
     FlexboxItem,
@@ -63,7 +63,7 @@ import Banka from '@/components/banka'
     GridItem,
     Divider,
     Footer,
-    Banka
+    Tobanka
   },
 
   data () {
@@ -100,7 +100,7 @@ import Banka from '@/components/banka'
    return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null;}
       let openid=getUrlKey("openid");
       if (!openid)  {
-        window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=1'
+        window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=2'
       }else {
         let openid = getUrlKey('openid')
         this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid).then(response=>{

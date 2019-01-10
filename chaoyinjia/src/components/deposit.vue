@@ -1,6 +1,7 @@
 <!--收入明细-->
 <template>
     <div id="deposit">
+      <div class="hon">
         <div class="tzong">
             <div class="clatop">
                 <div class="vtext">
@@ -14,13 +15,14 @@
                       <div class="vtexts">已结算(元)</div>
                       <div class="yuans">{{complete}}</div>
                   </div></flexbox-item>
-                  <flexbox-item><div class="flex-demo">
-                      <div class="vtexts">余额(元)</div>
+                  <flexbox-item><div class="flex-demo" style="padding-left: 35%">
+                      <div class="vtexts">余额 (元)</div>
                       <div class="yuans">{{notcomplete}}</div>
                   </div></flexbox-item>
                 </flexbox>
             </div>
         </div>
+      </div>
         <div class="fudoa" style="margin: 8px 0 0">
             <grid :cols="1" >
               <grid-item v-for="(item,index) in con" :key="index">
@@ -29,7 +31,7 @@
                           <flexbox :gutter="0">
                               <flexbox-item><div class="flex-demo">
                                   <flexbox :gutter="0">
-                                      <flexbox-item><div class="flex-demo stacvtex"><span class="text">{{item.blankname}}</span></div></flexbox-item>
+                                      <flexbox-item :span="5"><div class="flex-demo stacvtex"><span class="text">{{item.blankname}}</span></div></flexbox-item>
                                       <flexbox-item><div class="flex-demo stacvtex"><span class="recommend">{{item.text}}</span></div></flexbox-item>
                                   </flexbox>
                               </div></flexbox-item>
@@ -72,9 +74,9 @@
     </flexbox>
       </div>
       <div style="height: 40px"></div>
-        <v-touch v-on:tap="submit" class= 'sub1'>
+        <div @click="submit" class= 'sub1'>
         <span>结算</span>
-      </v-touch>
+      </div>
       <Retu/>
     </div>
 </template>
@@ -194,37 +196,40 @@ export default {
     z-index:-100;
   }
     .tzong{
-       padding: 30px 20px 15px;
-       background: #525252;
+      position: relative;top:0;left: 0;
+      width: 100%;
+      background-image: url("../assets/shouru.png");
+      background-size:100% 100%;
+    }
+    .hon{
+      padding: 5px 10px 0;
     }
     .clatop{
-        text-align: center;
-        margin-top: 5px;
+        text-align: left;padding: 5% 10% 0;
+        /*margin-top: 5px;*/
     }
     .vtext{
-        font-size: 14px;
-        color: #EDEDED;
+        font-size: 16px;
+        color: #fffcf9;
     }
      .vtexts{
-        font-size: 12px;
-        color: #EDEDED;
+        font-size: 14px;
+        color: #fffcf9;
+        text-align: left;
     }
     .yuan{
-        font-size: 18px;
-        color: #f6c93c;
-        margin-top: 10px;
+        font-size: 36px;
+        color: #fffcf9;
+        margin-top: 5px;
     }
     .clatops{
-        text-align: center;
-        margin-top: 20px;
-    }
-    .vux-flexbox{
-        text-align: center;
+      text-align: left;
+      padding: 5% 10% 3%;
     }
     .yuans{
-        font-size: 14px;
-        color: #f6c93c;
-        margin-top: 10px;
+        font-size: 24px;
+        color: #fffcf9;
+        margin-top: 4px;
     }
     a{
         text-decoration: none;
@@ -250,11 +255,13 @@ export default {
         font-weight: 600;
     }
     .recommend{
-        border-radius: 8px;
+        border-radius: 10px;
         background: #FF6060;
-        padding: 2px 5px;
+        padding: 2px 0;
         color: #fff;
-        font-size: 8px;
+        width: 70%;font-size: 12px;
+        text-align: center;
+       display: block;transform: scale(0.8);
     }
     .number_time{
         color:#a2a2a2;font-size: 12px; margin-left: 20%;

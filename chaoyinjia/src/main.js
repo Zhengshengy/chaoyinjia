@@ -5,7 +5,6 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import 'lib-flexible'
-import VueTouch from 'vue-touch'
 import { AlertPlugin, ToastPlugin } from 'vux'
 import VueClipboard from 'vue-clipboard2'
 import wx from 'weixin-js-sdk'
@@ -16,7 +15,6 @@ Vue.use(VueWechatTitle)
 Vue.use(VueClipboard)
 Vue.use(AlertPlugin)
 Vue.use(ToastPlugin)
-Vue.use(VueTouch, {name: 'v-touch'})
 Vue.use(wx)
 
 

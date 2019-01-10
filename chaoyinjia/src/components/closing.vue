@@ -22,7 +22,6 @@
             </div>
             </div>
 
-
             <div class="vitext">验证码：
                 <input type="text" style="outline:none;" v-model="checkCode"></div>
             <div class="vitext">结算金额：
@@ -40,9 +39,9 @@
       <div style="height: 40px">
     </div>
       <div style="position: fixed;bottom: 0;left: 0;width: 100%">
-      <v-touch v-on:tap="submit" :class="{ 'sub': sub2, 'sub1': sub3} ">
+      <div @click="submit" :class="{ 'sub': sub2, 'sub1': sub3} ">
         <span>确认</span>
-    </v-touch>
+    </div>
           <div style="display:none" >{{ exitsVal }}</div>
     </div>
     </div>

@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ab124ee0-57f6-4a05-9a94-06294e112ac8" name="Default" comment="" />
+    <list default="true" id="ab124ee0-57f6-4a05-9a94-06294e112ac8" name="Default" comment="two">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaoyinjia/src/assets/blank.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaoyinjia/src/assets/jiantou.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaoyinjia/src/assets/jiesuanI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaoyinjia/src/assets/left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaoyinjia/src/assets/pothon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaoyinjia/src/assets/qian.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaoyinjia/src/assets/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaoyinjia/src/assets/shouru.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaoyinjia/src/components/apply.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaoyinjia/src/components/bottom.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaoyinjia/src/components/recommend.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaoyinjia/src/components/schCenter.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaoyinjia/src/components/tobankas.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/assets/message.png" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/assets/message.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/assets/quersion.png" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/assets/quersion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/components/banka.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/components/banka.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/components/become.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/components/become.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/components/blankmain.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/components/blankmain.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/components/card.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/components/card.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/components/center.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/components/center.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/components/closing.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/components/closing.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/components/deposit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/components/deposit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/components/message.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/components/message.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/components/promote.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/components/promote.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/components/redlining.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/components/schedule.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/components/schedule.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/components/service.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/components/service.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaoyinjia/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chaoyinjia/src/router/index.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,113 +43,151 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chaoyinjia/src/router/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="registercard.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/registercard.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1826">
-              <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="group.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/group.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5280">
-              <caret line="240" column="22" selection-start-line="240" selection-start-column="22" selection-end-line="240" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="invited.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/invited.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2244">
-              <caret line="104" column="84" selection-start-line="104" selection-start-column="84" selection-end-line="104" selection-end-column="84" />
+            <state relative-caret-position="1320">
+              <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
               <folding>
-                <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#x-dialog#0;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#3392#3494#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="promote.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/promote.vue">
+      <file leaf-file-name="schedule.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/schedule.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="100" column="15" selection-start-line="100" selection-start-column="15" selection-end-line="100" selection-end-column="15" />
+            <state relative-caret-position="1254">
+              <caret line="74" column="25" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
               <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#grid-item#0;n#grid#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#grid-item#0;n#grid#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#3;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bottom.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/bottom.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1782">
+              <caret line="81" column="33" selection-start-line="81" selection-start-column="33" selection-end-line="81" selection-end-column="33" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="minute.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/minute.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="814">
-              <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
-              <folding>
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="personal.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/personal.vue">
+      <file leaf-file-name="apply.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/apply.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1210">
-              <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="details.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/details.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3300">
-              <caret line="153" column="39" lean-forward="true" selection-start-line="153" selection-start-column="39" selection-end-line="153" selection-end-column="39" />
+            <state relative-caret-position="154">
+              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
               <folding>
-                <element signature="n#style#0;n#icon#0;n#x-input#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#tab#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="recommend.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/recommend.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1936">
+              <caret line="105" column="57" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="57" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#flexbox#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#3;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tobankas.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/tobankas.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1166">
+              <caret line="53" column="102" selection-start-line="53" selection-start-column="102" selection-end-line="53" selection-end-column="102" />
+              <folding>
+                <element signature="n#style#0;n#grid-item#0;n#grid#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schCenter.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/schCenter.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="198" column="18" lean-forward="true" selection-start-line="198" selection-start-column="18" selection-end-line="198" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#2;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="card.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/card.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1254">
+              <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#Banka#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#3;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="banka.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/banka.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="836">
+              <caret line="61" column="14" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#grid-item#0;n#grid#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,37 +197,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>demo2</find>
-      <find>demoDisabled</find>
-      <find>value</find>
-      <find>list1</find>
-      <find>textAlign</find>
-      <find>list2</find>
-      <find>pages</find>
-      <find>8</find>
-      <find>chckjin</find>
-      <find>show</find>
-      <find>id</find>
-      <find>tackdes</find>
-      <find>totalIncome</find>
-      <find>disabled</find>
-      <find>url</find>
-      <find>pageTotal</find>
-      <find>demo1</find>
-      <find>checkcode</find>
-      <find>conso</find>
-      <find>pageCount</find>
-      <find>start</find>
-      <find>mess</find>
-      <find>show1</find>
-      <find>text</find>
-      <find>api</find>
-      <find>status</find>
       <find>getConfig</find>
       <find>notcompleteSettlement</find>
       <find>www.xiaofeishu</find>
       <find>herder</find>
+      <find>center</find>
+      <find>getUrlKey</find>
+      <find>api</find>
+      <find>onCopy</find>
+      <find>that</find>
+      <find>rgb(230, 230, 230)</find>
+      <find>alert</find>
+      <find>url</find>
+      <find>text</find>
+      <find>fff</find>
+      <find>he</find>
+      <find>text_cn</find>
+      <find>ston</find>
+      <find>maskValue</find>
+      <find>v-touch</find>
+      <find>messages</find>
+      <find>png</find>
+      <find>height</find>
+      <find>grade</find>
+      <find>obj</find>
+      <find>Register</find>
+      <find>success</find>
+      <find>regi</find>
+      <find>toblankmain</find>
+      <find>办卡</find>
+      <find>schedule</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -167,36 +240,50 @@
         <option value="$PROJECT_DIR$/chaoyinjia/src/components/HelloWorld.vue" />
         <option value="$PROJECT_DIR$/chaoyinjia/src/components/index.vue" />
         <option value="$PROJECT_DIR$/chaoyinjia/build/utils.js" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/redlining.vue" />
         <option value="$PROJECT_DIR$/chaoyinjia/src/store/index.js" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/become.vue" />
         <option value="$PROJECT_DIR$/chaoyinjia/src/components/page.vue" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/card.vue" />
         <option value="$PROJECT_DIR$/../芝麻银家切图/footer.vue" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/center.vue" />
         <option value="$PROJECT_DIR$/chaoyinjia/index.html" />
         <option value="$PROJECT_DIR$/chaoyinjia/config/index.js" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/schedule.vue" />
         <option value="$PROJECT_DIR$/chaoyinjia/src/components/retu.vue" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/minute.vue" />
         <option value="$PROJECT_DIR$/chaoyinjia/src/components/Invited.vue" />
         <option value="$PROJECT_DIR$/chaoyinjia/src/components/fenxiang.vue" />
         <option value="$PROJECT_DIR$/chaoyinjia/src/wxapi.js" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/deposit.vue" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/message.vue" />
         <option value="$PROJECT_DIR$/../closing.vue" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/closing.vue" />
         <option value="$PROJECT_DIR$/chaoyinjia/src/App.vue" />
         <option value="$PROJECT_DIR$/chaoyinjia/src/components/footer.vue" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/service.vue" />
         <option value="$PROJECT_DIR$/chaoyinjia/src/components/details.vue" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/main.js" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/invited.vue" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/promote.vue" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/router/index.js" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/registercard.vue" />
-        <option value="$PROJECT_DIR$/chaoyinjia/src/components/personal.vue" />
+        <option value="$PROJECT_DIR$/../card.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/minute.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/been.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/invit.vue" />
         <option value="$PROJECT_DIR$/chaoyinjia/src/components/group.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/registercard.vue" />
+        <option value="$PROJECT_DIR$/../banka.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/invited.vue" />
+        <option value="$PROJECT_DIR$/../service.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/personal.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/redlining.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/closing.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/deposit.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/become.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/main.js" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/service.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/message.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/center.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/promote.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/register.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/card.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/blankmain.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/bottom.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/apply.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/banka.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/router/index.js" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/recommend.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/tobanka" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/tobankas.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/schedule.vue" />
+        <option value="$PROJECT_DIR$/chaoyinjia/src/components/schCenter.vue" />
       </list>
     </option>
   </component>
@@ -214,18 +301,18 @@
       <path value="$PROJECT_DIR$/chaoyinjia/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="5" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="41" />
     <option name="y" value="23" />
     <option name="width" value="1302" />
     <option name="height" value="769" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -255,13 +342,6 @@
               <item name="chaoyinjia" type="462c0819:PsiDirectoryNode" />
               <item name="chaoyinjia" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chaoyinjia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chaoyinjia" type="462c0819:PsiDirectoryNode" />
-              <item name="chaoyinjia" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -275,6 +355,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -287,8 +368,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/chaoyinjia/src/components" />
       <recent name="$PROJECT_DIR$/chaoyinjia/src/assets" />
+      <recent name="$PROJECT_DIR$/chaoyinjia/src/components" />
       <recent name="$PROJECT_DIR$/chaoyinjia/src" />
       <recent name="$PROJECT_DIR$/chaoyinjia/src/mixins" />
       <recent name="$PROJECT_DIR$/chaoyinjia/static" />
@@ -317,19 +398,42 @@
       <option name="presentableId" value="Default" />
       <updated>1545745735929</updated>
     </task>
+    <task id="LOCAL-00001" summary="周二">
+      <created>1546879934802</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1546879934821</updated>
+    </task>
+    <task id="LOCAL-00002" summary="周二">
+      <created>1546950462823</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1546950462823</updated>
+    </task>
+    <task id="LOCAL-00003" summary="two">
+      <created>1547004528112</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1547004528112</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="23" width="1302" height="769" extended-state="1" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50158733" side_tool="true" weight="0.41369048" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4984127" weight="0.51785713" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4985119" visible="true" weight="0.1952381" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4984127" weight="0.25939393" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4985119" visible="true" weight="0.18168813" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -345,26 +449,26 @@
       <window_info anchor="bottom" id="Find" order="1" weight="0.32886904" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4985119" visible="true" weight="0.1920635" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4985119" visible="true" weight="0.1984127" />
       <window_info id="Structure" order="1" sideWeight="0.5014881" side_tool="true" weight="0.18968254" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32886904" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4984127" visible="true" weight="0.41369048" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4984127" weight="0.3184524" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50158733" side_tool="true" weight="0.41369048" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="4" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32886904" />
       <window_info anchor="bottom" id="Python Console" order="10" />
     </layout-to-restore>
   </component>
@@ -374,262 +478,366 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="周二" />
+    <MESSAGE value="two" />
+    <option name="LAST_COMMIT_MESSAGE" value="two" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/img7.png">
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/invite.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/img6.png">
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/quersion.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/img4.png">
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/tuijian.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$USER_HOME$/PycharmProjects/untitled4/venv/lib/python3.6/site-packages/django/views/templates/technical_500.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../deposit.vue" />
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/card.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../message.vue" />
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="5" column="110" lean-forward="true" selection-start-line="5" selection-start-column="110" selection-end-line="5" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/hezuo.png">
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/yaoqin.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/message.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/daili.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/focus.png" />
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/mestin.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/foucs.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/footer.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/footer.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/logo.png">
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/fenxiang.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/page.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1908">
+        <state relative-caret-position="137">
           <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/config/index.js">
+    <entry file="file://$PROJECT_DIR$/../closing.vue" />
+    <entry file="file://$PROJECT_DIR$/../group.vue" />
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/invit.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        <state relative-caret-position="-33">
+          <caret line="83" column="8" lean-forward="true" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#x-dialog#0;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#3393#3495#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../registercard.vue" />
+    <entry file="file://$PROJECT_DIR$/../banka.vue" />
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/gingili.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/kefu.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/pic.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/yiguanzhu.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="244" column="16" selection-start-line="244" selection-start-column="16" selection-end-line="244" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/qrcode.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="53" lean-forward="true" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/redlining.vue" />
+    <entry file="file://$PROJECT_DIR$/../deposit.vue" />
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/message.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service.vue" />
+    <entry file="file://$PROJECT_DIR$/../message.vue" />
     <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/become.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        <state relative-caret-position="110">
+          <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/center.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1114">
-          <caret line="145" column="6" selection-start-line="145" selection-start-column="6" selection-end-line="145" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/redlining.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="988">
-          <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/gingili.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/retu.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/schedule.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-37">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/yaoqin.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/wxapi.js" />
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/guan.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/quersion.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/touming.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/fenxiang.vue" />
-    <entry file="file://$PROJECT_DIR$/../group.vue" />
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/message.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="182" column="3" selection-start-line="182" selection-start-column="3" selection-end-line="182" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../closing.vue" />
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/closing.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="138" column="8" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/return.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/footer.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="27" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/service.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="24" column="12" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/minute.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#group#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-touch#0;n#div#0;n#x-input#3;n#group#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/closing.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="42" column="23" lean-forward="true" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/deposit.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4313">
-          <caret line="290" column="3" selection-start-line="290" selection-start-column="3" selection-end-line="290" selection-end-column="3" />
+        <state relative-caret-position="1697">
+          <caret line="180" column="1" selection-start-line="180" selection-start-column="1" selection-end-line="180" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/App.vue">
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/message.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        <state relative-caret-position="-2767">
+          <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/assets/anniu.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/minute.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1210">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chaoyinjia/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="39" />
+        <state relative-caret-position="186">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../promote.vue" />
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/registercard.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1826">
-          <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/personal.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1210">
-          <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/invited.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2244">
-          <caret line="104" column="84" selection-start-line="104" selection-start-column="84" selection-end-line="104" selection-end-column="84" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#x-dialog#0;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#3392#3494#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/details.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3300">
-          <caret line="153" column="39" lean-forward="true" selection-start-line="153" selection-start-column="39" selection-end-line="153" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#icon#0;n#x-input#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#tab#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#flexbox#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/group.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5280">
-          <caret line="240" column="22" selection-start-line="240" selection-start-column="22" selection-end-line="240" selection-end-column="22" />
+        <state relative-caret-position="375">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/promote.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="100" column="15" selection-start-line="100" selection-start-column="15" selection-end-line="100" selection-end-column="15" />
+        <state relative-caret-position="2386">
+          <caret line="208" selection-start-line="208" selection-end-line="208" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/group.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="233" column="22" lean-forward="true" selection-start-line="233" selection-start-column="22" selection-end-line="233" selection-end-column="22" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#flexbox-item#2;n#flexbox#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/been.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/footer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/invited.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="72" column="12" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#x-dialog#0;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/register.vue" />
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/service.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1569">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/personal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="77" column="29" lean-forward="true" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../apply.vue" />
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/card.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#Banka#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/banka.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="61" column="14" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#grid-item#0;n#grid#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/blankmain.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-693">
+          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/bottom.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1782">
+          <caret line="81" column="33" selection-start-line="81" selection-start-column="33" selection-end-line="81" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/apply.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/tobankas.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1166">
+          <caret line="53" column="102" selection-start-line="53" selection-start-column="102" selection-end-line="53" selection-end-column="102" />
+          <folding>
+            <element signature="n#style#0;n#grid-item#0;n#grid#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/recommend.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1936">
+          <caret line="105" column="57" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="57" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#flexbox-item#0;n#flexbox#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#0;n#flexbox-item#1;n#flexbox#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/schedule.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="74" column="25" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#grid-item#0;n#grid#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#grid-item#0;n#grid#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaoyinjia/src/components/schCenter.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="198" column="18" lean-forward="true" selection-start-line="198" selection-start-column="18" selection-end-line="198" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

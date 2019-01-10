@@ -10,8 +10,8 @@
       <x-input title="手机号码" name="mobile" placeholder="请输入申请人手机号" keyboard="number" is-type="china-mobile" v-model="userphone"></x-input>
       <x-input title="验证码" :show-clear='false'   placeholder="请输入名称" v-model="checkCode">
       <div slot="right" v-show="huocode==true">
-         <v-touch v-on:tap="checkcode"    style="color: rgb(251,203,31);border: 1px solid;padding: 5px;font-size: 12px" >获取验证码
-  </v-touch>
+         <div @click="checkcode"    style="color: rgb(251,203,31);border: 1px solid;padding: 5px;font-size: 12px" >获取验证码
+  </div>
       </div>
         <div slot="right" v-show="huocode==false">
           <countdown  v-model="time" :start="start" @on-finish="finish"></countdown>
@@ -41,9 +41,9 @@
     </div>
       <div style="height: 35px">
     </div>
-      <v-touch v-on:tap="submit" :class="{ 'sub': sub2, 'sub1': sub3} ">
+      <div @click="submit" :class="{ 'sub': sub2, 'sub1': sub3} ">
         <span>确认信息</span>
-    </v-touch>
+    </div>
     </div>
     <toast v-model="show2" type="text" >{{messages}}</toast>
     <div style="display:none" >{{ exitsVal }}</div>

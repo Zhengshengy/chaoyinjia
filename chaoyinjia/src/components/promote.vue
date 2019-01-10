@@ -23,12 +23,14 @@
                               <img class="imga" :src="garde.two" alt="" >
                           </div>
                       </div>
-                    <div class="swiper-slide" style="width: 90%;margin: 0 auto">
-                          <div class="bac" >
+                    <div class="swiper-slide">
+                          <div class="bac" style="margin-top: 15%">
                               <img class="imga" :src="garde.three" alt="">
                           </div>
                       </div>
                   </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
               </div>
           </div>
             <div class="bottm" style="position: fixed;bottom: 0;width: 100%">
@@ -93,14 +95,20 @@ import Swiper from "swiper"
           }
       })
       var mySwiper = new Swiper ('.swiper-container', {
-      spaceBetween: 20,
-      freeMode: true,
-      initialSlide :1,//默认第二个
+      spaceBetween: 0,
+      freeMode: false,
+      initialSlide :0,//默认第二个
       slidesPerView: 1,//可见个数2
       centeredSlides: true,//居中
       observer:true,
-      effect : 'coverflow',
       observeParents:true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        disabledClass: 'my-button-disabled',
+        hideOnClick: true,
+        hiddenClass: 'my-button-hidden',
+      },
     })
     },
       methods:{
@@ -109,7 +117,14 @@ import Swiper from "swiper"
         },
         fenxiang(){
           this.show2 = true
-        }
+        },
+        slideChangeTransitionEnd: function(){
+          if(this.isEnd){
+            this.navigation.$nextEl.css('display','none');
+          }else{
+            this.navigation.$nextEl.css('display','block');
+          }
+        },
       }
   }
 </script>
@@ -132,7 +147,7 @@ img{
   width: 30%;margin: 0 auto;
 }
 .bac{
-  width: 60%;
+  width: 55%;
   margin: 5% auto;
 }
 .bac img{
@@ -180,5 +195,14 @@ img{
       font-size: 14px;
       padding: 8px 0;
       width: 90%;
+  }
+  .swiper-button-disabled{
+    display:none;
+  }
+  .swiper-button-prev{
+      background-image: url("../assets/left.png");
+  }
+  .swiper-button-next{
+      background-image: url("../assets/right.png");
   }
 </style>
