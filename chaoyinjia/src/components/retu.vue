@@ -1,7 +1,7 @@
 <template>
-  <v-touch class="retur" v-on:tap="returr">
+  <div class="retur" @click="returr">
     <img src="../assets/return.png" alt="">
-  </v-touch>
+  </div>
 </template>
 <script>
   export default {

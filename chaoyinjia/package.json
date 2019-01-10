@@ -13,6 +13,7 @@
     "axios": "^0.18.0",
     "lib-flexible": "^0.3.2",
     "px2rem-loader": "^0.1.9",
+    "swiper": "^4.4.6",
     "v-page": "^2.0.5",
     "v-touch": "^1.5.2",
     "vue": "^2.5.2",

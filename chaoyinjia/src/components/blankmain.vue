@@ -6,6 +6,7 @@
 </template>
 <script>
   import Bottom from '@/components/bottom'
+  import wx from 'weixin-js-sdk'
   export default {
     name: 'blankmain',
     components: {
@@ -23,7 +24,7 @@
       let cid = this.$route.query.cid
       this.uid = localStorage.getItem('userid')
       this.url = encodeURI(location.href.split('#')[0])
-      this.$ajax(`https://www.xiaofeishuwangluo.com/creditcard/selectCreditCardByKey?uid=3&cid=${cid}`).then(e=>{
+      this.$ajax(`https://www.xiaofeishuwangluo.com/creditcard/selectCreditCardByKey?uid=${this.uid}&cid=${cid}`).then(e=>{
         console.log(e)
         this.con = e.data.data.blankdetails
         this.blanklogo = e.data.data.blanklogo

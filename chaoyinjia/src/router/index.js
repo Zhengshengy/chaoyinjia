@@ -19,6 +19,7 @@ import Blankmain from '@/components/blankmain'
 import SchCenter from '@/components/schCenter'
 import Apply from '@/components/apply'
 import Recommend from '@/components/recommend'
+import Reg from '@/components/reg'
 Vue.use(Router)
 
 export default new Router({
@@ -51,6 +52,14 @@ export default new Router({
       path: '/center',
       name: 'Center',
       component: Center,
+      meta: {
+            title: '完善资料'   // 标题设置
+      }
+    },
+    {
+      path: '/reg',
+      name: 'Reg',
+      component: Reg,
       meta: {
             title: '完善资料'   // 标题设置
       }

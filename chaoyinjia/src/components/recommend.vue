@@ -16,7 +16,7 @@
       <flexbox-item><div class="flex-demo">
         <span class="zi" style="color: #c1c1c1">{{cdetails.cremarks}}</span>
       </div></flexbox-item>
-      <flexbox-item><div class="flex-demo">
+      <flexbox-item><div class="flex-demo" @click="shenqing(cdetails.cid)">
         <div class="naniu">立即申请</div>
       </div></flexbox-item>
     </flexbox>
@@ -32,7 +32,7 @@
           <img class="daili" src="../assets/kefu.png" alt="">
           <div class="tomut">
             <div class="ontom">
-              <div class="font" style="font-size: 20px;text-align: center;font-weight: 600;margin: 10px 0;color: #000">芝麻银家官方客服</div>
+              <div class="font" style="font-size: 20px;text-align: center;font-weight: 600;margin: 10px 0;color: #000"></div>
               <img src="../assets/qrcode.jpg" width="100%" alt="">
               <div class="number" style="color:#f6c93c;text-align: center;font-weight: 600;margin-top:15px">
                 <div style="font-size: 14px">扫一扫关注加入芝麻银家</div>
@@ -77,6 +77,7 @@ import Tobanka from '@/components/tobankas.vue'
   },
   created() {
     if (localStorage.getItem('openid')) {
+        let openid = localStorage.getItem('openid')
         this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid)
       .then(response => {
         console.log(response)
@@ -99,10 +100,12 @@ import Tobanka from '@/components/tobankas.vue'
       function getUrlKey(name){//获取url 参数
    return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null;}
       let openid=getUrlKey("openid");
+      localStorage.setItem('openid', openid)
       if (!openid)  {
         window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=2'
       }else {
         let openid = getUrlKey('openid')
+        localStorage.setItem('openid', openid)
         this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid).then(response=>{
           this.cdetails = response.data.data.cdetails[0]
         response.data.data.bdetails.forEach((v,k)=>{
@@ -129,7 +132,10 @@ import Tobanka from '@/components/tobankas.vue'
     },
     dis(){
         this.show1 = false
-      }
+      },
+    shenqing(cid){
+      this.$router.push({path:'/blankmain',query:{cid:cid}})
+    }
   }
 }
 </script>

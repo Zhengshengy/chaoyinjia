@@ -24,12 +24,12 @@
         </grid>
         </div>
         <div class="become" v-show="show2==true">
-        <div class="dext" >
+        <div class="dext">
             <div class="bibox" @click="xiao">
                 <div class="tect">
-                    <img class="one" v-show="grade=3" src="../assets/qian.png" alt="">
-                    <img class="two" v-show="grade=2"  src="../assets/qian.png" alt="">
-                    <img class="three" v-show="grade=1"  src="../assets/qian.png" alt="">
+                    <img class="one" v-show="grade==3" src="../assets/qian.png" alt="">
+                    <img class="two" v-show="grade==2"  src="../assets/qian.png" alt="">
+                    <img class="three" v-show="grade==1"  src="../assets/qian.png" alt="">
                     <div class="fontfor">
                         <flexbox :gutter="0" wrap="wrap">
                           <flexbox-item :span="1/3"><div class="flex-demo">银行家</div></flexbox-item>
@@ -158,10 +158,10 @@ import { Flexbox, FlexboxItem,Grid, GridItem,Divider} from 'vux'
 }
 .become{
         width:100%;
-        position: absolute;
+        position: fixed;
         top:0;bottom:0;left:0;
         right: 0;margin: auto;
-        background-image:url("../assets/touming.png") ;
+        background: rgba(0,0,0,.5);
         background-repeat:no-repeat;
     }
     .dext{
@@ -184,19 +184,23 @@ import { Flexbox, FlexboxItem,Grid, GridItem,Divider} from 'vux'
         background:#EBD0A7 ;z-index: 10;
     }
     .three{
+      position: absolute;
         width: 5%;
-        margin-left: 27%;
+        left: 81%;
     }
     .one{
+        position: absolute;
         width: 5%;
-        margin-left: 14%;
+        left: 14%;
     }
     .two{
+      position: absolute;
         width: 5%;
-        margin-left: 27%;
+        left: 47%;
     }
     .fontfor{
         text-align: center;
+      margin-top: 50px;
     }
     .vux-flexbox-item{
         text-align: center;
