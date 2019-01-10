@@ -153,7 +153,7 @@ export default {
         this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectApplicationDetailsByPhone
 ?userid=${this.uid}&state=${this.state}&page=${this.currentPage}&phone=${this.phone}`).then(e=>{
         console.log(e)
-          if (e.data.status==500){
+          if (e.data.data){
             this.con= e.data.data.content
             this.pageCount = e.data.data.pageTotal
             this.currentPage = e.data.data.currentPage
