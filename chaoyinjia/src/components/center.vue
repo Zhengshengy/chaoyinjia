@@ -103,26 +103,26 @@ export default {
     }
 },
     created(){
-    localStorage.clear()
     if (localStorage.getItem('openid')) {
-        this.superior_uid = getUrlKey("userid") ? getUrlKey("userid") :1
+        this.superior_uid = getUrlKey("userid") ? getUrlKey("userid") :'1'
          console.log(this.superior_uid)
         this.uid = localStorage.getItem("userid")
     }else {
       let openid=getUrlKey("openid");
-      let uid = getUrlKey('userid')
+      let uid = getUrlKey('userid') ? getUrlKey("userid") : '1'
+      this.superior_uid = getUrlKey("userid") ? getUrlKey("userid") : '1'
       if (!openid)  {
         if (uid){
           window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=6'+uid
         } else {
-          window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=6'
+          window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=61'
         }
       }else {
         this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/selectUserByOpenid?openid='+openid)
       .then(response => {
         console.log(response)
         this.uid = response.data.data.userid
-        this.superior_uid = getUrlKey("userid") ? getUrlKey("userid") :1
+        this.superior_uid = getUrlKey("userid") ? getUrlKey("userid") : '1'
         localStorage.setItem('openid', response.data.data.openid)
         localStorage.setItem('username', response.data.data.nickname)
         localStorage.setItem('headImgUrl', response.data.data.headImgUrl)

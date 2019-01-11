@@ -1,10 +1,10 @@
 <template>
    <div class="mustsee">
       <div class="img">
-        <img src="https://www.xiaofeishuwangluo.com/logo/mustsee1.png" alt="" v-if="stackic==1">
-        <img src="https://www.xiaofeishuwangluo.com/logo/mustsee2.png" alt="" v-else-if="stackic==2">
-        <img src="https://www.xiaofeishuwangluo.com/logo/mustsee3.png" alt="" v-else-if="stackic==3">
-        <img src="https://www.xiaofeishuwangluo.com/logo/mustsee4.png" alt="" v-else-if="stackic==4">
+        <img :src=img1 alt="" v-if="stackic==1">
+        <img :src=img2 alt="" v-else-if="stackic==2">
+        <img :src=img3 alt="" v-else-if="stackic==3">
+        <img :src=img4 alt="" v-else-if="stackic==4">
       </div>
       <div style="width: 70%;margin: 20px auto">
         <flexbox >
@@ -41,12 +41,22 @@ export default {
     return{
         currentPage:1,
         stackic:1,
+        img1:'',
+        img2:'',
+        img3:'',
+        img4:'',
     }
   },
   mounted(){
+        this.img1='https://www.xiaofeishuwangluo.com/logo/mustsee1.png';
+        this.img2='https://www.xiaofeishuwangluo.com/logo/mustsee2.png';
+        this.img3='https://www.xiaofeishuwangluo.com/logo/mustsee3.png';
+        this.img4='https://www.xiaofeishuwangluo.com/logo/mustsee4.png'
   },
   methods:{
     prev(){
+      var stop=document.documentElement
+stop.scrollTop=0;
       this.currentPage=this.currentPage-1
       if (this.currentPage==3){
         this.stackic=3
@@ -57,6 +67,8 @@ export default {
       }
     },
     next(){
+      var stop=document.documentElement
+stop.scrollTop=0;
       this.currentPage=this.currentPage+1
       if (this.currentPage==3){
         this.stackic=3

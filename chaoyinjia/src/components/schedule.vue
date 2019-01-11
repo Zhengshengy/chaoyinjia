@@ -59,7 +59,7 @@ import Footer from '@/components/footer'
     }
   },
     created(){
-    this.$ajax.get('https://www.xiaofeishuwangluo.com/progressquery/selectProgressQuery')
+    this.$ajax.get('api/progressquery/selectProgressQuery')
       .then(response => {
         console.log(response)
         this.main = response.data.data

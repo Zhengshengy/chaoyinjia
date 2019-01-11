@@ -44,7 +44,7 @@
       })
         var link = window.location.href
         var desc="芝麻银家服务平台，多家银行任意申请，秒批高额度，特约办理通道";
-        var cname = this.cname+''
+        var cname = this.cname
         var cimg = this.cimg
         let that = this
         this.url = encodeURI(location.href.split('#')[0])
@@ -60,7 +60,7 @@
             })
             wx.ready(function () {
               wx.onMenuShareTimeline({
-                title: this.cname+'邀请您来办卡', // 分享标题
+                title: '信用卡办理', // 分享标题
 
                 link:  link,// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 imgUrl: this.cimg, // 分享图标
@@ -70,7 +70,7 @@
                 }
               });
               wx.onMenuShareAppMessage({
-                title: cname, // 分享标题
+                title: '信用卡办理', // 分享标题
                 link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 desc: desc,
                 imgUrl: cimg, // 分享图标

@@ -60,7 +60,7 @@
               this.$ajax.get('https://www.xiaofeishuwangluo.com/userposter/selectPoster?userid='+this.id).then(e=>{
               this.posterBlank = e.data.data.posterBlank
         })
-          this.copyurl = window.location.href+'?userid='+this.uid
+          this.copyurl = "https://www.xiaofeishuwangluo.com/blank/#/recommend?userid="+this.id
         },
         methods:{
             dabcake() {
@@ -95,7 +95,7 @@
      position: absolute;
 }
  .for img{
-    width: 100%;display: block;
+    width: 90%;display: block;
     height: auto;
     margin: 0 auto;
   }

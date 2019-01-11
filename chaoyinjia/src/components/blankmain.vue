@@ -37,6 +37,7 @@
       console.log(cid)
       this.cids = this.$route.query.cid
       this.uid = localStorage.getItem('userid')
+      console.log(this.uid)
       this.$ajax(`https://www.xiaofeishuwangluo.com/creditcard/selectCreditCardByKey?uid=${this.uid}&cid=${cid}`).then(e=>{
         console.log(e)
         this.con = e.data.data.blankdetails
@@ -48,16 +49,13 @@
         this.reward = e.data.data.reward
         this.blankurl = e.data.data.blankurl
         this.cimg = e.data.data.cimg
-      })
-        var cimg = this.cimg
-        var cname = this.cname+'信用卡办理'
-        var link = `https://www.xiaofeishuwangluo.com/blank/#/recommain?userid=${this.uid}&cid=${cid}`
-        var desc="芝麻银家服务平台，多家银行任意申请，秒批高额度，特约办理通道";
-
-
         this.url = encodeURI(location.href.split('#')[0])
         this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/getEncryptJsapiTicket?url='+this.url).then(e=>{
           if (e.data.status==200){
+            var cimg = this.cimg
+        var cname = this.cname+'信用卡办理'
+        var link = `https://www.xiaofeishuwangluo.com/blank/?#/recommain?userid=${this.uid}&cid=${cid}`
+        var desc="芝麻银家服务平台，多家银行任意申请，秒批高额度，特约办理通道";
             wx.config({
               debug:false,
               appId:e.data.data.appid,
@@ -90,6 +88,8 @@
             });
             }
         })
+      })
+
     },
   }
 </script>

@@ -115,9 +115,9 @@
         this.userphone = localStorage.getItem('userphone')
         this.uid = localStorage.getItem('userid')
         this.username = localStorage.getItem('username')
-        this.copyurl = window.location.href+'?userid='+this.uid
+        this.copyurl = 'https://www.xiaofeishuwangluo.com/blank/#/center?userid='+this.uid
         this.url = encodeURI(location.href.split('#')[0])
-        var link = 'https://www.xiaofeishuwangluo.com/blank/#/center?userid='+this.uid
+        var link = 'https://www.xiaofeishuwangluo.com/blank/?#/center?userid='+this.uid
         var desc="跟着银行的脚步，推卡反佣金,吃的喝的全都有，没毛病！";
         this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/getEncryptJsapiTicket?url='+this.url).then(e=>{
           if (e.data.status==200){

@@ -110,7 +110,7 @@ import { Flexbox, FlexboxItem,Grid, GridItem,Divider} from 'vux'
 </script>
 <style scoped>
  .text{
-    width: 50%;height: 17px;
+    width: 65%;height: 17px;
     padding: 1px;background: #FF6666;font-size: 12px;
     position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;
     transform: scale(0.8);

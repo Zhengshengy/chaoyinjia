@@ -6,8 +6,10 @@
             <div class="ontom">
               <div class="font">芝麻银家官方客服</div>
               <div class="guanfang" >添加官方客服，为您排忧解惑</div>
-              <img class="imgfo" :src="accountsUrl" alt="">
-              <div class="tonsfo" >长按扫一扫</div>
+              <div class="ontimg">
+                <img class="imgfo" :src="accountsUrl" alt="">
+                <div class="tonsfo" >长按扫一扫</div>
+              </div>
               <div class="number" >
                 <div class="imgsck" @click="tell">
                   <img src="../assets/pothon.png" alt="">
@@ -103,18 +105,18 @@
       font-size: 14px;color:#C3C3C3;letter-spacing:0;
     }
     .tonsfo{
-      position: absolute;
-      top:55%;
       text-align: center;
-      left: 0;right: 0;
       font-size: 14px;color:#383838;
       display: block;margin:auto;
     }
-    .ontom .imgfo{
+    .ontom .ontimg{
       position: absolute;
       top:10%;
       width: 63%;left: 0;right: 0;
       display: block;margin:auto;
+    }
+    .imgfo{
+      width: 100%;height: 100%;
     }
     .imgsck{
       position: absolute;

@@ -90,6 +90,7 @@ import Retu from '@/components/retu'
             this.currentPage = e.data.data.currentPage
             e.data.data.content.forEach(v=>{
                 let obj = {}
+                obj.userid = v.userid
                 obj.createtime = v.createtime
                 obj.headimgurl = v.headimgurl
                 obj.nickname = v.nickname

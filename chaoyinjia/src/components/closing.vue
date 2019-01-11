@@ -36,7 +36,7 @@
             <div class="text_ne">3、提现金额将于两小时之内到账，如有问题请联系客服。</div>
           </div>
     </div>
-      <div style="height: 40px">
+      <!--<div style="height: 40px">-->
     </div>
       <div style="position: fixed;bottom: 0;left: 0;width: 100%">
       <div @click="submit" :class="{ 'sub': sub2, 'sub1': sub3} ">
@@ -122,11 +122,23 @@ export default {
     width:100%;
     height: 100%;
 }
+.closing::before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: -100;
+}
 .context{
     text-align: center;
     font-size: 16px;
+    width:100%;
     line-height: 100%;
     padding: 25px 0 0px;
+    background: #fff;
 }
   .bonsave{
       padding: 5px 5px 0;

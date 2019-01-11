@@ -174,7 +174,7 @@ import wx from 'weixin-js-sdk'
       }
     }
 
-            var link = 'https://www.xiaofeishuwangluo.com/blank/#/recommend?userid='+localStorage.getItem('userid')
+            var link = 'https://www.xiaofeishuwangluo.com/blank/?#/recommend?userid='+localStorage.getItem('userid')
           var desc="芝麻银家服务平台，多家银行任意申请，秒批高额度，特约办理通道";
           this.url = encodeURI(location.href.split('#')[0])
         this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/getEncryptJsapiTicket?url='+this.url).then(e=> {

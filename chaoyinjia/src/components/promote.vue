@@ -102,7 +102,7 @@ import Swiper from "swiper"
           }
       })
 
-      this.copyurl = window.location.href+'?userid='+this.uid
+      this.copyurl = "https://www.xiaofeishuwangluo.com/blank/#/center?userid="+this.id
       var mySwiper = new Swiper ('.swiper-container', {
       spaceBetween: 0,
       freeMode: false,

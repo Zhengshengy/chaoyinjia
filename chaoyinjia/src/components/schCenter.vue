@@ -26,8 +26,10 @@
 
             <div class="vitext" v-show="checkcodeState==1">验证码：
                 <input type="text" style="outline:none;" v-model="checkCode" placeholder="请输入验证码"></div>
-            <div class="vitext" v-show="checkcodeState==1">图片验证码：
-                <input type="text" style="outline:none;" v-model="piccode" placeholder="请输入验证码"></div>
+            <div class="vitext" v-show="validateState==1">图片验证码：
+                <input type="text" style="outline:none;" v-model="piccode" placeholder="请输入验证码">
+              <img :src="src" alt="" class="checktu">
+            </div>
         </div>
             <div @click="submit" :class="{ 'sub': sub2, 'sub1': sub3} ">
             <span>确认</span>
@@ -97,7 +99,8 @@ export default {
       pstate:'',
       validateState:'',
       checkcodeState:'',
-      idcardState:''
+      idcardState:'',
+      src:''
     }
   },
   created(){
@@ -110,7 +113,10 @@ export default {
       this.validateState = e.data.data.validateState
       this.checkcodeState = e.data.data.checkcodeState
       this.idcardState = e.data.data.idcardState
-
+    })
+    this.$ajax('api/applicationdetails/selectBlackCodeByPuFa').then(e=>{
+      console.log(e)
+      this.src = e.data.data.imgs
     })
   },
   methods:{
@@ -221,4 +227,10 @@ export default {
   position: fixed;bottom: 0;left: 0;width: 100%;font-size: 14px;text-align: center;line-height: 42px;color: #fff;
   background: rgb(251,203,31);
 }
+  .checktu{
+    width: 200px;
+    height: 220px;
+    position: absolute;
+    right: 0;
+  }
 </style>
