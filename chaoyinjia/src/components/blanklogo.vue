@@ -2,16 +2,17 @@
   <div class="con">
     <div class="tu">
       <img :src="src" alt="">
-      <div class="bon">
-      <div class="btn" @click="add">
-      <span>保存海报到本地</span>
-    </div>
-    </div>
-    <div class="btn btn1" v-clipboard:copy="copyurl"
+      <div class="bon" style="position: absolute;bottom: 15%">
+          <div class="btn" @click="add">
+            <span>保存海报到本地</span>
+          </div>
+        <div class="btn btn1" v-clipboard:copy="copyurl"
         v-clipboard:success="onCopy"
         v-clipboard:error="onError">
-      <span>复制推广链接</span>
+            <span>复制推广链接</span>
+        </div>
     </div>
+    <div style="height: 100px"></div>
     </div>
     <div class="di">
         <Footer></Footer>
