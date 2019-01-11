@@ -25,10 +25,10 @@
             </div>
 
             <div class="vitext" v-show="checkcodeState==1">验证码：
-                <input type="text" style="outline:none;" v-model="checkCode" placeholder="请输入验证码"></div>
-            <div class="vitext" v-show="validateState==1">图片验证码：
+                <input type="text" style="outline:none;position: relative" v-model="checkCode" placeholder="请输入验证码" ></div>
+            <div class="vitext" v-show="validateState==1" style="position: relative">图片验证码：
                 <input type="text" style="outline:none;" v-model="piccode" placeholder="请输入验证码">
-              <img :src="src" alt="" class="checktu">
+              <img :src="src" alt="" class="checktu" @click="huoqu(pid)">
             </div>
         </div>
             <div @click="submit" :class="{ 'sub': sub2, 'sub1': sub3} ">
@@ -100,11 +100,12 @@ export default {
       validateState:'',
       checkcodeState:'',
       idcardState:'',
-      src:''
+      src:'',
+      pid:''
     }
   },
   created(){
-    let pid = this.$route.query.pid
+    this.pid = this.$route.query.pid
     this.$ajax('api/progressquery/selectProgressQueryPidByKey?pid='+pid).then(e=>{
       console.log(e)
       this.nameState = e.data.data.nameState
@@ -114,10 +115,14 @@ export default {
       this.checkcodeState = e.data.data.checkcodeState
       this.idcardState = e.data.data.idcardState
     })
-    this.$ajax('api/applicationdetails/selectBlackCodeByPuFa').then(e=>{
-      console.log(e)
-      this.src = e.data.data.imgs
+    switch (this.pid){
+      case '1':
+        this.$ajax('api/applicationdetails/selectBlackCodeByPuFa').then(e=>{
+            console.log(e)
+      this.src =  'data:image/jpeg;base64,'+e.data.data.imgs
     })
+    }
+
   },
   methods:{
         add(){
@@ -152,9 +157,16 @@ export default {
         },
     submit(){
 
-    }
-
+    },
+    huoqu(val){
+      switch (val){
+        case '1':
+          this.$ajax('api/applicationdetails/selectBlackCodeByPuFa').then(e=>{
+          this.src =  'data:image/jpeg;base64,'+e.data.data.imgs
+        })
       }
+    }
+  }
 }
 </script>
 <style scoped>
@@ -228,9 +240,10 @@ export default {
   background: rgb(251,203,31);
 }
   .checktu{
-    width: 200px;
-    height: 220px;
+    width: 80px;
+    height: 44px;
     position: absolute;
     right: 0;
+    top: 0;
   }
 </style>

@@ -39,7 +39,7 @@
         <div style="margin-bottom: 1px">4、会员资料与银行无关，芝麻银家对此资料提供隐私保存。</div>
         <div>5、平台监督举报电话：02989523244，举报属实者均有现金奖励。</div>
     </div>
-      <div style="height: 35px">
+      <div style="height: 100px">
     </div>
       <div @click="submit" :class="{ 'sub': sub2, 'sub1': sub3} ">
         <span>确认信息</span>
@@ -212,7 +212,7 @@ export default {
   position: fixed;bottom: 0;left: 0;width: 100%;background-color: #ccc;font-size: 14px;text-align: center;line-height: 42px;color: #fff
 }
 .sub1{
-  position: fixed;bottom: 0;left: 0;width: 100%;font-size: 14px;text-align: center;line-height: 42px;color: #fff;
+  position: fixed;bottom: 0px;left: 0;width: 100%;font-size: 14px;text-align: center;line-height: 42px;color: #fff;
   background: rgb(251,203,31);
 }
 .pic{

@@ -95,7 +95,6 @@ import wx from 'weixin-js-sdk'
             this.sid = '1'
           }
         }
-      console.log(uid)
     if (localStorage.getItem('openid')) {
 
         let openid = localStorage.getItem('openid')
@@ -113,7 +112,6 @@ import wx from 'weixin-js-sdk'
           obj.cremarks = response.data.data.bdetails[k].cremarks
           obj.text = response.data.data.bdetails[k].clabel.split(',')[0]
           obj.con = response.data.data.bdetails[k].clabel.split(',')[1]
-          obj.grade = response.data.data.grade
           this.main.push(obj)
         })
       })
@@ -141,7 +139,6 @@ import wx from 'weixin-js-sdk'
           obj.cremarks = response.data.data.bdetails[k].cremarks
           obj.text = response.data.data.bdetails[k].clabel.split(',')[0]
           obj.con = response.data.data.bdetails[k].clabel.split(',')[1]
-          obj.grade = response.data.data.grade
           this.main.push(obj)
         })
         })
@@ -154,21 +151,24 @@ import wx from 'weixin-js-sdk'
         localStorage.setItem('userphone', response.data.data.userphone)
         localStorage.setItem('ustatus', response.data.data.ustatus)
         localStorage.setItem('openid', response.data.data.openid)
-        let that = this
+
         this.username = response.data.data.nickname
         this.headImgUrl = response.data.data.headImgUrl
         this.userId = response.data.data.userid
+        if (response.data.data.ustatus=='2'){
           this.$ajax.post('https://www.xiaofeishuwangluo.com/agentdetails/selectAgentDetailsByUid?uid='+this.userId)
       .then(e => {
         if (e.data.data.grade == '1'){
-          that.grade = "经理"
+          let grade = "经理"
         }else if (e.data.data.grade == '2'){
-          that.grade = "总监"
+          let grade = "总监"
         }else if (e.data.data.grade == '3'){
-          that.grade = "银行家"
+          let grade = "银行家"
         }
-        localStorage.setItem('grade', that.grade)
-      })
+        localStorage.setItem('grade', grade)
+        })
+        }
+
       })
 
       }
