@@ -156,6 +156,7 @@ import wx from 'weixin-js-sdk'
         this.headImgUrl = response.data.data.headImgUrl
         this.userId = response.data.data.userid
         if (response.data.data.ustatus=='2'){
+          var link = 'https://www.xiaofeishuwangluo.com/blank/?#/recommend?userid='+localStorage.getItem('userid')
           this.$ajax.post('https://www.xiaofeishuwangluo.com/agentdetails/selectAgentDetailsByUid?uid='+this.userId)
       .then(e => {
         if (e.data.data.grade == '1'){
@@ -166,17 +167,10 @@ import wx from 'weixin-js-sdk'
           let grade = "银行家"
         }
         localStorage.setItem('grade', grade)
+
         })
-        }
-
-      })
-
-      }
-    }
-          if (localStorage.getItem('ustatus')=='2'){
-            var link = 'https://www.xiaofeishuwangluo.com/blank/?#/recommend?userid='+localStorage.getItem('userid')
-          } else {
-            var link = 'https://www.xiaofeishuwangluo.com/blank/?#/recommend?userid=1'
+        } else {
+          var link = 'https://www.xiaofeishuwangluo.com/blank/?#/recommend?userid=1'
           }
 
           var desc="芝麻银家服务平台，多家银行任意申请，秒批高额度，特约办理通道";
@@ -215,6 +209,12 @@ import wx from 'weixin-js-sdk'
             });
             }
         })
+
+      })
+
+      }
+    }
+
   },
   methods:{
     add(){

@@ -31,7 +31,7 @@
                 <img src="../assets/agree.png"  alt="">
               </div>
             </div></flexbox-item>
-              <flexbox-item><div class="flex-demo"><div style="color: #5D5D5D;letter-spacing:1px;">我已认真阅读并完全同意《芝麻银家服务条款》的所有条款</div></div></flexbox-item>
+              <flexbox-item><div class="flex-demo"><div style="color: #5D5D5D;letter-spacing:1px;">我已认真阅读并完全同意  <span style="color: #f9c63c" @click="toincetext">《芝麻银家服务条款》</span>的所有条款</div></div></flexbox-item>
         </flexbox>
         <div class="fontS" @click="submit">
             <span>下一步</span>
@@ -94,6 +94,9 @@ export default {
         this.show2 = true
      this.messages = '请输入正确的身份证号';
     }
+    },
+    toincetext(){
+      this.$router.push('/incetext')
     }
   }
 

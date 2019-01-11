@@ -24,6 +24,7 @@ import Recommain from '@/components/recommain'
 import Blanklogo from '@/components/blanklogo'
 import Mustsee from '@/components/mustsee'
 import Handbook from '@/components/handbook'
+import Incetext from '@/components/incetext'
 Vue.use(Router)
 
 export default new Router({
@@ -217,6 +218,14 @@ export default new Router({
       path: '/handbook',
       name: 'Handbook',
       component: Handbook,
+      meta: {
+        title: '操作指南'   // 标题设置
+      }
+    },
+    {
+      path: '/incetext',
+      name: 'Incetext',
+      component: Incetext,
       meta: {
         title: '操作指南'   // 标题设置
       }

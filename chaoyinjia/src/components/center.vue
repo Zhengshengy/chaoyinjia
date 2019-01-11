@@ -27,7 +27,7 @@
             <img src="../assets/agree.png" style="width: 60%;height: auto;float: right" alt="">
           </div>
         </div></flexbox-item>
-          <flexbox-item><div class="flex-demo"><div style="color: #5D5D5D">我已认真阅读并完全同意《芝麻银家服务条款》的所有条款</div></div></flexbox-item>
+          <flexbox-item><div class="flex-demo"><div style="color: #5D5D5D">我已认真阅读并完全同意<span style="color: rgb(251,203,31)" @click="toincetext">《芝麻银家服务条款》</span>的所有条款</div></div></flexbox-item>
     </flexbox>
 
     </div>
@@ -39,7 +39,7 @@
         <div style="margin-bottom: 1px">4、会员资料与银行无关，芝麻银家对此资料提供隐私保存。</div>
         <div>5、平台监督举报电话：02989523244，举报属实者均有现金奖励。</div>
     </div>
-      <div style="height: 100px">
+      <div style="height: 200px">
     </div>
       <div @click="submit" :class="{ 'sub': sub2, 'sub1': sub3} ">
         <span>确认信息</span>
@@ -187,6 +187,9 @@ export default {
         this.show2 = true
      this.messages = '请输入正确的身份证号';
     }
+    },
+    toincetext(){
+      this.$router.push('/incetext')
     }
   }
 }
