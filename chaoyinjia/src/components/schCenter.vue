@@ -106,7 +106,7 @@ export default {
   },
   created(){
     this.pid = this.$route.query.pid
-    this.$ajax('api/progressquery/selectProgressQueryPidByKey?pid='+pid).then(e=>{
+    this.$ajax('api/progressquery/selectProgressQueryPidByKey?pid='+this.pid).then(e=>{
       console.log(e)
       this.nameState = e.data.data.nameState
       this.phoneState = e.data.data.phoneState
