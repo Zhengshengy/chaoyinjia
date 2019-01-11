@@ -49,13 +49,15 @@
         this.reward = e.data.data.reward
         this.blankurl = e.data.data.blankurl
         this.cimg = e.data.data.cimg
-        this.url = encodeURI(location.href.split('#')[0])
-        this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/getEncryptJsapiTicket?url='+this.url).then(e=>{
-          if (e.data.status==200){
-            var cimg = this.cimg
+
+        var cimg = this.cimg
         var cname = this.cname+'信用卡办理'
         var link = `https://www.xiaofeishuwangluo.com/blank/?#/recommain?userid=${this.uid}&cid=${cid}`
         var desc="芝麻银家服务平台，多家银行任意申请，秒批高额度，特约办理通道";
+
+        this.url = encodeURI(location.href.split('#')[0])
+        this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/getEncryptJsapiTicket?url='+this.url).then(e=>{
+          if (e.data.status==200){
             wx.config({
               debug:false,
               appId:e.data.data.appid,
@@ -88,6 +90,8 @@
             });
             }
         })
+
+
       })
 
     },

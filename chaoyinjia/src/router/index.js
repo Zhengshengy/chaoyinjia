@@ -145,7 +145,7 @@ export default new Router({
       name: 'Promote',
       component: Promote,
       meta: {
-        title: '邀请队员'   // 标题设置
+        title: '推广海报'   // 标题设置
       }
     },
     {

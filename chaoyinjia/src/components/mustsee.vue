@@ -10,13 +10,13 @@
         <flexbox >
           <flexbox-item v-if="currentPage==1">
             <div class="flex-demo page2">上一页</div></flexbox-item>
-      <flexbox-item v-else><div class="flex-demo page" @click="prev()"><div>
+      <flexbox-item v-else><div class="flex-demo page" @click="prev()" id="scorlltop"><div>
         上一页
       </div>
       </div></flexbox-item>
 
       <flexbox-item ><div class="flex-demo page1">第{{currentPage}}/4页</div></flexbox-item>
-      <flexbox-item v-if="currentPage<4"><div class="flex-demo page" @click="next()">
+      <flexbox-item v-if="currentPage<4"><div class="flex-demo page" @click="next()" id="Scorlltopc">
         <div>下一页</div>
       </div></flexbox-item>
        <flexbox-item v-else><div class="flex-demo page2">
@@ -24,6 +24,7 @@
       </div></flexbox-item>
     </flexbox>
       </div>
+     <Retu/>
    </div>
 </template>
 <script>
@@ -55,9 +56,8 @@ export default {
   },
   methods:{
     prev(){
-      var stop=document.documentElement
-stop.scrollTop=0;
       this.currentPage=this.currentPage-1
+       document.body.scrollTop = document.documentElement.scrollTop = 0
       if (this.currentPage==3){
         this.stackic=3
       } else if(this.currentPage==2){
@@ -67,9 +67,8 @@ stop.scrollTop=0;
       }
     },
     next(){
-      var stop=document.documentElement
-stop.scrollTop=0;
       this.currentPage=this.currentPage+1
+       document.body.scrollTop = document.documentElement.scrollTop = 0
       if (this.currentPage==3){
         this.stackic=3
       } else if(this.currentPage==2){

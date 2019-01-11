@@ -56,6 +56,7 @@
               </div>
             </div>
         </div>
+      <Retu />
       <toast v-model="show2" type="text">长按保存图片</toast>
       <toast v-model="showSuccess">{{text}}</toast>
     </div>
@@ -63,6 +64,7 @@
 <script>
 import { Flexbox, FlexboxItem, Spinner, Cell ,Toast, } from 'vux'
 import Swiper from "swiper"
+import Retu from '@/components/retu'
   export default {
     name:'Promote',
     components: {
@@ -70,7 +72,8 @@ import Swiper from "swiper"
        FlexboxItem,
        Spinner,
        Cell,
-       Toast
+       Toast,
+       Retu
     },
       data(){
         return{
@@ -90,7 +93,7 @@ import Swiper from "swiper"
       this.id = localStorage.getItem('userid')
       var mobileHeight=window.innerHeight+"px";
       document.getElementById('ntom').style.minHeight=mobileHeight;
-      this.$ajax.get('https://www.xiaofeishuwangluo.com/userposter/selectPoster?userid='+this.id).then(e=>{
+      this.$ajax.get('https://www.xiaofeishuwangluo.com/userposter/selectPoster?userid='+1).then(e=>{
           console.log(e)
           this.garde = e.data.data
           this.garde.one=e.data.data.posterAgencyone
@@ -102,7 +105,7 @@ import Swiper from "swiper"
           }
       })
 
-      this.copyurl = "https://www.xiaofeishuwangluo.com/blank/#/center?userid="+this.id
+      this.copyurl = window.location.href+'?userid='+this.uid
       var mySwiper = new Swiper ('.swiper-container', {
       spaceBetween: 0,
       freeMode: false,

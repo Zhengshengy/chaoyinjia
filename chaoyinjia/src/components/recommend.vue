@@ -85,14 +85,19 @@ import wx from 'weixin-js-sdk'
     created() {
     function getUrlKey(name){//获取url 参数
    return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null;}
-
       let uid = getUrlKey('userid')
-      if (localStorage.getItem('ustatus')=='2'){
-        this.sid = localStorage.getItem('userid')
-      }else {
-        this.sid = '1'
-      }
+      if (uid){
+           this.sid = uid
+         } else if(!uid){
+           if (localStorage.getItem('ustatus')=='2'){
+            this.sid = localStorage.getItem('userid')
+          }else {
+            this.sid = '1'
+          }
+        }
+      console.log(uid)
     if (localStorage.getItem('openid')) {
+
         let openid = localStorage.getItem('openid')
         this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid)
       .then(response => {
@@ -118,16 +123,11 @@ import wx from 'weixin-js-sdk'
 
       if (!openid)  {
          if (uids) {
-                   window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=1'+uids
+            window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=1'+uids
          }else {
            window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=1'
          }
       }else {
-         if (localStorage.getItem('ustatus')=='2'){
-        this.sid = localStorage.getItem('userid')
-      }else {
-        this.sid = '1'
-      }
         localStorage.setItem('openid', openid)
         this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid).then(response=>{
           this.cdetails = response.data.data.cdetails[0]
@@ -158,9 +158,6 @@ import wx from 'weixin-js-sdk'
         this.username = response.data.data.nickname
         this.headImgUrl = response.data.data.headImgUrl
         this.userId = response.data.data.userid
-        // if (response.data.data.ustatus == '1'){
-        //   this.dis1 = true
-        // }else if (response.data.data.ustatus == '2'){
           this.$ajax.post('https://www.xiaofeishuwangluo.com/agentdetails/selectAgentDetailsByUid?uid='+this.userId)
       .then(e => {
         if (e.data.data.grade == '1'){
@@ -171,12 +168,7 @@ import wx from 'weixin-js-sdk'
           that.grade = "银行家"
         }
         localStorage.setItem('grade', that.grade)
-      }).catch((error)=>{
-        console.log(error)
-          })
-        // }else if (response.data.data.ustatus == '3'){
-        //   this.show = true
-        // }
+      })
       })
 
       }

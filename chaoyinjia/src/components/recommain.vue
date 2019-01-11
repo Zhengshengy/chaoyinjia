@@ -24,14 +24,33 @@
         creditcardId:'',
         reward:'',
         blankurl:'',
-        cimg:''
+        cimg:'',
+        userid:''
       }
     },
     created(){
+      function getUrlKey(name){//获取url 参数
+   return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null;}
+      this.userid = localStorage.getItem('userid')
       this.cid = this.$route.query.cid
-      this.sid = this.$route.query.sid?this.$route.query.sid:'1'
+      let uid = getUrlKey('userid')
+      if (uid){
+        this.sid = uid
+      } else {
+        this.sid = this.$route.query.sid
+      }
 
-      this.$ajax(`https://www.xiaofeishuwangluo.com/creditcard/selectCreditCardByKey?uid=${this.sid}&cid=${this.cid}`).then(e=>{
+      // if (uid){
+      //      this.sid = uid
+      //    } else if(!uid){
+      //      if (localStorage.getItem('ustatus')=='2'){
+      //       this.sid = localStorage.getItem('userid')
+      //     }else {
+      //       this.sid = '1'
+      //     }
+      //   }
+
+      this.$ajax(`https://www.xiaofeishuwangluo.com/creditcard/selectCreditCardByKey?uid=${this.userid}&cid=${this.cid}`).then(e=>{
         console.log(e)
         this.con = e.data.data.blankdetails
         this.blanklogo = e.data.data.blanklogo
@@ -41,12 +60,11 @@
         this.reward = e.data.data.reward
         this.blankurl = e.data.data.blankurl
         this.cimg = e.data.data.cimg
-      })
-        var link = window.location.href
+
+        var link = `https://www.xiaofeishuwangluo.com/blank/?#/recommain?userid=${this.userid}&cid=${this.cid}`
         var desc="芝麻银家服务平台，多家银行任意申请，秒批高额度，特约办理通道";
-        var cname = this.cname
+        var cname = this.cname+'信用卡办理'
         var cimg = this.cimg
-        let that = this
         this.url = encodeURI(location.href.split('#')[0])
         this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/getEncryptJsapiTicket?url='+this.url).then(e=>{
           if (e.data.status==200){
@@ -60,17 +78,17 @@
             })
             wx.ready(function () {
               wx.onMenuShareTimeline({
-                title: '信用卡办理', // 分享标题
+                title: cname, // 分享标题
 
                 link:  link,// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                imgUrl: this.cimg, // 分享图标
+                imgUrl: cimg, // 分享图标
                 success: function () {
                 },
                 cancel: function () {
                 }
               });
               wx.onMenuShareAppMessage({
-                title: '信用卡办理', // 分享标题
+                title: cname, // 分享标题
                 link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 desc: desc,
                 imgUrl: cimg, // 分享图标
@@ -82,6 +100,8 @@
             });
             }
         })
+      })
+
     },
   }
 </script>

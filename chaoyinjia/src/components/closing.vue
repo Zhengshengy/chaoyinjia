@@ -44,17 +44,19 @@
     </div>
           <div style="display:none" >{{ exitsVal }}</div>
     </div>
-    </div>
+      <Retu />
     </div>
 </template>
 <script>
 import { Cell, XButton, Countdown } from 'vux'
+import Retu from '@/components/retu'
 export default {
     name:'Closing',
   components: {
     Cell,
     XButton,
-    Countdown
+    Countdown,
+    Retu,
   },
     computed:{
     exitsVal:function(){

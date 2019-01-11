@@ -78,7 +78,7 @@ export default {
       let reward = this.$route.query.reward
       this.blankurl = this.$route.query.blankurl
       console.log(this.blankurl)
-      this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/savenApplicationDetails?applicationName=${this.name}&applicationIdcard=${this.idcard}&recommendUid=1&blankname=${cname}&applicationPhone=${this.userphone}&channel=${channel}&creditcardId=${creditcardId}&reward=${reward}`).then(e=>{
+      this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/savenApplicationDetails?applicationName=${this.name}&applicationIdcard=${this.idcard}&recommendUid=${sid}&blankname=${cname}&applicationPhone=${this.userphone}&channel=${channel}&creditcardId=${creditcardId}&reward=${reward}`).then(e=>{
         console.log(e)
         if (e.data.status==200){
           window.location.href = this.blankurl

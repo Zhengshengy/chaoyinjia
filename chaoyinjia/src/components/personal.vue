@@ -140,20 +140,21 @@
     mounted(){
       var mobileHeight=window.innerHeight+"px";
       document.querySelector('.bigbox').style.minHeight=mobileHeight;
-      this.texcon = sessionStorage.getItem("texcon")
       let ustatus = localStorage.getItem('ustatus')
+      this.texcon = sessionStorage.getItem("texcon")
       if (ustatus=='2' && this.texcon==false){
-        this.$ajax.get(`https://www.xiaofeishuwangluo.com/messagenotification/selectMessageNotificationByTime`).then(e=>{
-        console.log(e)
-        if (e.data.status==500){
-          this.starce=false
-        }else if(e.data.status==200){
-          this.starce=true
-          this.texcon=e.data.data.mdetails
-          this.mtitle=e.data.data.mtitle
-          sessionStorage.setItem('texcon', true)
-        }
-      })
+        this.starce=false
+      }else {
+        this.$ajax.get(`https://www.xiaofeishuwangluo.com/messagenotification/selectMessageNotificationByTime`).then(e => {
+          if (e.data.status == 500) {
+            this.starce = false
+          } else if (e.data.status == 200) {
+            this.starce = true
+            this.texcon = e.data.data.mdetails
+            this.mtitle = e.data.data.mtitle
+            sessionStorage.setItem('texcon', false)
+          }
+        })
       }
     },
     created(){

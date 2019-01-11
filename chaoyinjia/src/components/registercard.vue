@@ -31,13 +31,16 @@
         </div>
       <toast v-model="show2" type="text">长按保存图片</toast>
       <toast v-model="showSuccess" type="text">{{text}}</toast>
+      <Retu/>
     </div>
 </template>
 <script>
     import { Flexbox, FlexboxItem, Toast, } from 'vux'
+    import Retu from '@/components/retu'
     export default {
     name:'Registercard',
         components: {
+           Retu,
            Flexbox,
            FlexboxItem,
             Toast
