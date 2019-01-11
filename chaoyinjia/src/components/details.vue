@@ -4,7 +4,7 @@
           <div>以上记录为用户所申请的信用卡订单，但仅供参考，实际申请以受到银行短信为准。</div>
       </div>
       <div class="iconban">
-          <x-input placeholder="输入手机号" name="mobile" keyboard="number" :show-clear="false">
+          <x-input placeholder="输入手机号" name="mobile" keyboard="number" :show-clear="false" v-model="phone">
           <icon type="search" slot="label" style="margin-right: 10px">
           </icon>
             <span  slot="right" style="color:#D4A75D;" @click="query">搜索</span>
@@ -117,7 +117,6 @@ export default {
   },
   methods: {
     check(index){
-
       this.con = []
       this.state = index+1
       this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectApplicationDetailsByUserid?userid=${this.uid}&page=1&state=${this.state}`).then(e=>{

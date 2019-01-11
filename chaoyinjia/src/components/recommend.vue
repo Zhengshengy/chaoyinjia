@@ -25,7 +25,7 @@
     </div>
     <div class="main" style="padding: 10px 10px 0">
       <span style="font-size: 14px;">推荐银行</span>
-      <Tobanka style="margin-top: 5px" :main="main"  />
+      <Tobanka style="margin-top: 5px" :main="main" :sid="sid"  />
     </div>
     <div class="become" v-show="show1==true">
         <div class="dext">
@@ -46,13 +46,16 @@
       <div>
          <Footer />
       </div>
+    <Become v-show="dis1==true" />
   </div>
 </template>
 
 <script>
 import { Flexbox, FlexboxItem,Grid, GridItem,Divider} from 'vux'
 import Footer from '@/components/footer'
-import Tobanka from '@/components/tobankas.vue'
+import Tobanka from '@/components/tobankas'
+import Become from '@/components/become'
+import wx from 'weixin-js-sdk'
 
   export default {
   name:'Recommend',
@@ -63,7 +66,8 @@ import Tobanka from '@/components/tobankas.vue'
     GridItem,
     Divider,
     Footer,
-    Tobanka
+    Tobanka,
+    Become
   },
 
   data () {
@@ -72,10 +76,18 @@ import Tobanka from '@/components/tobankas.vue'
       headImgUrl:'',
       main:[],
       cdetails:{},
-      show1:false
+      show1:false,
+      sid:'',
+      userId:'',
+      url:''
     }
   },
-  created() {
+    created() {
+    function getUrlKey(name){//获取url 参数
+   return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null;}
+
+      let uid = getUrlKey('userid')
+      this.sid = uid?uid:'1'
     if (localStorage.getItem('openid')) {
         let openid = localStorage.getItem('openid')
         this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid)
@@ -97,14 +109,17 @@ import Tobanka from '@/components/tobankas.vue'
         })
       })
     }else {
-      function getUrlKey(name){//获取url 参数
-   return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null;}
-      let openid=getUrlKey("openid");
-      localStorage.setItem('openid', openid)
+       let openid=getUrlKey("openid");
+       let uids = getUrlKey('userid')
+
       if (!openid)  {
-        window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=2'
+         if (uids) {
+                   window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=1'+uids
+         }else {
+           window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=1'
+         }
       }else {
-        let openid = getUrlKey('openid')
+         this.sid = uids?uids:1
         localStorage.setItem('openid', openid)
         this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid).then(response=>{
           this.cdetails = response.data.data.cdetails[0]
@@ -122,9 +137,84 @@ import Tobanka from '@/components/tobankas.vue'
           this.main.push(obj)
         })
         })
+        this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/selectUserByOpenid?openid='+openid)
+      .then(response => {
+        console.log(response)
+        localStorage.setItem('username', response.data.data.nickname)
+        localStorage.setItem('headImgUrl', response.data.data.headImgUrl)
+        localStorage.setItem('userid', response.data.data.userid)
+        localStorage.setItem('userphone', response.data.data.userphone)
+        localStorage.setItem('ustatus', response.data.data.ustatus)
+        localStorage.setItem('openid', response.data.data.openid)
+        let that = this
+        this.username = response.data.data.nickname
+        this.headImgUrl = response.data.data.headImgUrl
+        this.userId = response.data.data.userid
+        if (response.data.data.ustatus == '1'){
+          this.dis1 = true
+        }else if (response.data.data.ustatus == '2'){
+          this.$ajax.post('https://www.xiaofeishuwangluo.com/agentdetails/selectAgentDetailsByUid?uid='+this.userId)
+      .then(e => {
+        if (e.data.data.grade == '1'){
+          that.grade = "经理"
+        }else if (e.data.data.grade == '2'){
+          that.grade = "总监"
+        }else if (e.data.data.grade == '3'){
+          that.grade = "银行家"
+        }
+        localStorage.setItem('grade', that.grade)
+      }).catch((error)=>{
+        console.log(error)
+          })
+        }else if (response.data.data.ustatus == '3'){
+          this.show = true
+        }
+      })
 
       }
     }
+          if (localStorage.getItem('ustatus')=='2'){
+            var link = 'https://www.xiaofeishuwangluo.com/blank/#/recommend?userid='+localStorage.getItem('userid')
+          } else {
+            var link = 'https://www.xiaofeishuwangluo.com/blank/#/recommend?userid=1'
+          }
+
+          var desc="芝麻银家服务平台，多家银行任意申请，秒批高额度，特约办理通道";
+          this.url = encodeURI(location.href.split('#')[0])
+        this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/getEncryptJsapiTicket?url='+this.url).then(e=>{
+          if (e.data.status==200){
+            wx.config({
+              debug:false,
+              appId:e.data.data.appid,
+              timestamp:e.data.data.timestamp,
+              nonceStr:e.data.data.noncestr,
+              signature:e.data.data.signature,
+              jsApiList:['onMenuShareTimeline','onMenuShareAppMessage']
+            })
+            wx.ready(function () {
+              wx.onMenuShareTimeline({
+                title: '信用卡办理', // 分享标题
+
+                link:  link,// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
+                success: function () {
+                },
+                cancel: function () {
+                }
+              });
+              wx.onMenuShareAppMessage({
+                title: "信用卡办理", // 分享标题
+                link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                desc: desc,
+                imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
+                success: function () {
+                },
+                cancel: function () {
+                }
+              })
+            });
+            }
+        })
   },
   methods:{
     add(){
@@ -134,7 +224,7 @@ import Tobanka from '@/components/tobankas.vue'
         this.show1 = false
       },
     shenqing(cid){
-      this.$router.push({path:'/blankmain',query:{cid:cid}})
+      this.$router.push({path:'/recommain',query:{cid:cid,sid:this.sid}})
     }
   }
 }

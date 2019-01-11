@@ -5,13 +5,13 @@
         </div>
         <div class="buttocon">
         <div class="bonsave">
-            <div class="vitext">姓名：
+            <div class="vitext" v-show="nameState==1">姓名：
                 <input type="text" style="outline:none;" v-model="username" placeholder="请输入姓名">
             </div>
-            <div class="vitext">身份证号：
+            <div class="vitext" v-show='idcardState==1'>身份证号：
                 <input type="text" style="outline:none;" @on-blur="vadait" placeholder="请输入身份证号" v-model="idcard">
             </div>
-            <div class="vitext">手机号：
+            <div class="vitext" v-show="phoneState==1">手机号：
                 <input type="text" style="width: 60%;" v-model="userphone" placeholder="请输入手机号">
                 <div @click="checkcode" v-if="huocode==true" style="color: #f9c63c;float: right" >
                 获取验证码
@@ -24,9 +24,9 @@
             </div>
             </div>
 
-            <div class="vitext">验证码：
+            <div class="vitext" v-show="checkcodeState==1">验证码：
                 <input type="text" style="outline:none;" v-model="checkCode" placeholder="请输入验证码"></div>
-            <div class="vitext">图片验证码：
+            <div class="vitext" v-show="checkcodeState==1">图片验证码：
                 <input type="text" style="outline:none;" v-model="piccode" placeholder="请输入验证码"></div>
         </div>
             <div @click="submit" :class="{ 'sub': sub2, 'sub1': sub3} ">
@@ -91,13 +91,26 @@ export default {
       idcard:'',
       userphone:'',
       checkCode:'',
-      piccode:''
+      piccode:'',
+      nameState:'',
+      phoneState:'',
+      pstate:'',
+      validateState:'',
+      checkcodeState:'',
+      idcardState:''
     }
   },
   created(){
     let pid = this.$route.query.pid
-    this.$ajax('https://www.xiaofeishuwangluo.com/progressquery/selectProgressQueryByKey?creditcardId='+pid).then(e=>{
+    this.$ajax('api/progressquery/selectProgressQueryPidByKey?pid='+pid).then(e=>{
       console.log(e)
+      this.nameState = e.data.data.nameState
+      this.phoneState = e.data.data.phoneState
+      this.pstate = e.data.data.pstate
+      this.validateState = e.data.data.validateState
+      this.checkcodeState = e.data.data.checkcodeState
+      this.idcardState = e.data.data.idcardState
+
     })
   },
   methods:{

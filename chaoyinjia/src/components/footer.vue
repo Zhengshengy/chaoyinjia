@@ -8,8 +8,9 @@
   </div>
     <div v-transfer-dom>
       <x-dialog v-model="show1" class="dialog-demo">
+        <div class="bontos">长按扫一扫</div>
         <div class="img-box">
-          <img src="../assets/qrcode.jpg" style="max-width:100%">
+          <img src="../assets/qrcode.jpg" style="width:95%">
         </div>
         <div @click="show1=false">
           <span class="vux-close"></span>
@@ -66,6 +67,11 @@
   .dialog-title {
     line-height: 30px;
     color: #666;
+  }
+  .bontos{
+    font-size: 14px;text-align: center;
+    color: #383838;
+    margin-top: 10px;
   }
   .img-box {
     height: auto;

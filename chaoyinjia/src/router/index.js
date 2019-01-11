@@ -20,6 +20,10 @@ import SchCenter from '@/components/schCenter'
 import Apply from '@/components/apply'
 import Recommend from '@/components/recommend'
 import Reg from '@/components/reg'
+import Recommain from '@/components/recommain'
+import Blanklogo from '@/components/blanklogo'
+import Mustsee from '@/components/mustsee'
+import Handbook from '@/components/handbook'
 Vue.use(Router)
 
 export default new Router({
@@ -177,11 +181,44 @@ export default new Router({
       }
     },
     {
+      path: '/recommain',
+      name: 'Recommain',
+      component: Recommain,
+      meta: {
+        title: '信用卡介绍'   // 标题设置
+      }
+    },
+    {
       path: '/apply',
       name: 'Apply',
       component: Apply,
       meta: {
         title: '申请人信息'   // 标题设置
+      }
+    },
+    {
+      path: '/blanklogo',
+      name: 'Blanklogo',
+      component: Blanklogo,
+      meta: {
+        title: '推荐信用卡'   // 标题设置
+      }
+    },
+    {
+      path: '/mustsee',
+      name: 'Mustsee',
+      component: Mustsee,
+      meta: {
+        title: '必看课程'   // 标题设置
+      }
+    },
+
+    {
+      path: '/handbook',
+      name: 'Handbook',
+      component: Handbook,
+      meta: {
+        title: '操作指南'   // 标题设置
       }
     },
   ]

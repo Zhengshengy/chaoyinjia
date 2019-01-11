@@ -34,11 +34,13 @@
               </div>
           </div>
             <div class="bottm" style="position: fixed;bottom: 0;width: 100%">
-              <div class="texe">
-                  <div class="font" style="margin-bottom: 4%;letter-spacing:2px;  ">长按保存图片或发送好友</div>
+               <div class="texe">
+                  <div class="font" style="margin-bottom: 4%;letter-spacing:2px;  ">长按海报保存到本地分享给好友</div>
               </div>
-              <div class="rout" style="width: 40%;margin: 0 auto 9%" @click="fenxiang">
-                  <img src="../assets/yaoqin.png" alt="">
+              <div class="rout" style="width: 40%;margin: 0 auto 9%" >
+                  <div class="contou" v-clipboard:copy="copyurl"
+                  v-clipboard:success="onCopy"
+                  v-clipboard:error="onError">分享链接邀请好友</div>
               </div>
               <div class="boncom" >
               <div class="fonbomone">
@@ -55,10 +57,11 @@
           </div>
         </div>
       <toast v-model="show2" type="text">长按保存图片</toast>
+      <toast v-model="showSuccess">{{text}}</toast>
     </div>
 </template>
 <script>
-import { Flexbox, FlexboxItem, Spinner, Cell ,Toast } from 'vux'
+import { Flexbox, FlexboxItem, Spinner, Cell ,Toast, } from 'vux'
 import Swiper from "swiper"
   export default {
     name:'Promote',
@@ -77,7 +80,10 @@ import Swiper from "swiper"
           stack:true,
           garde:[],
           display:{display:'none'},
-          show2:false
+          show2:false,
+          text:'',
+          copyurl:'',
+          showSuccess:false,
         }
       },
     mounted(){
@@ -85,6 +91,7 @@ import Swiper from "swiper"
       var mobileHeight=window.innerHeight+"px";
       document.getElementById('ntom').style.minHeight=mobileHeight;
       this.$ajax.get('https://www.xiaofeishuwangluo.com/userposter/selectPoster?userid='+this.id).then(e=>{
+          console.log(e)
           this.garde = e.data.data
           this.garde.one=e.data.data.posterAgencyone
           this.garde.two=e.data.data.posterAgencytwo
@@ -94,6 +101,8 @@ import Swiper from "swiper"
             this.display.display='block'
           }
       })
+
+      this.copyurl = window.location.href+'?userid='+this.uid
       var mySwiper = new Swiper ('.swiper-container', {
       spaceBetween: 0,
       freeMode: false,
@@ -115,9 +124,9 @@ import Swiper from "swiper"
         dabcake() {
             this.$router.push({path: "/registercard"});
         },
-        fenxiang(){
-          this.show2 = true
-        },
+        // fenxiang(){
+        //   this.showSuccess = true
+        // },
         slideChangeTransitionEnd: function(){
           if(this.isEnd){
             this.navigation.$nextEl.css('display','none');
@@ -125,6 +134,14 @@ import Swiper from "swiper"
             this.navigation.$nextEl.css('display','block');
           }
         },
+        onCopy(e){
+          this.text = "复制成功"
+          this.showSuccess = true
+        },
+        onError(e){
+          this.text = "复制失败"
+          this.showSuccess = true
+       },
       }
   }
 </script>
@@ -186,6 +203,11 @@ img{
       background: #E6E6E6;
       margin-top: 15px;
       padding: 8px 20px;
+  }
+  .contou{
+      padding: 7px 5px;background: #f6c93c;
+      font-size: 12px;letter-spacing:2px;
+      width: 80%;margin: 0 auto;
   }
   .fonbomone{
       width: 100%;

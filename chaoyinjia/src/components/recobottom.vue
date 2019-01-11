@@ -1,23 +1,33 @@
 <template>
   <div>
     <div class="bottom">
-      <div style="width: 90%;margin: 10px auto">
-        <div class="left" @click="dis2">分享赚钱</div>
-        <div class="left right" @click="toblogo">推广海报</div>
+      <img src="../assets/footer.png" width="100%" alt="">
+      <div class="fo" @click="wexin">
+        <img src="../assets/foucs.png" width="100%" height="100%" alt="">
       </div>
-      <div class="btn" @click="toapply">立即申请</div>
+
+      <div style="width: 100%;background: #F6C93C;text-align: center;color: #fff;line-height: 40px" @click="toblankcenter"><span>立即申请</span></div>
+  </div>
+    <div v-transfer-dom>
+      <x-dialog v-model="show1" class="dialog-demo">
+        <div class="img-box">
+          <img src="../assets/qrcode.jpg" style="max-width:100%">
+        </div>
+        <div @click="show1=false">
+          <span class="vux-close"></span>
+        </div>
+      </x-dialog>
     </div>
     <div class="fenxiang" v-show="dis==true">
-
       <img src="../assets/anniu.png" alt="" class="anniu" @click="dis1">
-    </div>
+      </div>
   </div>
 
 </template>
 <script>
   import {XDialog,TransferDomDirective as TransferDom ,Flexbox, FlexboxItem,} from 'vux'
   export default {
-    name:'Bottom',
+    name:'Recobottom',
     directives: {
     TransferDom,
       Flexbox,
@@ -27,11 +37,11 @@
         XDialog,
     },
     props: {
-      blanklogo: {
+      cid: {
         type:String,
         required:true
       },
-      cids: {
+      sid: {
         type:String,
         required:true
       },
@@ -63,67 +73,56 @@
         dis:false
       }
     },
-    created(){
-      this.sid = localStorage.getItem('userid')
-    },
     methods:{
       wexin(){
         this.show1 = true
       },
-      toblogo(){
-        this.$router.push({path:'/blanklogo',query:{src:this.blanklogo,cid:this.cids}})
-      },
+
       dis1(){
         this.dis = false
       },
-      dis2(){
-        this.dis = true
-      },
       toblankcenter(){
-        this.$router.push('/apply')
-      },
-      toapply(){
         this.$router.push({path:'/apply',query:{sid:this.sid,cid:this.cid,reward:this.reward,channel:this.channel,cname:this.cname,creditcardId:this.creditcardId,blankurl:this.blankurl}})
       }
     }
   }
 </script>
   <style lang="less" scoped>
-.bottom{
+@import '~vux/src/styles/close';
+  .bottom{
   width: 100%;
-  height: 100px;
-  background: #fff;
-  position: fixed;
   bottom: 0;
-  text-align: center;
-  color: #fff;
-  z-index: 20;
+  position: relative;
+  background: #fff;
+  /*background-image: url("../assets/footer.png");*/
 }
-
-    .left{
-      width: 45%;
-      background: #F6C93C;
-      float: left;
-      height: 30px;
-      line-height: 30px;
-      border-radius: 5px;
-    }
-    .right{
-      margin-left: 10%;
-    }
-    .btn{
-      width: 90%;
-      height: 30px;
-      background: #F6C93C;
-      position: absolute;
-      bottom: 10px;
-      left: 0;
-      right: 0;
-      margin: auto;
-      line-height: 30px;
-      border-radius: 5px;
-    }
-    .fenxiang{
+.fo{
+  width: 22%;
+  position: absolute;
+  top:8%;right:5%;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+}
+  .dialog-demo {
+  .weui-dialog{
+    border-radius: 8px;
+    padding-bottom: 8px;
+  }
+  .dialog-title {
+    line-height: 30px;
+    color: #666;
+  }
+  .img-box {
+    height: auto;
+    overflow: hidden;
+  }
+  .vux-close {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
+     .fenxiang{
     background-image: url("../assets/fenxiang.png");
     background-size: 100%;
     position: fixed;

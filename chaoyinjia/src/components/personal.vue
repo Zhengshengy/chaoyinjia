@@ -1,5 +1,16 @@
 <template>
   <div class="bigbox">
+    <div v-transfer-dom>
+      <x-dialog v-model="starce" class="dialog-demo">
+        <div class="bontos" v-text="mtitle"></div>
+        <div class="img-box" v-html="texcon">
+
+        </div>
+        <div @click="starce=false">
+          <span class="vux-close"></span>
+        </div>
+      </x-dialog>
+    </div>
     <div class="top" style="background: rgb(54,54,54);padding: 20px 30px 20px;font-size: 14px;color: #EFEFEF;">
       <flexbox :gutter="0" wrap="wrap">
       <flexbox-item :span="1/3"><div class="flex-demo" style="border-right: 1px solid #ccc;padding-bottom: 10px">
@@ -7,7 +18,7 @@
           <img :src="headImgUrl" alt="">
         </div>
         <div class="flex-demo" style="color: #EFEFEF;font-size: 14px">
-          <div style="width: 100%;margin-top: 5px"><span style="color: #f6c93c;font-size: 18px;" v-text="username"></span></div>
+          <div class="onfonts"><span style="color: #f6c93c;font-size: 18px;" v-text="username"></span></div>
           <div style="margin-top: 5px">职务:<span v-text="grade"></span></div>
           <div style="margin-top: 2px">ID:<span  style="font-size: 12px" v-text="userId"></span></div>
         </div>
@@ -58,7 +69,7 @@
         <img slot="icon" src="../assets/img5.png">
         <span slot="label" class="bantext">专属海报</span>
       </grid-item>
-      <grid-item link="/component/cell" @on-item-click="">
+      <grid-item link="/mustsee" @on-item-click="">
         <img slot="icon" src="../assets/img6.png">
         <span slot="label" class="bantext">必看课程</span>
       </grid-item>
@@ -120,12 +131,31 @@
       complete:'',
       notcomplete:'',
       active:'shu',
-      kefu:false
+      kefu:false,
+      starce:false,
+      texcon:'',
+      mtitle:'',
     }
   },
     mounted(){
       var mobileHeight=window.innerHeight+"px";
       document.querySelector('.bigbox').style.minHeight=mobileHeight;
+      this.texcon = sessionStorage.getItem("texcon")
+      if(this.texcon){
+         this.starce=false
+      }else{
+        this.$ajax.get(`api/messagenotification/selectMessageNotificationByTime`).then(e=>{
+        console.log(e)
+        if (e.data.status==500){
+          this.starce=false
+        }else if(e.data.status==200){
+          this.starce=true
+          this.texcon=e.data.data.mdetails
+          this.mtitle=e.data.data.mtitle
+          sessionStorage.setItem('texcon', e.data.data.mdetails)
+        }
+      })
+      }
 
     },
     created(){
@@ -334,19 +364,39 @@
 
     },
     todeposit(){
-        this.$router.push({path:'/deposit',query:{total:this.total,complete:this.complete,notcomplete:this.notcomplete}})
+        this.$router.push('/deposit')
     },
     kefu1(){
         this.kefu = true
     },
     success(){
         this.kefu = false
-    }
+    },
   }
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+@import '~vux/src/styles/close';
+
+.dialog-demo {
+  .weui-dialog{
+    border-radius: 8px;
+    padding-bottom: 8px;
+  }
+  .dialog-title {
+    line-height: 30px;
+    color: #666;
+  }
+  .img-box {
+    height: auto;
+    overflow: hidden;
+  }
+  .vux-close {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
   a{
     text-decoration: none;
   }
@@ -368,6 +418,13 @@
   position: fixed;
   bottom: 0;
   background: #fff;
+}
+.bontos{
+  text-align: left;font-size: 14px;padding-top: 10px;margin-left: 10px;
+  text-overflow : ellipsis;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  white-space:nowrap;
 }
 .box{
   width: 90%;
@@ -391,6 +448,12 @@
     height: 60px;
     border-radius:100% ;
   }
+  .onfonts{
+    width: 100%;margin-top: 5px;text-overflow : ellipsis;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    white-space:nowrap;
+  }
   .userimg img{
     width: 100%;
     height: 100%;
@@ -408,7 +471,7 @@
     color:#5D5D5D;
   }
   .shu{
-    position: absolute;
+    position: fixed;
     bottom: 0;
   }
   .heng{

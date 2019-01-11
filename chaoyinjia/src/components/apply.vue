@@ -12,18 +12,16 @@
               <input type="text" placeholder="请输入真实姓名" style="outline:none;" v-model="name">
           </div>
           <div class="vitext">身份证号：
-              <input type="text" placeholder="请输入申请人身份证号" style="outline:none;" v-model="idcard"></div>
+              <input type="text" placeholder="请输入申请人身份证号" style="outline:none;" v-model="idcard" @blur="vadait"></div>
           <div class="vitext">手机号：
-              <input type="text" placeholder="请输入申请人手机号" style="outline:none;" v-model="userphone"></div>
+              <input type="number" placeholder="请输入申请人手机号" style="outline:none;" v-model="userphone"></div>
           </div>
       </div>
       <div style="background: #fff;padding: 0px 5px 10px;color: #B5B5B5;">
           <div class="text_cn">
-            <div class="text_ne">1、请务必填写申请人真实个人信息。</div>
+            <div class="text_ne">1、请务必填写申请人真实个人信息,身份证号码务必填写正确。</div>
             <div class="text_ne">2、办卡审核通知将直接以短信的形式发送至手机。</div>
-            <!--<div class="text_ne">3、查询进度，成功下卡后可领取最高799元红包。</div>-->
-            <div class="text_ne">3、身份证号码务必填写正确，否则申请成功后，将影响现金红包领取。</div>
-            <div class="text_ne">4、芝麻银家平台申请信用卡不收任何费用，如果需要用请向平台客服举报。</div>
+            <div class="text_ne">3、芝麻银家平台申请信用卡不收任何费用，如果需要用请向平台客服举报。</div>
           </div>
     </div>
       <div class="herder">
@@ -36,16 +34,17 @@
               <flexbox-item><div class="flex-demo"><div style="color: #5D5D5D;letter-spacing:1px;">我已认真阅读并完全同意《芝麻银家服务条款》的所有条款</div></div></flexbox-item>
         </flexbox>
         <div class="fontS" @click="submit">
-            <span>保存信息</span>
+            <span>下一步</span>
         </div>
        </div>
       <div class="disfoot" style="position: fixed;bottom: 0;">
         <Footer></Footer>
       </div>
+      <toast v-model="show2" type="text" >{{messages}}</toast>
     </div>
 </template>
 <script>
-import { Cell, XButton, Countdown,Flexbox, FlexboxItem } from 'vux'
+import { Cell, XButton, Countdown,Flexbox, FlexboxItem,Toast } from 'vux'
 import Footer from '@/components/footer'
 export default {
     name:'Apply',
@@ -56,17 +55,44 @@ export default {
     Flexbox,
     FlexboxItem,
     Footer,
+    Toast
   },
   data(){
       return{
         name:'',
         idcard:'',
         userphone:'',
+        show2:false,
+        messages:'',
+        blankurl:''
       }
   },
   methods:{
     submit(){
-
+      let sid = this.$route.query.sid
+      let cid = this.$route.query.cid
+      let creditcardId = this.$route.query.creditcardId
+      let cname = this.$route.query.cname
+      let channel = this.$route.query.channel
+      let reward = this.$route.query.reward
+      this.blankurl = this.$route.query.blankurl
+      console.log(this.blankurl)
+      this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/savenApplicationDetails?applicationName=${this.name}&applicationIdcard=${this.idcard}&recommendUid=1&blankname=${cname}&applicationPhone=${this.userphone}&channel=${channel}&creditcardId=${creditcardId}&reward=${reward}`).then(e=>{
+        console.log(e)
+        if (e.data.status==200){
+          window.location.href = this.blankurl
+        }
+      })
+    },
+    vadait(){
+      let reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+      if (this.idcard === '') {
+        this.show2 = true
+     this.messages = '身份证号不能为空';
+      }else if(!reg.test(this.idcard)){
+        this.show2 = true
+     this.messages = '请输入正确的身份证号';
+    }
     }
   }
 
@@ -77,6 +103,16 @@ export default {
     width:100%;
     height: 100%;
    background: #f5f5f5;
+}
+.closing::before{
+content:" ";
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background-color:#F5F5F5;
+    z-index:-100;
 }
 .context{
     text-align: left;

@@ -103,21 +103,51 @@ export default {
     }
 },
     created(){
-    this.superior_uid = this.$route.query.userid?this.$route.query.userid: '1'
       console.log(this.superior_uid)
     if (localStorage.getItem('openid')) {
+        this.superior_uid = getUrlKey("userid") ? getUrlKey("userid") :1
         this.uid = localStorage.getItem("userid")
-        this.$router.push('/')
     }else {
       let openid=getUrlKey("openid");
+      let uid=getUrlKey("userid");
       if (!openid)  {
-        window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=4'
+        if (uid){
+          window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=6'+uid
+        } else {
+          window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=6'
+        }
+
       }else {
         this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/selectUserByOpenid?openid='+openid)
       .then(response => {
+        console.log(response)
         localStorage.setItem('openid', response.data.data.openid)
         this.uid = response.data.data.userid
+        localStorage.setItem('username', response.data.data.nickname)
+        localStorage.setItem('headImgUrl', response.data.data.headImgUrl)
+        localStorage.setItem('userid', response.data.data.userid)
+        localStorage.setItem('userphone', response.data.data.userphone)
+        localStorage.setItem('ustatus', response.data.data.ustatus)
+        localStorage.setItem('openid', response.data.data.openid)
+        let that = this
+        this.userId = response.data.data.userid
+         if (response.data.data.ustatus == '2'){
+          this.$ajax.post('https://www.xiaofeishuwangluo.com/agentdetails/selectAgentDetailsByUid?uid='+this.userId)
+      .then(e => {
+        if (e.data.data.grade == '1'){
+          that.grade = "经理"
+        }else if (e.data.data.grade == '2'){
+          that.grade = "总监"
+        }else if (e.data.data.grade == '3'){
+          that.grade = "银行家"
+        }
+        localStorage.setItem('grade', that.grade)
+      }).catch((error)=>{
+        console.log(error)
+          })
+        }
       })
+      // })
       }
     }
 

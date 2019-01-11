@@ -7,7 +7,9 @@
         <div class="xuan" >选择银行</div>
         <grid :cols="3" :show-lr-borders="false">
           <grid-item v-for="i in main" :key="i.pid"  @on-item-click="toschCenter(i.pid)">
-              <img :src="i.blankimg" alt="" style="width: 50px;height: 50px">
+            <div class="cimg">
+              <img :src="i.blankimg" alt="" >
+            </div>
               <div style="margin-top: 10px;" class="grid-center">{{i.blankname}}</div>
           </grid-item>
         </grid>
@@ -57,28 +59,11 @@ import Footer from '@/components/footer'
     }
   },
     created(){
-    if (localStorage.getItem('openid')) {
-        this.$ajax.get('https://www.xiaofeishuwangluo.com/progressquery/selectProgressQuery')
+    this.$ajax.get('https://www.xiaofeishuwangluo.com/progressquery/selectProgressQuery')
       .then(response => {
         console.log(response)
         this.main = response.data.data
       })
-    }else {
-      function getUrlKey(name){//获取url 参数
-   return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null;}
-      let openid=getUrlKey("openid");
-      if (!openid)  {
-        window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=2'
-      }else {
-        let openid = getUrlKey('openid')
-        this.$ajax.get('https://www.xiaofeishuwangluo.com/progressquery/selectProgressQuery')
-      .then(response => {
-        console.log(response)
-        this.main = response.data.data
-      })
-      }
-    }
-
     },
   methods:{
     add(){
@@ -89,8 +74,7 @@ import Footer from '@/components/footer'
         this.show1 = false
       },
     toschCenter(pid){
-        let uid = localStorage.getItem('userid')
-        this.$router.push({path:'/schCenter',query:{pid:pid,uid:uid}})
+        this.$router.push({path:'/schCenter',query:{pid:pid}})
     }
   }
 }
@@ -157,4 +141,20 @@ import Footer from '@/components/footer'
    position: absolute;
    bottom: 15%;z-index: 100;width: 10%;right: 0;left: 0;margin: auto;
  }
+  .cimg{
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .cimg img{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
 </style>

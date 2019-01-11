@@ -117,8 +117,8 @@ export default {
 
     this.$ajax.get(`https://www.xiaofeishuwangluo.com/accountsdetails/selectAccountsDetailsByUserid?userid=${this.uid}&page=1`).then(e=>{
       console.log(e)
-      let obj = {}
       e.data.data.content.forEach((v,k)=>{
+        let obj = {}
         obj.blankname = v.blankname
         obj.createtime = v.createtime
         obj.orderMoney = this.outputmoney(v.orderMoney)
@@ -146,8 +146,8 @@ export default {
       this.currentPage=this.currentPage-1
       this.$ajax.get(`https://www.xiaofeishuwangluo.com/accountsdetails/selectAccountsDetailsByUserid
 ?userid=${this.uid}&page=${this.currentPage}`).then(e=>{
-        let obj = {}
       e.data.data.content.forEach((v,k)=>{
+        let obj = {}
         obj.blankname = v.blankname
         obj.createtime = v.createtime
         obj.orderMoney = this.outputmoney(v.orderMoney)
@@ -162,8 +162,8 @@ export default {
       this.currentPage=this.currentPage+1
       this.$ajax.get(`https://www.xiaofeishuwangluo.com/accountsdetails/selectAccountsDetailsByUserid
 ?userid=${this.uid}&page=${this.currentPage}`).then(e=>{
-        let obj = {}
       e.data.data.content.forEach((v,k)=>{
+        let obj = {}
         obj.blankname = v.blankname
         obj.createtime = v.createtime
         obj.orderMoney = this.outputmoney(v.orderMoney)

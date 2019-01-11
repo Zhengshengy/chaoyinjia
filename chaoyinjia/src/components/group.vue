@@ -20,7 +20,7 @@
                       <flexbox-item :span="3/4"><div class="flex-demo" style="margin-left: 5px;margin-top: -6px">
                   <flexbox orient="vertical" :gutter="0">
                       <flexbox-item><div class="flex-demo" >
-                        <span style="font-size: 16px;color: #6e6e6e;">{{i.nickname}}<span> ({{i.text}})</span></span>
+                        <span class="xiaomini">{{i.nickname}}</span><span style="font-size: 16px;color: #6e6e6e;"> ({{i.text}})</span>
                       </div></flexbox-item>
                       <flexbox-item><div class="flex-demo" style="font-size: 12px;color:#6E6E6E;margin-top: 2px;">工号：<span>{{i.userid}}</span></div></flexbox-item>
                       <flexbox-item><div class="flex-demo" style="font-size: 12px;color:#6E6E6E;margin-top: 2px;">手机号：<span>{{i.phone1}}</span></div></flexbox-item>
@@ -85,11 +85,11 @@ import Retu from '@/components/retu'
     mounted(){
         this.uid = localStorage.getItem('userid')
         this.$ajax.get(`https://www.xiaofeishuwangluo.com/agentdetails/selectCustomerBySuperiorUid?superiorUid=${this.uid}&page=1`).then(e=>{
-
+           console.log(e.data.data.content)
             this.pageCount = e.data.data.pageTotal
             this.currentPage = e.data.data.currentPage
-            let obj = {}
             e.data.data.content.forEach(v=>{
+                let obj = {}
                 obj.createtime = v.createtime
                 obj.headimgurl = v.headimgurl
                 obj.nickname = v.nickname
@@ -110,13 +110,13 @@ import Retu from '@/components/retu'
     },
     methods:{
         query(){
-           this.$ajax.get(`https://www.xiaofeishuwangluo.com/agentdetails/selectCustomerByPhone?superiorUid=${this.uid}&page=${this.currentPage}&phone=${this.userphone}`).then(e=>{
+           this.$ajax.get(`https://www.xiaofeishuwangluo.com/agentdetails/selectCustomerByPhone?superiorUid=${this.uid}&page=${this.currentPage}&phone=${this.phone}`).then(e=>{
                console.log(e)
                if (e.data.status==200) {
                    this.pageCount = e.data.data.pageTotal
-            this.currentPage = e.data.data.currentPage
-            let obj = {}
+                  this.currentPage = e.data.data.currentPage
             e.data.data.content.forEach(v=>{
+                let obj = {}
                 obj.createtime = v.createtime
                 obj.headimgurl = v.headimgurl
                 obj.nickname = v.nickname
@@ -144,8 +144,9 @@ import Retu from '@/components/retu'
       this.$ajax.get(`https://www.xiaofeishuwangluo.com/agentdetails/selectCustomerBySuperiorUid?superiorUid=${this.uid}&page=${this.currentPage}`).then(e=>{
         this.pageCount = e.data.data.pageTotal
             this.currentPage = e.data.data.currentPage
-            let obj = {}
+
             e.data.data.content.forEach(v=>{
+              let obj = {}
                 obj.createtime = v.createtime
                 obj.headimgurl = v.headimgurl
                 obj.nickname = v.nickname
@@ -169,8 +170,8 @@ import Retu from '@/components/retu'
       this.$ajax.get(`https://www.xiaofeishuwangluo.com/agentdetails/selectCustomerBySuperiorUid?superiorUid=${this.uid}&page=${this.currentPage}`).then(e=>{
            this.pageCount = e.data.data.pageTotal
             this.currentPage = e.data.data.currentPage
-            let obj = {}
             e.data.data.content.forEach(v=>{
+                let obj = {}
                 obj.createtime = v.createtime
                 obj.headimgurl = v.headimgurl
                 obj.nickname = v.nickname
@@ -226,6 +227,10 @@ import Retu from '@/components/retu'
     }
     .vontfor{
         padding-top: 15px;
+    }
+    .xiaomini{
+      font-size: 16px;color: #6e6e6e;text-overflow : ellipsis;overflow: hidden;
+      -o-text-overflow: ellipsis;white-space:nowrap;
     }
     .page{
     width: 100%;

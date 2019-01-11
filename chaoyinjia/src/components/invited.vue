@@ -1,7 +1,7 @@
 <template>
     <div class="tomImg">
         <div class="im_top">
-            <img src="../assets/invite.png" width="100%" alt="">
+            <img :src="requestUrl" width="100%" alt="">
         </div>
         <div class="service" style="margin: 8px 0 20px;padding-right: 20px">
             <div class="reserv">
@@ -94,16 +94,20 @@
           text:'',
           dis:false,
           show1:false,
+          requestUrl:'',
           username:"",
           accountNummber:'',
           accountsUrl:'',
-          wxNumber:''
+          wxNumber:'',
+          copyurl:''
         }
       },
     created(){
         this.$ajax.get('https://www.xiaofeishuwangluo.com/base/publicSysData').then(e=>{
+          console.log(e)
           this.uid = e.data.data.uuid
           this.userphone = e.data.data.mobile
+          this.requestUrl=e.data.data.requestUrl
           this.accountNummber = e.data.data.accountNummber
           this.accountsUrl = e.data.data.accountsUrl
           this.wxNumber = e.data.data.wxNumber

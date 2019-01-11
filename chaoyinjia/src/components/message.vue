@@ -11,14 +11,34 @@
               </div></flexbox-item>
             </flexbox>
         </div>
-        <div class="inforne">
+        <div class="inforne" v-if="isactiveA==true">
             <div class="bots" v-for="item in con" :key="item.mid" @click="check(item.mid)">
               <flexbox>
                 <flexbox-item :span="2"><div class="flex-demo"><div class="left">
-                  <div class="img" v-if="isactiveA==true">
+                  <div class="img">
                     <img src="../assets/message.png" alt="">
                   </div>
-                  <div class="img" v-else-if="isactiveA==false">
+                </div>
+                </div></flexbox-item>
+                <flexbox-item :span="9">
+                  <div class="flex-demo">
+                    <div class="font">
+                      <div class="title_left" v-text="item.mtitle"></div>
+                      <div class="time_right">{{item.mtime}}</div>
+                    </div>
+                  </div>
+                </flexbox-item>
+                <flexbox-item ><div class="flex-demo">
+                  <div class="bonts"><img src="../assets/jiantou.png" alt=""></div>
+                </div></flexbox-item>
+              </flexbox>
+            </div>
+        </div>
+        <div class="inforne" v-else-if="isactiveA==false">
+            <div class="bots" v-for="item in contow" :key="item.mid" @click="check(item.mid)">
+              <flexbox>
+                <flexbox-item :span="2"><div class="flex-demo"><div class="left">
+                  <div class="img">
                     <img src="../assets/quersion.png" alt="">
                   </div>
                 </div>
@@ -39,12 +59,11 @@
         </div>
         <div style="width: 70%;margin: 20px auto">
         <flexbox v-show="pageCount>1 && con.length>0">
-          <flexbox-item v-if="currentPage==1"><div class="flex-demo page2">上一页</div></flexbox-item>
+          <flexbox-item v-if="currentPage==1 "><div class="flex-demo page2">上一页</div></flexbox-item>
       <flexbox-item v-else><div class="flex-demo page" @click="prev"><div>
         上一页
       </div>
       </div></flexbox-item>
-
       <flexbox-item ><div class="flex-demo page1">第{{currentPage}}/{{pageCount}}页</div></flexbox-item>
       <flexbox-item v-if="currentPage<pageCount"><div class="flex-demo page" @click="next">
         <div>下一页</div>
@@ -55,7 +74,7 @@
     </flexbox>
       </div>
         <div style="height: 116px"></div>
-        <div style="position: absolute;bottom:0;">
+        <div style="position: fixed;bottom:0;">
             <Footer></Footer>
         </div>
         <Retu/>
@@ -81,6 +100,7 @@ export default {
         pageCount:0,
         currentPage:1,
         con:[],
+        contow:[],
         mtype:1,
         isactiveA:true,
         isactiveB:false,
@@ -90,7 +110,12 @@ export default {
       var mobileHeight=window.innerHeight+"px";
       document.getElementById('message').style.minHeight=mobileHeight;
       this.$ajax.get(`https://www.xiaofeishuwangluo.com/messagenotification/selectMessageNotificationByMtype?mtype=1&page=1`).then(e=>{
-           this.con = e.data.data.content
+          this.con = e.data.data.content
+          this.pageCount = e.data.data.pageTotal
+          this.currentPage = e.data.data.currentPage
+      })
+      this.$ajax.get(`https://www.xiaofeishuwangluo.com/messagenotification/selectMessageNotificationByMtype?mtype=2&page=1`).then(e=>{
+          this.contow = e.data.data.content
           this.pageCount = e.data.data.pageTotal
           this.currentPage = e.data.data.currentPage
       })

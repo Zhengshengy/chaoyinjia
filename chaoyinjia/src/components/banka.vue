@@ -6,7 +6,9 @@
               <div class="box" v-show="i.text">
                     <div class="text1">{{i.text}}</div>
               </div>
-            <img :src="i.cimg" alt="" class="cimg">
+            <div class="cimg">
+                 <img :src="i.cimg" alt="">
+            </div>
             <divider></divider>
             <div style="width: 100%;height: 2px;background: #F5F5F5;margin: 15px 0;position: relative">
               <div class="text" v-show="i.con">
@@ -91,8 +93,7 @@ import { Flexbox, FlexboxItem,Grid, GridItem,Divider} from 'vux'
       },
       methods:{
           toblankmain(cid){
-              let uid = localStorage.getItem('userid')
-              this.$router.push({path:'/blankmain',query:{cid:cid,uid:uid}})
+              this.$router.push({path:'/blankmain',query:{cid:cid}})
           },
           moey(grade,rew){
               this.show2= true
@@ -132,6 +133,18 @@ import { Flexbox, FlexboxItem,Grid, GridItem,Divider} from 'vux'
     .cimg{
         width: 50px;
         height: 50px;
+        margin: 0 auto;
+        position: relative;
+    }
+    .cimg img{
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      margin: auto;
+      width: 100%;
+      height: auto;
     }
     #banka{
         margin-bottom: 10px;

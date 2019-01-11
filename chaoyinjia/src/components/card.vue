@@ -40,20 +40,23 @@
               </div>
             </div>
           </div>
-          <img class="dect" src="../assets/guan.png" width="100%" alt="" @click="dis">
+          <img class="dect" src="../assets/guan.png" width="100%" alt="" @click="diss">
         </div>
     </div>
       <div>
          <Footer />
       </div>
+    <Become v-show="dis==true"></Become>
+    <alert v-model="show" hide-on-blur button-text="关闭" @on-show="onShow" @on-hide="onHide"> 账户已被冻结</alert>
   </div>
 </template>
 
 <script>
-import { Flexbox, FlexboxItem,Grid, GridItem,Divider} from 'vux'
+import { Flexbox, FlexboxItem,Grid, GridItem,Divider,Alert} from 'vux'
 import Footer from '@/components/footer'
 import Banka from '@/components/banka'
-
+import Become from '@/components/become'
+import wx from 'weixin-js-sdk'
   export default {
   name:'Card',
   components: {
@@ -63,7 +66,9 @@ import Banka from '@/components/banka'
     GridItem,
     Divider,
     Footer,
-    Banka
+    Banka,
+    Alert,
+    Become
   },
 
   data () {
@@ -72,7 +77,11 @@ import Banka from '@/components/banka'
       headImgUrl:'',
       main:[],
       cdetails:{},
-      show1:false
+      show1:false,
+      show:false,
+      dis:false,
+      userId:'',
+      url:''
     }
   },
 
@@ -100,12 +109,12 @@ import Banka from '@/components/banka'
     }else {
       function getUrlKey(name){//获取url 参数
    return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null;}
+
+
       let openid=getUrlKey("openid");
-       localStorage.setItem('openid', openid)
       if (!openid)  {
         window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=2'
       }else {
-        let openid = getUrlKey('openid')
         localStorage.setItem('openid', openid)
         this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid).then(response=>{
           this.cdetails = response.data.data.cdetails[0]
@@ -123,20 +132,97 @@ import Banka from '@/components/banka'
           this.main.push(obj)
         })
         })
+        this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/selectUserByOpenid?openid='+openid)
+      .then(response => {
+        console.log(response)
+        localStorage.setItem('username', response.data.data.nickname)
+        localStorage.setItem('headImgUrl', response.data.data.headImgUrl)
+        localStorage.setItem('userid', response.data.data.userid)
+        localStorage.setItem('userphone', response.data.data.userphone)
+        localStorage.setItem('ustatus', response.data.data.ustatus)
+        localStorage.setItem('openid', response.data.data.openid)
+        let that = this
+        this.username = response.data.data.nickname
+        this.headImgUrl = response.data.data.headImgUrl
+        this.userId = response.data.data.userid
+        if (response.data.data.ustatus == '1'){
+          this.dis = true
+        }else if (response.data.data.ustatus == '2'){
+          this.$ajax.post('https://www.xiaofeishuwangluo.com/agentdetails/selectAgentDetailsByUid?uid='+this.userId)
+      .then(e => {
+        if (e.data.data.grade == '1'){
+          that.grade = "经理"
+        }else if (e.data.data.grade == '2'){
+          that.grade = "总监"
+        }else if (e.data.data.grade == '3'){
+          that.grade = "银行家"
+        }
+        localStorage.setItem('grade', that.grade)
+      }).catch((error)=>{
+        console.log(error)
+          })
+        }else if (response.data.data.ustatus == '3'){
+          this.show = true
+        }
+      })
 
       }
     }
+
+            var link = 'https://www.xiaofeishuwangluo.com/blank/#/recommend?userid='+localStorage.getItem('userid')
+          var desc="芝麻银家服务平台，多家银行任意申请，秒批高额度，特约办理通道";
+          this.url = encodeURI(location.href.split('#')[0])
+        this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/getEncryptJsapiTicket?url='+this.url).then(e=> {
+          if (e.data.status == 200) {
+            wx.config({
+              debug: false,
+              appId: e.data.data.appid,
+              timestamp: e.data.data.timestamp,
+              nonceStr: e.data.data.noncestr,
+              signature: e.data.data.signature,
+              jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
+            })
+            wx.ready(function () {
+              wx.onMenuShareTimeline({
+                title: '信用卡办理', // 分享标题
+
+                link: link,// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
+                success: function () {
+                },
+                cancel: function () {
+                }
+              });
+              wx.onMenuShareAppMessage({
+                title: "信用卡办理", // 分享标题
+                link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                desc: desc,
+                imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
+                success: function () {
+                },
+                cancel: function () {
+                }
+              })
+            });
+          }
+        })
   },
   methods:{
     add(){
         this.show1 = true
     },
-    dis(){
+    diss(){
         this.show1 = false
       },
     shenqing(cid){
       this.$router.push({path:'/blankmain',query:{cid:cid}})
-    }
+    },
+     onHide () {
+      this.show = true
+    },
+    onShow () {
+      console.log('on show')
+    },
   }
 }
 </script>

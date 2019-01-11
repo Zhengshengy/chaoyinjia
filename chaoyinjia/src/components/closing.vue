@@ -85,15 +85,17 @@ export default {
       start:false,
       huocode:true,
       time:60,
+      phone:'',
     }
   },
     mounted(){
       this.userphone = localStorage.getItem('userphone').replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')
+      this.phone=localStorage.getItem('userphone')
     },
     methods:{
         submit(){
             let uid = localStorage.getItem('userid')
-            this.$ajax.get(`https://www.xiaofeishuwangluo.com//moneydetails/drawcash?uid=${uid}&money=${this.money}&alipayno=${this.alipayno}&userphone=${this.userphone}&checkCode=${this.checkCode}`).then(e=>{
+            this.$ajax.get(`https://www.xiaofeishuwangluo.com//moneydetails/drawcash?uid=${uid}&money=${this.money}&alipayno=${this.alipayno}&userphone=${this.phone}&checkCode=${this.checkCode}`).then(e=>{
                 console.log(e)
                 if (e.data.status==200){
                     this.$router.push('/')
