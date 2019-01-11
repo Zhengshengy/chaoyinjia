@@ -11,10 +11,10 @@
       <flexbox-item><div class="flex-demo">
         <flexbox orient="vertical" :gutter="0">
       <flexbox-item><div class="flex-demo" style="font-size: 14px">
-        <span class="zi">{{cdetails.cname}}</span>
+        <p class="zi">{{cdetails.cname}}</p>
       </div></flexbox-item>
       <flexbox-item><div class="flex-demo">
-        <span class="zi" style="color: #c1c1c1">{{cdetails.cremarks}}</span>
+        <p class="zi1" style="color: #c1c1c1">{{cdetails.cremarks}}</p>
       </div></flexbox-item>
       <flexbox-item><div class="flex-demo" @click="shenqing(cdetails.cid)">
         <div class="naniu">立即申请</div>
@@ -300,4 +300,12 @@ import wx from 'weixin-js-sdk'
    position: absolute;
    bottom: 15%;z-index: 100;width: 10%;right: 0;left: 0;margin: auto;
  }
+  .zi1{
+      width: 100%;
+      height: auto;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+  }
 </style>

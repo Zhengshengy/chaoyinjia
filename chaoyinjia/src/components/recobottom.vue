@@ -1,12 +1,11 @@
 <template>
   <div>
     <div class="bottom">
-      <img src="../assets/footer.png" width="100%" alt="">
+      <img src="../assets/footer.png" width="100%" alt="" style="margin-bottom: 40px">
       <div class="fo" @click="wexin">
         <img src="../assets/foucs.png" width="100%" height="100%" alt="">
       </div>
-
-      <div style="width: 100%;background: #F6C93C;text-align: center;color: #fff;line-height: 40px" @click="toblankcenter"><span>立即申请</span></div>
+      <div style="width: 100%;background: #F6C93C;text-align: center;color: #fff;line-height: 40px;position: fixed;bottom: 0" @click="toblankcenter"><span>立即申请</span></div>
   </div>
     <div v-transfer-dom>
       <x-dialog v-model="show1" class="dialog-demo">

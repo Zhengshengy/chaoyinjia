@@ -75,7 +75,7 @@ export default {
       sub2:true,
       sub3:false,
       username: '',
-      uid:null,
+      uid:'',
       superior_uid: null,
       idcard: '',
       wechatno: '',
@@ -103,13 +103,14 @@ export default {
     }
 },
     created(){
+    localStorage.clear()
     if (localStorage.getItem('openid')) {
         this.superior_uid = getUrlKey("userid") ? getUrlKey("userid") :1
          console.log(this.superior_uid)
         this.uid = localStorage.getItem("userid")
     }else {
       let openid=getUrlKey("openid");
-      let uid=getUrlKey("userid");
+      let uid = getUrlKey('userid')
       if (!openid)  {
         if (uid){
           window.location.href = 'https://www.xiaofeishuwangluo.com/wxpublic/open?state=6'+uid
@@ -120,17 +121,16 @@ export default {
         this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/selectUserByOpenid?openid='+openid)
       .then(response => {
         console.log(response)
+        this.uid = response.data.data.userid
         this.superior_uid = getUrlKey("userid") ? getUrlKey("userid") :1
         localStorage.setItem('openid', response.data.data.openid)
-        this.uid = response.data.data.userid
         localStorage.setItem('username', response.data.data.nickname)
         localStorage.setItem('headImgUrl', response.data.data.headImgUrl)
         localStorage.setItem('userid', response.data.data.userid)
         localStorage.setItem('userphone', response.data.data.userphone)
         localStorage.setItem('ustatus', response.data.data.ustatus)
-        this.userId = response.data.data.userid
          if (response.data.data.ustatus == '2'){
-          this.$ajax.post('https://www.xiaofeishuwangluo.com/agentdetails/selectAgentDetailsByUid?uid='+this.userId)
+          this.$ajax.post('https://www.xiaofeishuwangluo.com/agentdetails/selectAgentDetailsByUid?uid='+this.uid)
       .then(e => {
         if (e.data.data.grade == '1'){
           var grade = "经理"

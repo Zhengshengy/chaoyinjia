@@ -2,10 +2,10 @@
   <div class="con">
     <div class="tu">
       <img :src="src" alt="">
-    </div>
-    <div class="bon">
+      <div class="bon">
       <div class="btn" @click="add">
       <span>保存海报到本地</span>
+    </div>
     </div>
     <div class="btn btn1" v-clipboard:copy="copyurl"
         v-clipboard:success="onCopy"
@@ -101,8 +101,7 @@
   }
   .bon{
     width: 100%;
-    position: absolute;
-    bottom: 130px;
+    margin-top: 10px;
   }
   .di{
     position: fixed;

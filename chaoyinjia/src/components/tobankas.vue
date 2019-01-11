@@ -54,7 +54,7 @@ import { Flexbox, FlexboxItem,Grid, GridItem,Divider} from 'vux'
       },
       methods:{
           toblankmain(cid){
-              this.$router.push({path:'/recomain',query:{cid:cid,sid:this.sid}})
+              this.$router.push({path:'/recommain',query:{cid:cid,sid:this.sid}})
           },
       }
 }

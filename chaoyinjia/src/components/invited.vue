@@ -136,12 +136,8 @@
                 link:  link,// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
                 success: function () {
-                  alert('分享成功')
                 },
                 cancel: function () {
-                  // this.showSuccess = true
-                  // this.text = "分享失败"
-                  alert('分享失败')
                 }
               });
               wx.onMenuShareAppMessage({
@@ -150,14 +146,8 @@
                 desc: desc,
                 imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
                 success: function () {
-                  // this.showSuccess = true
-                  // this.text = "分享成功"
-                  alert('分享成功')
                 },
                 cancel: function () {
-                  // this.showSuccess = true
-                  // this.text = "分享失败"
-                  alert('分享失败')
                 }
               })
 

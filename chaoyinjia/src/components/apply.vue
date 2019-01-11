@@ -37,6 +37,7 @@
             <span>下一步</span>
         </div>
        </div>
+      <div style="height: 40px"></div>
       <div class="disfoot" style="position: fixed;bottom: 0;">
         <Footer></Footer>
       </div>

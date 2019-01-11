@@ -5,12 +5,16 @@
                 <div class="for">
                     <img :src="posterBlank" alt="">
                 </div>
+                <div class="texe">
+                  <div class="font">长按海报保存到本地分享给好友</div>
+                </div>
+                <div class="rout" >
+                    <span v-clipboard:copy="copyurl"
+                  v-clipboard:success="onCopy"
+                  v-clipboard:error="onError">分享链接邀请好友</span>
+                </div>
             </div>
             <div class="bottm">
-
-                <div class="rout" >
-                    <span>分享链接邀请好友</span>
-                </div>
                 <div class="boncom">
                     <div class="fonbomone">
                         <flexbox >
@@ -26,6 +30,7 @@
             </div>
         </div>
       <toast v-model="show2" type="text">长按保存图片</toast>
+      <toast v-model="showSuccess" type="text">{{text}}</toast>
     </div>
 </template>
 <script>
@@ -42,7 +47,10 @@
             heardImg:'',
             posterBlank:'',
             id:'',
-            show2:false
+            show2:false,
+            showSuccess:false,
+            text:'',
+            copyurl:'',
           }
         },
         mounted(){
@@ -52,12 +60,20 @@
               this.$ajax.get('https://www.xiaofeishuwangluo.com/userposter/selectPoster?userid='+this.id).then(e=>{
               this.posterBlank = e.data.data.posterBlank
         })
-
+          this.copyurl = window.location.href+'?userid='+this.uid
         },
         methods:{
             dabcake() {
                 this.$router.push({path: "/promote"});
-            }
+            },
+          onCopy(e){
+          this.text = "复制成功"
+          this.showSuccess = true
+        },
+        onError(e){
+          this.text = "复制失败"
+          this.showSuccess = true
+       },
         }
     }
 </script>
@@ -66,24 +82,29 @@
    width:100%;height: 100%;
    position: relative;background: #363636;
  }
- .boif{
-   padding-top: 30px;
+.boif{
+  width: 100%;
+  height: 100%;
  }
  .for{
-   width: 100%;
-   height: 100%;
+   position: relative;top:5%;
+   width: 62%;margin: 0 auto;
  }
  .img{
-     width: 80%;
-     margin: 0 auto;
-     position: relative;
-     bottom: 0;
+     width: 100%;height: 100%;top:0;
+     position: absolute;
 }
  .for img{
-    width: 80%;display: block;
+    width: 100%;display: block;
     height: auto;
     margin: 0 auto;
   }
+ .texe{
+   position: absolute;top:75%;width: 100%;text-align: center;color:#fff;font-size: 14px;
+ }
+ .font{
+   margin-bottom: 4%;letter-spacing:2px;
+ }
 .bottm{
     padding-top: 10%;
     text-align: center;
@@ -111,10 +132,11 @@
      position: fixed;bottom: 0;width: 100%;
   }
   .rout{
-    width: 40%;margin: 0 auto 10%;
-    border: 1px solid #f6c93c;
-    color: #f6c93c;
-    padding: 5px;
+    position: absolute;top:80%;left: 0;right: 0;
+    width: 40%;margin:auto;background: #f6c93c;
+    text-align: center;font-size: 14px;
+    color: #fff;
+    padding: 2% 0;
   }
 
 </style>

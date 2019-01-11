@@ -9,9 +9,9 @@
           </div>
         </div>
       </div>
-      <div class="boif" style="padding-top: 30px;" :style="display" >
+      <div class="boif" :style="display">
             <div class="topnot" >
-              <div class="swiper-container">
+              <div class="swiper-container atics">
                   <div class="swiper-wrapper">
                       <div class="swiper-slide">
                           <div class="bac" >
@@ -32,17 +32,18 @@
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
               </div>
-          </div>
-            <div class="bottm" style="position: fixed;bottom: 0;width: 100%">
+               <div class="bottm">
                <div class="texe">
                   <div class="font" style="margin-bottom: 4%;letter-spacing:2px;  ">长按海报保存到本地分享给好友</div>
               </div>
-              <div class="rout" style="width: 40%;margin: 0 auto 9%" >
+              <div class="rout" style="width: 50%;margin: 0 auto 9%" >
                   <div class="contou" v-clipboard:copy="copyurl"
                   v-clipboard:success="onCopy"
                   v-clipboard:error="onError">分享链接邀请好友</div>
               </div>
-              <div class="boncom" >
+          </div>
+          </div>
+        <div class="boncom">
               <div class="fonbomone">
                   <flexbox >
                     <flexbox-item><div class="flex-demo">
@@ -54,7 +55,6 @@
                   </flexbox>
               </div>
             </div>
-          </div>
         </div>
       <toast v-model="show2" type="text">长按保存图片</toast>
       <toast v-model="showSuccess">{{text}}</toast>
@@ -124,9 +124,6 @@ import Swiper from "swiper"
         dabcake() {
             this.$router.push({path: "/registercard"});
         },
-        // fenxiang(){
-        //   this.showSuccess = true
-        // },
         slideChangeTransitionEnd: function(){
           if(this.isEnd){
             this.navigation.$nextEl.css('display','none');
@@ -157,6 +154,18 @@ img{
 .boifk{
   width: 100%;height: 100%;
 }
+.boif{
+  width: 100%;
+  height: 100%;
+}
+.topnot{
+  position: absolute;top:0;
+  width: 100%;
+  height: 100%;
+}
+.atics{
+  padding-top: 5%;
+}
 .fontman{
   background: #000;width: 100%;position: absolute;top:0;height: 100%;
 }
@@ -165,14 +174,18 @@ img{
 }
 .bac{
   width: 55%;
+  /*position: absolute;top:0;*/
+  /*height: 50%;width: 100%;z-index: 1000;*/
   margin: 5% auto;
 }
 .bac img{
   width: 100%;margin: 0 auto;
 }
+.boncom{
+  position: fixed;bottom: 0;background:#E6E6E6;width: 100%;
+}
 .weui-cell{
   width:100%;height: 100%;
-
 }
 .vux-spinner {
     stroke: #fff;
@@ -194,29 +207,24 @@ img{
   height: auto;
 }
   .bottm{
-      padding-top: 10%;
+      position: absolute;top:70%;width: 100%;margin: 0 auto;
       text-align: center;
       font-size: 14px;
       color: #fff;
   }
-  .boncom{
-      background: #E6E6E6;
-      margin-top: 15px;
-      padding: 8px 20px;
-  }
   .contou{
       padding: 7px 5px;background: #f6c93c;
-      font-size: 12px;letter-spacing:2px;
+      font-size: 14px;letter-spacing:2px;
       width: 80%;margin: 0 auto;
   }
   .fonbomone{
-      width: 100%;
+      width: 90%;padding: 3% 0;margin: 0 auto;
   }
   .yaoqing,.clastom{
       text-align: center;
       font-size: 14px;
-      padding: 8px 0;
-      width: 90%;
+      padding: 5% 0;
+      width: 90%;margin: 0 auto;
   }
   .swiper-button-disabled{
     display:none;

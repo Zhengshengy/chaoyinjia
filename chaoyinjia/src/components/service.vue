@@ -1,19 +1,20 @@
 <template>
     <div class="become" v-show="show1==true">
         <div class="dext">
-          <img class="daili" src="../assets/kefu.png" alt="">
-          <div class="tomut">
+          <div class="daili">
+            <div class="tomut">
             <div class="ontom">
-              <div class="font" style="font-size: 20px;text-align: center;font-weight: 600;margin: 10px 0 6px;color: #000">芝麻银家官方客服</div>
-              <div style="font-size: 14px;color:#C3C3C3;text-align: center">添加官方客服，为您排忧解惑</div>
-              <img :src="accountsUrl" alt="">
-              <div style="font-size: 14px;color:#383838;text-align: center">长按扫一扫</div>
+              <div class="font">芝麻银家官方客服</div>
+              <div class="guanfang" >添加官方客服，为您排忧解惑</div>
+              <img class="imgfo" :src="accountsUrl" alt="">
+              <div class="tonsfo" >长按扫一扫</div>
               <div class="number" >
-                <div @click="tell">
+                <div class="imgsck" @click="tell">
                   <img src="../assets/pothon.png" alt="">
                 </div>
               </div>
             </div>
+          </div>
           </div>
           <img class="dect" src="../assets/guan.png" width="100%" alt="" @click="dis">
         </div>
@@ -73,26 +74,60 @@
         height: 100%;
     }
     .become .daili{
-        position: absolute;
+        position: fixed;
         left: 0;bottom:0;top: 0px;
+        background-image:url("../assets/kefu.png") ;
+        background-size: 100% 100%;
         right: 0;margin: auto;
-        width: 100%;
+        width: 75%;height: 60%;
     }
     .tomut{
-       position: absolute;
-       left:0;top: 25%;right: 0;margin: auto;
-       width: 72%;z-index: 20;
+      width: 100%;height: 100%;position: absolute;top:0;
     }
-    .ontom img{
-      width: 83%;
-      display: block;margin: 0 auto;
+    .ontom{
+      width: 100%;position: relative;top:0;height: 100%;
+    }
+    .font{
+      position: absolute;
+      width: 100%;
+      top: -5%;
+      font-size: 20px;text-align: center;
+      font-weight: 600;color: #000;
+    }
+    .guanfang{
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      font-weight: 600;
+      top:2%;
+      font-size: 14px;color:#C3C3C3;letter-spacing:0;
+    }
+    .tonsfo{
+      position: absolute;
+      top:55%;
+      text-align: center;
+      left: 0;right: 0;
+      font-size: 14px;color:#383838;
+      display: block;margin:auto;
+    }
+    .ontom .imgfo{
+      position: absolute;
+      top:10%;
+      width: 63%;left: 0;right: 0;
+      display: block;margin:auto;
+    }
+    .imgsck{
+      position: absolute;
+      top:68%;
+      width: 72%;left: 0;right: 0;
+      margin:auto;
     }
  .dect{
    position: absolute;
    bottom: 15%;z-index: 100;width: 10%;right: 0;left: 0;margin: auto;
  }
   .number{
-    width: 100%;margin: 30px auto 0;
+    width: 100%;margin: 16% auto 0;
   }
   .posfon img{
     width: 100%;

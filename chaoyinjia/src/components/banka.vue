@@ -20,7 +20,7 @@
             <div class="nofont" @click.stop="moey(i.grade,i.reward)">
                 <span class="doumt">奖金</span>
                 <img src="../assets/down.png" width="10%" style="margin: 0 3px" alt="">
-                <span style="color: #FF6666;font-size:15px">￥{{i.reward}}</span>
+                <span style="color: #FF6666;font-size:12px">￥{{i.reward}}</span>
             </div>
           </grid-item>
         </grid>

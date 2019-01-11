@@ -43,7 +43,10 @@
         this.cimg = e.data.data.cimg
       })
         var link = window.location.href
-        var desc="高额信用卡申请通道";
+        var desc="芝麻银家服务平台，多家银行任意申请，秒批高额度，特约办理通道";
+        var cname = this.cname+''
+        var cimg = this.cimg
+        let that = this
         this.url = encodeURI(location.href.split('#')[0])
         this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/getEncryptJsapiTicket?url='+this.url).then(e=>{
           if (e.data.status==200){
@@ -67,10 +70,10 @@
                 }
               });
               wx.onMenuShareAppMessage({
-                title: this.cname+'邀请您来办卡', // 分享标题
+                title: cname, // 分享标题
                 link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 desc: desc,
-                imgUrl: this.cimg, // 分享图标
+                imgUrl: cimg, // 分享图标
                 success: function () {
                 },
                 cancel: function () {

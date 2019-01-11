@@ -10,7 +10,7 @@
     name:'Become',
     methods:{
       tocenter(){
-        this.$router.push('/reg')
+        this.$router.push('/center')
       }
     }
   }

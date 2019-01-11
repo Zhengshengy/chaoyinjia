@@ -11,10 +11,10 @@
       <flexbox-item><div class="flex-demo">
         <flexbox orient="vertical" :gutter="0">
       <flexbox-item><div class="flex-demo" style="font-size: 14px">
-        <span class="zi">{{cdetails.cname}}</span>
+        <p class="zi">{{cdetails.cname}}</p>
       </div></flexbox-item>
       <flexbox-item><div class="flex-demo">
-        <span class="zi" style="color: #c1c1c1">{{cdetails.cremarks}}</span>
+        <p class="zi1" style="color: #c1c1c1">{{cdetails.cremarks}}</p>
       </div></flexbox-item>
       <flexbox-item><div class="flex-demo" @click="shenqing(cdetails.cid)">
         <div class="naniu">立即申请</div>
@@ -87,6 +87,10 @@ import wx from 'weixin-js-sdk'
 
   created() {
     if (localStorage.getItem('openid')) {
+      let usatus = localStorage.getItem('ustatus')
+          if (usatus == '1'){
+            this.dis = true
+          }
         let openid = localStorage.getItem('openid')
         this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid)
       .then(response => {
@@ -94,7 +98,7 @@ import wx from 'weixin-js-sdk'
           this.cdetails = response.data.data.cdetails[0]
         response.data.data.bdetails.forEach((v,k)=>{
           let obj = {}
-          // console.log(arr)
+          console.log(response)
           obj.cimg = response.data.data.bdetails[k].cimg
           obj.cid = response.data.data.bdetails[k].cid
           obj.cname = response.data.data.bdetails[k].cname
@@ -104,6 +108,7 @@ import wx from 'weixin-js-sdk'
           obj.con = response.data.data.bdetails[k].clabel.split(',')[1]
           obj.grade = response.data.data.grade
           this.main.push(obj)
+
         })
       })
     }else {
@@ -292,6 +297,13 @@ import wx from 'weixin-js-sdk'
        position: absolute;
        left:0;top: 25%;right: 0;margin: auto;
        width: 72%;z-index: 20;
+    }
+    .zi1{
+      height: auto;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
  .dect{
    position: absolute;
