@@ -113,6 +113,7 @@ import Retu from '@/components/retu'
         query(){
            this.$ajax.get(`https://www.xiaofeishuwangluo.com/agentdetails/selectCustomerByPhone?superiorUid=${this.uid}&page=${this.currentPage}&phone=${this.phone}`).then(e=>{
                console.log(e)
+                this.con = []
                if (e.data.status==200) {
                    this.pageCount = e.data.data.pageTotal
                   this.currentPage = e.data.data.currentPage

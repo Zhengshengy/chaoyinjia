@@ -31,7 +31,7 @@
               </div>
             </div>
           </div>
-          <img class="dect" src="../assets/guan.png" width="100%" alt="" @click="dis">
+          <img class="dect" src="../assets/guan.png"  alt="" @click="dis">
         </div>
     </div>
   </div>

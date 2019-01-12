@@ -25,7 +25,7 @@
             <div class="vitext">验证码：
                 <input type="text" style="outline:none;" v-model="checkCode"></div>
             <div class="vitext">结算金额：
-                <input type="text" style="outline:none;" v-model="money"></div>
+                <input type="number" style="outline:none;" v-model="money"></div>
         </div>
       <div style="margin-top: 10px;background: #fff;padding: 10px 15px"></div>
       <div style="background: #fff;padding: 0px 15px 10px;color: #B5B5B5">
@@ -44,11 +44,12 @@
     </div>
           <div style="display:none" >{{ exitsVal }}</div>
     </div>
+     <toast v-model="show2" type="text">{{message}}</toast>
       <Retu />
     </div>
 </template>
 <script>
-import { Cell, XButton, Countdown } from 'vux'
+import { Cell, XButton, Countdown,Toast } from 'vux'
 import Retu from '@/components/retu'
 export default {
     name:'Closing',
@@ -57,6 +58,7 @@ export default {
     XButton,
     Countdown,
     Retu,
+    Toast
   },
     computed:{
     exitsVal:function(){
@@ -86,8 +88,10 @@ export default {
       ifExist:0,
       start:false,
       huocode:true,
-      time:60,
+      time:180,
       phone:'',
+      show2:false,
+      message:''
     }
   },
     mounted(){
@@ -100,7 +104,13 @@ export default {
             this.$ajax.get(`https://www.xiaofeishuwangluo.com//moneydetails/drawcash?uid=${uid}&money=${this.money}&alipayno=${this.alipayno}&userphone=${this.phone}&checkCode=${this.checkCode}`).then(e=>{
                 console.log(e)
                 if (e.data.status==200){
+                    this.show2 = true
+                     this.message = "提现成功"
                     this.$router.push('/')
+                }else if (e.data.status==500){
+                    this.show2 = true
+                    this.message = e.data.msg
+
                 }
             })
         },
@@ -114,7 +124,7 @@ export default {
         finish (index) {
       this.huocode = true
       this.start = false
-      this.time = 60
+      this.time = 180
     },
     }
 }
@@ -122,7 +132,7 @@ export default {
 <style scoped>
 .closing{
     width:100%;
-    height: 100%;
+    height: 627px;
 }
 .closing::before {
     content: " ";

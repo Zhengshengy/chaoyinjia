@@ -3,26 +3,30 @@
     <div class="top" @click="add">
       <img src="../assets/blank.png" alt="" style="width: 100%">
     </div>
-    <div class="card" style="width:89%;margin:15px auto 0;padding: 10px;background: #fff;border-radius: 5px">
-      <flexbox :gutter='30'>
+    <swiper :aspect-ratio="300/780" auto loop :interval="3000" :threshold="100" :show-dots="false">
+      <swiper-item class="swiper-demo-img" v-for="(i, index) in cdetails" :key="index">
+        <div class="card" style="width:89%;margin:15px auto 0;padding: 10px;background: #fff;border-radius: 5px">
+        <flexbox :gutter='30'>
       <flexbox-item><div class="flex-demo">
-        <img :src='cdetails.cimg' alt="" style="width: 100%;height: auto">
+        < img :src='i.cimg' alt="" style="width: 100%;height: auto">
       </div></flexbox-item>
       <flexbox-item><div class="flex-demo">
         <flexbox orient="vertical" :gutter="0">
       <flexbox-item><div class="flex-demo" style="font-size: 14px">
-        <p class="zi">{{cdetails.cname}}</p>
+        <p class="zi">{{i.cname}}</p >
       </div></flexbox-item>
       <flexbox-item><div class="flex-demo">
-        <p class="zi1" style="color: #c1c1c1">{{cdetails.cremarks}}</p>
+        <p class="zi1" style="color: #c1c1c1">{{i.cremarks}}</p >
       </div></flexbox-item>
-      <flexbox-item><div class="flex-demo" @click="shenqing(cdetails.cid)">
+      <flexbox-item><div class="flex-demo" @click="shenqing(i.cid)">
         <div class="naniu">立即申请</div>
       </div></flexbox-item>
-    </flexbox>
-      </div></flexbox-item>
-    </flexbox>
-    </div>
+      </flexbox>
+        </div></flexbox-item>
+      </flexbox>
+        </div>
+      </swiper-item>
+    </swiper>
     <div class="main" style="padding: 10px 10px 0">
       <span style="font-size: 14px;">推荐银行</span>
       <Banka style="margin-top: 5px" :main="main"  />
@@ -52,7 +56,7 @@
 </template>
 
 <script>
-import { Flexbox, FlexboxItem,Grid, GridItem,Divider,Alert} from 'vux'
+import { Flexbox, FlexboxItem,Grid, GridItem,Divider,Alert,Swiper,SwiperItem} from 'vux'
 import Footer from '@/components/footer'
 import Banka from '@/components/banka'
 import Become from '@/components/become'
@@ -68,7 +72,9 @@ import wx from 'weixin-js-sdk'
     Footer,
     Banka,
     Alert,
-    Become
+    Become,
+    Swiper,
+    SwiperItem
   },
 
   data () {
@@ -81,10 +87,9 @@ import wx from 'weixin-js-sdk'
       show:false,
       dis:false,
       userId:'',
-      url:''
+      url:'',
     }
   },
-
   created() {
     if (localStorage.getItem('openid')) {
       let usatus = localStorage.getItem('ustatus')
@@ -95,7 +100,7 @@ import wx from 'weixin-js-sdk'
         this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid)
       .then(response => {
         console.log(response)
-          this.cdetails = response.data.data.cdetails[0]
+          this.cdetails = response.data.data.cdetails
         response.data.data.bdetails.forEach((v,k)=>{
           let obj = {}
           console.log(response)
@@ -122,7 +127,7 @@ import wx from 'weixin-js-sdk'
       }else {
         localStorage.setItem('openid', openid)
         this.$ajax.get('https://www.xiaofeishuwangluo.com/creditcard/selectCreditCard?openid='+openid).then(response=>{
-          this.cdetails = response.data.data.cdetails[0]
+          this.cdetails = response.data.data.cdetails
         response.data.data.bdetails.forEach((v,k)=>{
           let obj = {}
           // console.log(arr)
@@ -260,7 +265,7 @@ import wx from 'weixin-js-sdk'
     padding: 5px 5px;
     width: 80%;
     border-radius: 2px;
-    margin: 20px  0 0;
+    margin: 10px  0 0;
   }
   .zi{
     text-overflow:ellipsis;
@@ -306,7 +311,7 @@ import wx from 'weixin-js-sdk'
       overflow: hidden;
     }
  .dect{
-   position: absolute;
-   bottom: 15%;z-index: 100;width: 10%;right: 0;left: 0;margin: auto;
+   position: fixed;
+   bottom: 5%;z-index: 100;width: 10%;right: 0;left: 0;margin: auto;
  }
 </style>

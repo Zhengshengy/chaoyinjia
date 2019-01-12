@@ -90,10 +90,10 @@ import Retu from '@/components/retu'
         }
       },
     mounted(){
-      this.id = localStorage.getItem('userid')
+      this.id = localStorage.getItem('userid') ? localStorage.getItem('userid'):'1'
       var mobileHeight=window.innerHeight+"px";
       document.getElementById('ntom').style.minHeight=mobileHeight;
-      this.$ajax.get('https://www.xiaofeishuwangluo.com/userposter/selectPoster?userid='+1).then(e=>{
+      this.$ajax.get('https://www.xiaofeishuwangluo.com/userposter/selectPoster?userid='+this.id).then(e=>{
           console.log(e)
           this.garde = e.data.data
           this.garde.one=e.data.data.posterAgencyone
@@ -105,7 +105,7 @@ import Retu from '@/components/retu'
           }
       })
 
-      this.copyurl = window.location.href+'?userid='+this.uid
+      this.copyurl = window.location.href+'?userid='+this.id
       var mySwiper = new Swiper ('.swiper-container', {
       spaceBetween: 0,
       freeMode: false,

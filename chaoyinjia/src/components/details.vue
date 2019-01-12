@@ -238,7 +238,7 @@ export default {
       })
       }
     },
-    chaxun(cid,idcard,userphone,username){
+    chaxun(cid,idcard,username,userphone){
       this.$ajax.get(`https://www.xiaofeishuwangluo.com/progressquery/selectProgressQueryByKey?creditcardId=${cid}`).then(e=>{
         // console.log(e)
         let pid = e.data.data

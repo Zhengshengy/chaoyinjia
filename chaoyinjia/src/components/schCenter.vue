@@ -14,11 +14,12 @@
             </div>
           <div class="vitext" v-show="validateState==1" style="position: relative">图片验证码：
                 <input type="text" style="outline:none;" v-model="piccode" placeholder="请输入验证码">
-              <img :src="src" alt="" class="checktu" @click="huoqu(pid)">
+            <spinner v-if="jiazai==true"  :size="0 === 3 ? '10px' : ''" style="position: absolute;right: 0"></spinner>
+              <img  v-else :src="src" alt="" class="checktu" @click="huoqu(pid)">
             </div>
-            <div class="vitext" v-show="phoneState==1">手机号：
+            <div class="vitext" v-show="phoneState==1" style="position: relative">手机号：
                 <input type="text" style="width: 60%;" v-model="userphone" :placeholder="placephone">
-                <div @click="checkcode" v-if="huocode==true" style="color: #f9c63c;float: right" >
+                <div @click="checkcode" v-if="huocode==true" style="color: #f9c63c;position: absolute;right: 25%;right: 0" >
                 获取验证码
                 </div>
                 <div  v-else-if="huocode==false" style="float: right">
@@ -32,7 +33,8 @@
                 <input type="text" style="outline:none;position: relative" v-model="checkCode" placeholder="请输入验证码" ></div>
 
         </div>
-            <div @click="submit" class=" sub1">
+
+            <div @click="submit" :class="{ 'sub': sub2, 'sub1': sub3} ">
             <span>确认</span>
             </div>
             <div class="bots">
@@ -41,6 +43,7 @@
                     请输入与申请人提交的信用卡申请资料一致的身份证号码或手机号码，否则，无法查询到信用卡申请进度。
                 </div>
             </div>
+          <div style="height: 300px"></div>
         </div>
       <div class="become" v-show="show1==true">
         <div class="dext">
@@ -81,14 +84,24 @@
         </div>
       </div>
       <Retu/>
+      <div v-transfer-dom>
+      <confirm v-model="show2"
+      :title="tit" :show-cancel-button="false"
+      @on-confirm="onConfirm">
+        <p style="text-align:center;">{{messages}}</p>
+      </confirm>
+    </div>
     </div>
 </template>
 <script>
-import {  XInput,Box, GroupTitle, Group, Divider,Countdown , Flexbox, FlexboxItem } from 'vux'
+import {  Confirm,XInput,Box, GroupTitle, Group, Divider,Countdown , Flexbox, FlexboxItem,TransferDomDirective as TransferDom,Spinner } from 'vux'
 import Retu from '@/components/retu'
 import Footer from '@/components/footer'
 export default {
   name:'schCenter',
+  directives: {
+    TransferDom
+  },
   components: {
     Countdown,
     Footer,
@@ -98,7 +111,7 @@ export default {
     Group,
     Divider,
     Retu,
-     Flexbox, FlexboxItem
+     Flexbox, FlexboxItem,Confirm,Spinner
   },
   data(){
     return{
@@ -110,8 +123,8 @@ export default {
       time: 180,
       value: '',
       start: false,
-      sub2:true,
-      sub3:false,
+      sub2:false,
+      sub3:true,
       username:'',
       idcard:'',
       userphone:'',
@@ -133,7 +146,9 @@ export default {
       placephone:'请输入手机号',
       placeidcard:'请输入身份证号',
       subphone:'',
-      subidcard:''
+      subidcard:'',
+      tit:'提示',
+      jiazai:true
     }
   },
   created(){
@@ -141,9 +156,9 @@ export default {
     this.username = this.$route.params.username
     this.idcard = this.$route.params.idcard?this.substring(this.$route.params.idcard):''
     this.userphone = this.$route.params.userphone?this.$route.params.userphone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2'):''
-    this.subphone = this.$route.params.userphone ?this.$route.params.userphone:this.userphone
-    this.subidcard = this.$route.params.idcard?this.$route.params.idcard:this.idcard
-    this.$ajax('api/progressquery/selectProgressQueryPidByKey?pid='+this.pid).then(e=>{
+
+
+    this.$ajax('https://www.xiaofeishuwangluo.com/progressquery/selectProgressQueryPidByKey?pid='+this.pid).then(e=>{
       console.log(e)
       this.nameState = e.data.data.nameState
       this.phoneState = e.data.data.phoneState
@@ -156,6 +171,7 @@ export default {
       case '1':
         this.$ajax('https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackCodeByPuFa').then(e=>{
             console.log(e)
+          this.jiazai = false
         this.src =  'data:image/jpeg;base64,'+e.data.data.imgs
           this.token = e.data.data.token
         });
@@ -163,6 +179,7 @@ export default {
        case '9':
         this.$ajax('https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackCodeByGuangDa').then(e=>{
             console.log(e)
+          this.jiazai = false
           this.src =  'data:image/jpeg;base64,'+e.data.data.imgs
           this.token = e.data.data.token
         })
@@ -185,6 +202,8 @@ export default {
         },
     //获取验证码
         checkcode(){
+      this.subphone = this.$route.params.userphone ?this.$route.params.userphone:this.userphone
+      this.subidcard = this.$route.params.idcard?this.$route.params.idcard:this.idcard
           this.start = true
           switch (this.pid) {
             case '9':
@@ -218,19 +237,31 @@ export default {
          this.messages = '身份证号不能为空';
           }else if(!reg.test(this.idcard)){
             this.show2 = true
-         this.messages = '请输入正确的身份证号';
+          this.messages = '请输入正确的身份证号';
         }
         },
     submit(){
+      this.sub2 = true
+      this.sub3 = false
+      this.subphone = this.$route.params.userphone ?this.$route.params.userphone:this.userphone
+      this.subidcard = this.$route.params.idcard?this.$route.params.idcard:this.idcard
       switch (this.pid) {
         case '1':
           if (this.idcard && this.piccode){
             this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackDetailsByPuFa?token=${this.token}&idcard=${this.subidcard}&code=${this.piccode}`).then(e=>{
               console.log(e)
-              this.endTime = e.data.data.endtime
-              this.type = e.data.data.type
-              this.state = e.data.data.state
-              this.chaxun = true
+              this.sub2 = false
+              this.sub3 = true
+              if (e.data.status == 200){
+                this.endTime = e.data.data.endtime
+                this.type = e.data.data.type
+                this.state = e.data.data.state
+                this.chaxun = true
+              } else if (e.data.status==500){
+                this.show2 = true
+                this.messages = e.data.msg;
+              }
+
             })
           }
           break;
@@ -238,10 +269,17 @@ export default {
           if (this.idcard && this.piccode && this.username && this.checkCode && this.userphone){
             this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackDetailsGuangda?code=${this.piccode}&idcard=${this.subidcard}&name=${this.username}&mobCode=${this.checkCode}`).then(e=>{
               console.log(e)
-              this.endTime = e.data.data.endtime
-              this.type = e.data.data.type
-              this.state = e.data.data.state
-              this.chaxun = true
+              this.sub2 = false
+              this.sub3 = true
+              if (e.data.status == 200){
+                this.endTime = e.data.data.endtime
+                this.type = e.data.data.type
+                this.state = e.data.data.state
+                this.chaxun = true
+              } else if (e.data.status==500){
+                this.show2 = true
+                this.messages = e.data.msg;
+              }
             })
           }
           break;
@@ -249,10 +287,17 @@ export default {
           if (this.idcard){
             this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackDetailsByShangHai?idcard=${this.subidcard}`).then(e=>{
               console.log(e)
-              this.endTime = e.data.data.endtime
-              this.type = e.data.data.type
-              this.state = e.data.data.state
-              this.chaxun = true
+              this.sub2 = false
+              this.sub3 = true
+              if (e.data.status == 200){
+                this.endTime = e.data.data.endtime
+                this.type = e.data.data.type
+                this.state = e.data.data.state
+                this.chaxun = true
+              } else if (e.data.status==500){
+                this.show2 = true
+                this.messages = e.data.msg;
+              }
             })
           }
           break;
@@ -260,10 +305,17 @@ export default {
           if (this.idcard && this.checkCode && this.userphone){
             this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackDetailsZhongXin?idcard=${this.subidcard}&code=${this.checkCode}`).then(e=>{
               console.log(e)
-              this.endTime = e.data.data.endtime
-              this.type = e.data.data.type
-              this.state = e.data.data.state
-              this.chaxun = true
+              this.sub2 = false
+              this.sub3 = true
+              if (e.data.status == 200){
+                this.endTime = e.data.data.endtime
+                this.type = e.data.data.type
+                this.state = e.data.data.state
+                this.chaxun = true
+              } else if (e.data.status==500){
+                this.show2 = true
+                this.messages = e.data.msg;
+              }
             })
           }
       }
@@ -281,6 +333,9 @@ export default {
         })
            break;
       }
+    },
+    onConfirm(){
+
     }
   }
 }
@@ -291,8 +346,18 @@ export default {
     }
     #schedule{
         width: 100%;
-        height: 100%;
+        height: 667px;
         /*background: #fff !important;*/
+    }
+    #schedule::before{
+      content: " ";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #fff;
+      z-index: -100;
     }
     .progress{
         width:100%;
@@ -391,7 +456,7 @@ export default {
     }
  .dect{
    position: absolute;
-   bottom: 15%;z-index: 100;width: 10%;right: 0;left: 0;margin: auto;
+   bottom: 5%;z-index: 100;width: 10%;right: 0;left: 0;margin: auto;
  }
   .cimg{
     width: 50px;
@@ -418,7 +483,7 @@ export default {
   }
   .box{
     width: 90%;
-    height: 50%;
+    height: 55%;
     position: absolute;
     top: 0;
     bottom: 0;

@@ -59,7 +59,7 @@
       <div v-transfer-dom>
       <x-dialog v-model="show1" class="dialog-demo">
         <div class="img-box">
-          <img src="../assets/qrcode.jpg" style="max-width:100%">
+          <img :src="accountsUrl" style="max-width:100%">
         </div>
         <div @click="show1=false">
           <span class="vux-close"></span>
@@ -103,6 +103,7 @@
         }
       },
     created(){
+
         this.$ajax.get('https://www.xiaofeishuwangluo.com/base/publicSysData').then(e=>{
           console.log(e)
           this.uid = e.data.data.uuid

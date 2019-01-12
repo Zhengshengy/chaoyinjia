@@ -141,10 +141,7 @@
       var mobileHeight=window.innerHeight+"px";
       document.querySelector('.bigbox').style.minHeight=mobileHeight;
       let ustatus = localStorage.getItem('ustatus')
-      this.texcon = sessionStorage.getItem("texcon")
-      if (ustatus=='2' && this.texcon==false){
-        this.starce=false
-      }else {
+      if (ustatus=='2' ){ //cookie 中没有 popped 则赋给他一个值（此时弹框显示）
         this.$ajax.get(`https://www.xiaofeishuwangluo.com/messagenotification/selectMessageNotificationByTime`).then(e => {
           if (e.data.status == 500) {
             this.starce = false
@@ -152,10 +149,11 @@
             this.starce = true
             this.texcon = e.data.data.mdetails
             this.mtitle = e.data.data.mtitle
-            sessionStorage.setItem('texcon', false)
           }
         })
-      }
+   }else{
+        this.starce = false; //若cookie 中已经有 popped 值，则弹框再不会显示
+    }
     },
     created(){
     if (localStorage.getItem('openid')) {
@@ -371,6 +369,7 @@
     success(){
         this.kefu = false
     },
+   
   }
 }
 </script>

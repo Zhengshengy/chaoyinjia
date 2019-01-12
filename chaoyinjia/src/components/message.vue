@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="inforne" v-else-if="isactiveA==false">
-            <div class="bots" v-for="item in contow" :key="item.mid" @click="check(item.mid)">
+            <div class="bots" v-for="item in con" :key="item.mid" @click="check(item.mid)">
               <flexbox>
                 <flexbox-item :span="2"><div class="flex-demo"><div class="left">
                   <div class="img">
@@ -100,7 +100,6 @@ export default {
         pageCount:0,
         currentPage:1,
         con:[],
-        contow:[],
         mtype:1,
         isactiveA:true,
         isactiveB:false,
@@ -114,11 +113,11 @@ export default {
           this.pageCount = e.data.data.pageTotal
           this.currentPage = e.data.data.currentPage
       })
-      this.$ajax.get(`https://www.xiaofeishuwangluo.com/messagenotification/selectMessageNotificationByMtype?mtype=2&page=1`).then(e=>{
-          this.contow = e.data.data.content
-          this.pageCount = e.data.data.pageTotal
-          this.currentPage = e.data.data.currentPage
-      })
+      // this.$ajax.get(`https://www.xiaofeishuwangluo.com/messagenotification/selectMessageNotificationByMtype?mtype=2&page=1`).then(e=>{
+      //     this.con = e.data.data.content
+      //     this.pageCount = e.data.data.pageTotal
+      //     this.currentPage = e.data.data.currentPage
+      // })
     },
     methods:{
         prev(){
@@ -132,12 +131,13 @@ export default {
     next(){
       this.currentPage=this.currentPage+1
       this.$ajax.get(`https://www.xiaofeishuwangluo.com/messagenotification/selectMessageNotificationByMtype?mtype=${this.mtype}&page=${this.currentPage}`).then(e=>{
-        this.con = e.data.data.content
+          this.con = e.data.data.content
           this.pageCount = e.data.data.pageTotal
           this.currentPage = e.data.data.currentPage
       })
     },
      mess(){
+        this.con =[]
         this.isactiveA=true;
         this.isactiveB=false;
         this.mtype = 1;
@@ -148,18 +148,25 @@ export default {
       })
      },
      ask(){
+         this.con =[]
          this.isactiveA=false;
          this.isactiveB=true;
+         this.mtype = 2;
          this.$ajax.get(`https://www.xiaofeishuwangluo.com/messagenotification/selectMessageNotificationByMtype?mtype=${this.mtype}&page=${this.currentPage}`).then(e=>{
+           console.log(e.data.data.content[0].mtype)
           this.con = e.data.data.content
           this.pageCount = e.data.data.pageTotal
           this.currentPage = e.data.data.currentPage
       })
      },
         check(index){
+          this.con=[]
             this.$router.push({name:'Minute',params:{mid:index}})
         }
-    }
+    },
+  beforeDestroy(){
+      this.con=[]
+  }
 }
 </script>
 <style scoped>
