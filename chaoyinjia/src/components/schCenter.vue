@@ -9,7 +9,7 @@
                 <input type="text" style="outline:none;" v-model="username" :placeholder="placename">
             </div>
             <div class="vitext" v-show='idcardState==1'>身份证号：
-                <input type="text" style="outline:none;" @on-blur="vadait" :placeholder="placeidcard" v-model="idcard">
+                <input type="text" style="outline:none;width: 65%" @on-blur="vadait" :placeholder="placeidcard" v-model="idcard">
 
             </div>
           <div class="vitext" v-show="validateState==1" style="position: relative">图片验证码：
@@ -18,8 +18,8 @@
               <img  v-else :src="src" alt="" class="checktu" @click="huoqu(pid)">
             </div>
             <div class="vitext" v-show="phoneState==1" style="position: relative">手机号：
-                <input type="text" style="width: 60%;" v-model="userphone" :placeholder="placephone">
-                <div @click="checkcode" v-if="huocode==true" style="color: #f9c63c;position: absolute;right: 25%;right: 0" >
+                <input type="text" style="width: 50%;" v-model="userphone" :placeholder="placephone">
+                <div @click="checkcode" v-if="huocode==true" style="color: #f9c63c;float: right" >
                 获取验证码
                 </div>
                 <div  v-else-if="huocode==false" style="float: right">
@@ -30,7 +30,7 @@
             </div>
             </div>
             <div class="vitext" v-show="checkcodeState==1">验证码：
-                <input type="text" style="outline:none;position: relative" v-model="checkCode" placeholder="请输入验证码" ></div>
+                <input type="text" style="outline:none;position: relative" v-model="checkCode" placeholder="请输入验证码" @blur="gun"></div>
 
         </div>
 
@@ -91,10 +91,13 @@
         <p style="text-align:center;">{{messages}}</p>
       </confirm>
     </div>
+      <div v-transfer-dom>
+      <loading :show="show3" :text="text1"></loading>
+    </div>
     </div>
 </template>
 <script>
-import {  Confirm,XInput,Box, GroupTitle, Group, Divider,Countdown , Flexbox, FlexboxItem,TransferDomDirective as TransferDom,Spinner } from 'vux'
+import {  Confirm,XInput,Box, GroupTitle, Group, Divider,Countdown , Flexbox, FlexboxItem,TransferDomDirective as TransferDom,Spinner,Loading } from 'vux'
 import Retu from '@/components/retu'
 import Footer from '@/components/footer'
 export default {
@@ -111,10 +114,12 @@ export default {
     Group,
     Divider,
     Retu,
-     Flexbox, FlexboxItem,Confirm,Spinner
+     Flexbox, FlexboxItem,Confirm,Spinner,Loading
   },
   data(){
     return{
+      show3:false,
+      text1:'请等待',
       chaxun:false,
       show1:false,
       huocode:true,
@@ -245,6 +250,7 @@ export default {
       this.sub3 = false
       this.subphone = this.$route.params.userphone ?this.$route.params.userphone:this.userphone
       this.subidcard = this.$route.params.idcard?this.$route.params.idcard:this.idcard
+      this.show3 = true
       switch (this.pid) {
         case '1':
           if (this.idcard && this.piccode){
@@ -252,6 +258,7 @@ export default {
               console.log(e)
               this.sub2 = false
               this.sub3 = true
+              this.show3 = false
               if (e.data.status == 200){
                 this.endTime = e.data.data.endtime
                 this.type = e.data.data.type
@@ -271,6 +278,7 @@ export default {
               console.log(e)
               this.sub2 = false
               this.sub3 = true
+              this.show3 = false
               if (e.data.status == 200){
                 this.endTime = e.data.data.endtime
                 this.type = e.data.data.type
@@ -289,6 +297,7 @@ export default {
               console.log(e)
               this.sub2 = false
               this.sub3 = true
+              this.show3 = false
               if (e.data.status == 200){
                 this.endTime = e.data.data.endtime
                 this.type = e.data.data.type
@@ -307,6 +316,7 @@ export default {
               console.log(e)
               this.sub2 = false
               this.sub3 = true
+              this.show3 = false
               if (e.data.status == 200){
                 this.endTime = e.data.data.endtime
                 this.type = e.data.data.type
@@ -336,6 +346,9 @@ export default {
     },
     onConfirm(){
 
+    },
+    gun(){
+      window.scrollTo(0, 0);
     }
   }
 }

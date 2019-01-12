@@ -69,7 +69,7 @@ export default {
     return {
       show2:false,
       huocode:true,
-      time: 60,
+      time: 180,
       value: '',
       start: false,
       sub2:true,
@@ -176,7 +176,7 @@ export default {
     finish (index) {
       this.huocode = true
       this.start = false
-      this.time = 60
+      this.time = 180
     },
     vadait(){
       let reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;

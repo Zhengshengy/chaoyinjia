@@ -25,7 +25,7 @@
             <div class="vitext">验证码：
                 <input type="text" style="outline:none;" v-model="checkCode"></div>
             <div class="vitext">结算金额：
-                <input type="number" style="outline:none;" v-model="money"></div>
+                <input type="number" style="outline:none;" v-model="money" @blur="gun"></div>
         </div>
       <div style="margin-top: 10px;background: #fff;padding: 10px 15px"></div>
       <div style="background: #fff;padding: 0px 15px 10px;color: #B5B5B5">
@@ -126,6 +126,9 @@ export default {
       this.start = false
       this.time = 180
     },
+      gun(){
+          window.scrollTo(0, 0);
+      }
     }
 }
 </script>

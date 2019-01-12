@@ -8,7 +8,7 @@
         <div class="card" style="width:89%;margin:15px auto 0;padding: 10px;background: #fff;border-radius: 5px">
         <flexbox :gutter='30'>
       <flexbox-item><div class="flex-demo">
-        < img :src='i.cimg' alt="" style="width: 100%;height: auto">
+        <img :src='i.cimg' alt="" style="width: 100%;height: auto">
       </div></flexbox-item>
       <flexbox-item><div class="flex-demo">
         <flexbox orient="vertical" :gutter="0">
