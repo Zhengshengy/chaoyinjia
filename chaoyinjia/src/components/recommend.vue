@@ -155,61 +155,61 @@ import wx from 'weixin-js-sdk'
         this.username = response.data.data.nickname
         this.headImgUrl = response.data.data.headImgUrl
         this.userId = response.data.data.userid
+        var link = ''
         if (response.data.data.ustatus=='2'){
-          var link = 'https://www.xiaofeishuwangluo.com/blank/?#/recommend?userid='+localStorage.getItem('userid')
-          this.$ajax.post('https://www.xiaofeishuwangluo.com/agentdetails/selectAgentDetailsByUid?uid='+this.userId)
-      .then(e => {
-        if (e.data.data.grade == '1'){
-          let grade = "经理"
-        }else if (e.data.data.grade == '2'){
-          let grade = "总监"
-        }else if (e.data.data.grade == '3'){
-          let grade = "银行家"
-        }
-        localStorage.setItem('grade', grade)
-
-        })
+          link = 'https://www.xiaofeishuwangluo.com/blank/?#/recommend?userid='+localStorage.getItem('userid')
+      //     this.$ajax.post('https://www.xiaofeishuwangluo.com/agentdetails/selectAgentDetailsByUid?uid='+this.userId)
+      // .then(e => {
+      //   if (e.data.data.grade == '1'){
+      //     let grade = "经理"
+      //   }else if (e.data.data.grade == '2'){
+      //     let grade = "总监"
+      //   }else if (e.data.data.grade == '3'){
+      //     let grade = "银行家"
+      //   }
+      //   localStorage.setItem('grade', grade)
+      //
+      //   })
         } else {
-          var link = 'https://www.xiaofeishuwangluo.com/blank/?#/recommend?userid=1'
-          }
-
-          var desc="芝麻银家服务平台，多家银行任意申请，秒批高额度，特约办理通道";
+          link = 'https://www.xiaofeishuwangluo.com/blank/?#/recommend?userid=1'
+          var desc = "芝麻银家服务平台，多家银行任意申请，秒批高额度，特约办理通道";
           this.url = encodeURI(location.href.split('#')[0])
-        this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/getEncryptJsapiTicket?url='+this.url).then(e=>{
-          if (e.data.status==200){
-            wx.config({
-              debug:false,
-              appId:e.data.data.appid,
-              timestamp:e.data.data.timestamp,
-              nonceStr:e.data.data.noncestr,
-              signature:e.data.data.signature,
-              jsApiList:['onMenuShareTimeline','onMenuShareAppMessage']
-            })
-            wx.ready(function () {
-              wx.onMenuShareTimeline({
-                title: '信用卡办理', // 分享标题
-
-                link:  link,// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
-                success: function () {
-                },
-                cancel: function () {
-                }
-              });
-              wx.onMenuShareAppMessage({
-                title: "信用卡办理", // 分享标题
-                link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                desc: desc,
-                imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
-                success: function () {
-                },
-                cancel: function () {
-                }
+          this.$ajax.get('https://www.xiaofeishuwangluo.com/wxpublic/getEncryptJsapiTicket?url=' + this.url).then(e => {
+            if (e.data.status == 200) {
+              wx.config({
+                debug: false,
+                appId: e.data.data.appid,
+                timestamp: e.data.data.timestamp,
+                nonceStr: e.data.data.noncestr,
+                signature: e.data.data.signature,
+                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
               })
-            });
-            }
-        })
+              wx.ready(function () {
+                wx.onMenuShareTimeline({
+                  title: '信用卡办理', // 分享标题
 
+                  link: link,// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                  imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
+                  success: function () {
+                  },
+                  cancel: function () {
+                  }
+                });
+                wx.onMenuShareAppMessage({
+                  title: "信用卡办理", // 分享标题
+                  link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                  desc: desc,
+                  imgUrl: 'https://www.xiaofeishuwangluo.com/logo/logo.png', // 分享图标
+                  success: function () {
+                  },
+                  cancel: function () {
+                  }
+                })
+              });
+            }
+
+          })
+        }
       })
 
       }

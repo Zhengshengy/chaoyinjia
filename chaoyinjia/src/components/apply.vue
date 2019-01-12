@@ -21,7 +21,7 @@
           <div class="text_cn">
             <div class="text_ne">1、请务必填写申请人真实个人信息,身份证号码务必填写正确。</div>
             <div class="text_ne">2、办卡审核通知将直接以短信的形式发送至手机。</div>
-            <div class="text_ne">3、芝麻银家平台申请信用卡不收任何费用，如果需要用请向平台客服举报。</div>
+            <div class="text_ne">3、芝麻银家平台申请信用卡不收任何费用，如遇索要费用请向平台客服举报。</div>
           </div>
     </div>
       <div class="herder">
