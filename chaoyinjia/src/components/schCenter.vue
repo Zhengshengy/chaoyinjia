@@ -6,10 +6,10 @@
         <div class="buttocon">
         <div class="bonsave">
             <div class="vitext" v-show="nameState==1">姓名：
-                <input type="text" style="outline:none;" v-model="username" placeholder="请输入姓名">
+                <input type="text" style="outline:none;" v-model="username" :placeholder="placename">
             </div>
             <div class="vitext" v-show='idcardState==1'>身份证号：
-                <input type="text" style="outline:none;" @on-blur="vadait" placeholder="请输入身份证号" v-model="idcard">
+                <input type="text" style="outline:none;" @on-blur="vadait" :placeholder="placeidcard" v-model="idcard">
 
             </div>
           <div class="vitext" v-show="validateState==1" style="position: relative">图片验证码：
@@ -17,7 +17,7 @@
               <img :src="src" alt="" class="checktu" @click="huoqu(pid)">
             </div>
             <div class="vitext" v-show="phoneState==1">手机号：
-                <input type="text" style="width: 60%;" v-model="userphone" placeholder="请输入手机号">
+                <input type="text" style="width: 60%;" v-model="userphone" :placeholder="placephone">
                 <div @click="checkcode" v-if="huocode==true" style="color: #f9c63c;float: right" >
                 获取验证码
                 </div>
@@ -128,11 +128,21 @@ export default {
       token:'',
       endTime:"",
       type:'',
-      state:''
+      state:'',
+      placename:'请输入姓名',
+      placephone:'请输入手机号',
+      placeidcard:'请输入身份证号',
+      subphone:'',
+      subidcard:''
     }
   },
   created(){
-    this.pid = this.$route.query.pid
+    this.pid = this.$route.params.pid
+    this.username = this.$route.params.username
+    this.idcard = this.$route.params.idcard?this.substring(this.$route.params.idcard):''
+    this.userphone = this.$route.params.userphone?this.$route.params.userphone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2'):''
+    this.subphone = this.$route.params.userphone ?this.$route.params.userphone:this.userphone
+    this.subidcard = this.$route.params.idcard?this.$route.params.idcard:this.idcard
     this.$ajax('api/progressquery/selectProgressQueryPidByKey?pid='+this.pid).then(e=>{
       console.log(e)
       this.nameState = e.data.data.nameState
@@ -144,14 +154,14 @@ export default {
     })
     switch (this.pid){
       case '1':
-        this.$ajax('api/applicationdetails/selectBlackCodeByPuFa').then(e=>{
+        this.$ajax('https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackCodeByPuFa').then(e=>{
             console.log(e)
         this.src =  'data:image/jpeg;base64,'+e.data.data.imgs
           this.token = e.data.data.token
         });
         break;
        case '9':
-        this.$ajax('api/applicationdetails/selectBlackCodeByGuangDa').then(e=>{
+        this.$ajax('https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackCodeByGuangDa').then(e=>{
             console.log(e)
           this.src =  'data:image/jpeg;base64,'+e.data.data.imgs
           this.token = e.data.data.token
@@ -160,6 +170,13 @@ export default {
 
   },
   methods:{
+    //脱敏
+    substring(str){
+   if(typeof str == 'string'){ //参数为字符串类型
+        let ruten = str.substring(3,8); //提取字符串下标之间的字符。
+        return str.replace(ruten,'*****'); //字符串中用字符替换另外字符，或替换一个与正则表达式匹配的子串。
+    }
+    },
         add(){
         this.show1 = true
         },
@@ -172,7 +189,7 @@ export default {
           switch (this.pid) {
             case '9':
               if (this.piccode && this.idcard){
-                this.$ajax.get(`api/applicationdetails/selectBlackDetailsGuangdaCode?code=${this.piccode}&idcard=${this.idcard}`).then(e=>{
+                this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackDetailsGuangdaCode?code=${this.piccode}&idcard=${this.subidcard}`).then(e=>{
                   console.log(e)
                 this.huocode = false
               })
@@ -180,7 +197,7 @@ export default {
             break;
             case '7':
               if (this.idcard && this.userphone){
-                 this.$ajax.get(`api/applicationdetails/selectBlackCodeByZhongXin?mobile=${this.checkCode}&idcard=${this.idcard}`).then(e=>{
+                 this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackCodeByZhongXin?mobile=${this.subphone}&idcard=${this.subidcard}`).then(e=>{
                   console.log(e)
                 this.huocode = false
               })
@@ -208,7 +225,7 @@ export default {
       switch (this.pid) {
         case '1':
           if (this.idcard && this.piccode){
-            this.$ajax.get(`api/applicationdetails/selectBlackDetailsByPuFa?token=${this.token}&idcard=${this.idcard}&code=${this.piccode}`).then(e=>{
+            this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackDetailsByPuFa?token=${this.token}&idcard=${this.subidcard}&code=${this.piccode}`).then(e=>{
               console.log(e)
               this.endTime = e.data.data.endtime
               this.type = e.data.data.type
@@ -219,7 +236,7 @@ export default {
           break;
         case '9':
           if (this.idcard && this.piccode && this.username && this.checkCode && this.userphone){
-            this.$ajax.get(`api/applicationdetails/selectBlackDetailsGuangda?code=${this.piccode}&idcard=${this.idcard}&name=${this.username}&mobCode=${this.checkCode}`).then(e=>{
+            this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackDetailsGuangda?code=${this.piccode}&idcard=${this.subidcard}&name=${this.username}&mobCode=${this.checkCode}`).then(e=>{
               console.log(e)
               this.endTime = e.data.data.endtime
               this.type = e.data.data.type
@@ -230,7 +247,7 @@ export default {
           break;
         case '13':
           if (this.idcard){
-            this.$ajax.get(`api/applicationdetails/selectBlackDetailsByShangHai?idcard=${this.idcard}`).then(e=>{
+            this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackDetailsByShangHai?idcard=${this.subidcard}`).then(e=>{
               console.log(e)
               this.endTime = e.data.data.endtime
               this.type = e.data.data.type
@@ -241,7 +258,7 @@ export default {
           break;
         case '7':
           if (this.idcard && this.checkCode && this.userphone){
-            this.$ajax.get(`api/applicationdetails/selectBlackDetailsZhongXin?idcard=${this.idcard}&code=${this.checkCode}`).then(e=>{
+            this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackDetailsZhongXin?idcard=${this.subidcard}&code=${this.checkCode}`).then(e=>{
               console.log(e)
               this.endTime = e.data.data.endtime
               this.type = e.data.data.type
@@ -254,12 +271,12 @@ export default {
     huoqu(val){
       switch (val){
         case '1':
-          this.$ajax('api/applicationdetails/selectBlackCodeByPuFa').then(e=> {
+          this.$ajax('https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackCodeByPuFa').then(e=> {
             this.src = 'data:image/jpeg;base64,' + e.data.data.imgs
           })
               break;
         case '9':
-          this.$ajax('api/applicationdetails/selectBlackCodeByGuangDa').then(e=>{
+          this.$ajax('https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackCodeByGuangDa').then(e=>{
           this.src =  'data:image/jpeg;base64,'+e.data.data.imgs
         })
            break;

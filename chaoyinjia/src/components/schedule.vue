@@ -59,7 +59,7 @@ import Footer from '@/components/footer'
     }
   },
     created(){
-    this.$ajax.get('api/progressquery/selectProgressQuery')
+    this.$ajax.get('https://www.xiaofeishuwangluo.com/progressquery/selectProgressQuery')
       .then(response => {
         console.log(response)
         this.main = response.data.data
@@ -74,7 +74,7 @@ import Footer from '@/components/footer'
         this.show1 = false
       },
     toschCenter(pid){
-        this.$router.push({path:'/schCenter',query:{pid:pid}})
+        this.$router.push({name:'SchCenter',params:{pid:pid}})
     }
   }
 }

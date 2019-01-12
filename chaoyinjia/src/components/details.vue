@@ -21,7 +21,7 @@
                <div class="shenqing">申请手机号：<span>{{item.applicationPhone}}</span></div>
                <div class="shenqing">申请时间：<span>{{item.createtime}}</span></div>
               <flexbox style="margin-top: 10px" v-show="index==0 || index==1 || index==4">
-                  <flexbox-item v-show="index!=4"><div class="flex-demo chckjin">查询进度</div></flexbox-item>
+                  <flexbox-item v-show="index!=4"><div class="flex-demo chckjin" @click="chaxun(item.creditcardId,item.applicationIdcard,item.applicationName,item.applicationPhone)">查询进度</div></flexbox-item>
 
                   <flexbox-item v-show="index==1 || index==4"><div @click="confirm(item.applicationId)" class="flex-demo">移至待确认</div></flexbox-item>
                 <flexbox-item v-show="index!=1"><div @click="remove(item.applicationId)" class="flex-demo">移至待再查</div></flexbox-item>
@@ -92,7 +92,7 @@ export default {
       id:null,
       show1:false,
       text:'',
-      stu:0
+      stu:0,
     }
   },
   mounted(){
@@ -108,7 +108,7 @@ export default {
             this.con = []
           }
       })
-    // this.$ajax.get('api/applicationdetails/selectApplicationDetailsByUserid?userid=3&page=1&state=1').then(e=>{
+    // this.$ajax.get('api/applicationdetails/selectApplicationDetailsByUserid?userid=33&page=1&state=1').then(e=>{
     //     console.log(e)
     //     this.con= e.data.data.content
     //     this.pageCount = e.data.data.pageTotal
@@ -124,7 +124,8 @@ export default {
        this.con= e.data.data.content
        this.index = index
       })
-      // this.$ajax.get('api/applicationdetails/selectApplicationDetailsByUserid?userid=3&page=1&state='+this.state).then(e=>{
+      // console.log(index)
+      // this.$ajax.get('api/applicationdetails/selectApplicationDetailsByUserid?userid=33&page=1&state='+this.state).then(e=>{
       //   console.log(e)
       //   this.con= e.data.data.content
       //  this.index = index
@@ -180,14 +181,16 @@ export default {
       this.show1 = true
       this.id = id
       this.text = '待确认'
+      this.stu = 1
     },
     cance(){
       this.show1 = false
-      this.stu = 1
+      this.stu = 0
     },
     sure(){
       if(this.stu == 1){
         this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/updateStateByKey?applicationState=1&applicationId=${this.id}`).then(e=>{
+          this.show1 = false
         this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectApplicationDetailsByUserid?userid=${this.uid}&state=${this.state}&page=${this.currentPage}`).then(e=>{
         console.log(e)
         if (e.data.data){
@@ -195,7 +198,6 @@ export default {
             this.pageCount = e.data.data.pageTotal
             this.currentPage = e.data.data.currentPage
             this.showSuccess = true
-            this.show1 = false
           } else {
             this.con = []
           }
@@ -204,13 +206,14 @@ export default {
       })
       }else if (this.stu== 2){
         this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/updateStateByKey?applicationState=2&applicationId=${this.id}`).then(e=>{
+          console.log(e)
+          this.show1 = false
         this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectApplicationDetailsByUserid?userid=${this.uid}&state=${this.state}&page=${this.currentPage}`).then(e=>{
         if (e.data.data){
             this.con= e.data.data.content
             this.pageCount = e.data.data.pageTotal
             this.currentPage = e.data.data.currentPage
             this.showSuccess = true
-            this.show1 = false
           } else {
             this.con = []
           }
@@ -218,6 +221,7 @@ export default {
 
       })
       } else if (this.stu==5){
+        this.show1 = false
         this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/updateStateByKey?applicationState=5&applicationId=${this.id}`).then(e=>{
         this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectApplicationDetailsByUserid?userid=${this.uid}&state=${this.state}&page=${this.currentPage}`).then(e=>{
         console.log(e)
@@ -226,7 +230,6 @@ export default {
             this.pageCount = e.data.data.pageTotal
             this.currentPage = e.data.data.currentPage
             this.showSuccess = true
-            this.show1 = false
           } else {
             this.con = []
           }
@@ -235,6 +238,13 @@ export default {
       })
       }
     },
+    chaxun(cid,idcard,userphone,username){
+      this.$ajax.get(`https://www.xiaofeishuwangluo.com/progressquery/selectProgressQueryByKey?creditcardId=${cid}`).then(e=>{
+        // console.log(e)
+        let pid = e.data.data
+        this.$router.push({name:'SchCenter',params:{pid:pid,username:username,userphone:userphone,idcard:idcard}})
+      })
+    }
   }
 }
 </script>
