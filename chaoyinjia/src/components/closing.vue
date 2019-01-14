@@ -39,7 +39,10 @@
       <!--<div style="height: 40px">-->
     </div>
       <div style="position: fixed;bottom: 0;left: 0;width: 100%">
-      <div @click="submit" :class="{ 'sub': sub2, 'sub1': sub3} ">
+      <div v-if="sub2==true"  class="sub">
+        <span>确认</span>
+    </div>
+        <div v-else @click="submit" class="sub1">
         <span>确认</span>
     </div>
           <div style="display:none" >{{ exitsVal }}</div>
@@ -67,12 +70,9 @@ export default {
   },
   watch:{
       ifExist(newVal,oldVal){
-          console.log(newVal)
       if(Number(newVal) === 4){
         this.sub2 = false
-        this.sub3 = true
       }else{
-        this.sub3 = false
         this.sub2 = true
       }
     }
@@ -84,7 +84,6 @@ export default {
       checkCode:'',
       money:'',
       sub2:true,
-      sub3:false,
       ifExist:0,
       start:false,
       huocode:true,
@@ -104,9 +103,9 @@ export default {
             this.$ajax.get(`https://www.xiaofeishuwangluo.com//moneydetails/drawcash?uid=${uid}&money=${this.money}&alipayno=${this.alipayno}&userphone=${this.phone}&checkCode=${this.checkCode}`).then(e=>{
                 console.log(e)
                 if (e.data.status==200){
-                    this.show2 = true
+                     this.show2 = true
                      this.message = "提现成功"
-                    this.$router.push('/')
+                    this.$router.push('/deposit')
                 }else if (e.data.status==500){
                     this.show2 = true
                     this.message = e.data.msg
@@ -178,7 +177,7 @@ export default {
         margin-top: 5px;
         letter-spacing:1px;
     }
-        .sub{
+.sub{
   position: fixed;bottom: 0;left: 0;width: 100%;background-color: #ccc;font-size: 14px;text-align: center;line-height: 42px;color: #fff
 }
 .sub1{

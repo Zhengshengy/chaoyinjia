@@ -14,7 +14,7 @@
           <div class="vitext">身份证号：
               <input type="text" placeholder="请输入申请人身份证号" style="outline:none;" v-model="idcard" @blur="vadait"></div>
           <div class="vitext">手机号：
-              <input type="number" placeholder="请输入申请人手机号" style="outline:none;" v-model="userphone"></div>
+              <input type="number" placeholder="请输入申请人手机号" style="outline:none;" v-model="userphone"  @blur="gun" ></div>
           </div>
       </div>
       <div style="background: #fff;padding: 0px 5px 10px;color: #B5B5B5;">
@@ -27,9 +27,10 @@
       <div class="herder">
          <flexbox>
             <flexbox-item :span="1"><div class="flex-demo">
-              <div class="sting">
-                <img src="../assets/agree.png"  alt="">
-              </div>
+              <div class="sting" @click="framesit">
+                <img src="../assets/kuang.png" alt="" style="width: 72%;height: auto;float: right" v-if="frames==true">
+                <img src="../assets/agree.png" style="width: 60%;height: auto;float: right" alt="" v-else>
+            </div>
             </div></flexbox-item>
               <flexbox-item><div class="flex-demo"><div style="color: #5D5D5D;letter-spacing:1px;">我已认真阅读并完全同意  <span style="color: #f9c63c" @click="toincetext">《芝麻银家服务条款》</span>的所有条款</div></div></flexbox-item>
         </flexbox>
@@ -37,7 +38,7 @@
             <span>下一步</span>
         </div>
        </div>
-      <div style="height: 40px"></div>
+      <div style="padding-top:28%"></div>
       <div class="disfoot" style="position: fixed;bottom: 0;">
         <Footer></Footer>
       </div>
@@ -65,26 +66,33 @@ export default {
         userphone:'',
         show2:false,
         messages:'',
-        blankurl:''
+        blankurl:'',
+        frames:false,
       }
   },
   methods:{
     submit(){
-      let sid = this.$route.query.sid
-      let cid = this.$route.query.cid
-      let creditcardId = this.$route.query.creditcardId
-      let cname = this.$route.query.cname
-      let channel = this.$route.query.channel
-      let reward = this.$route.query.reward
-      this.blankurl = this.$route.query.blankurl
-      console.log(this.blankurl)
-      if(this.name && this.username && this.idcard){
-        this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/savenApplicationDetails?applicationName=${this.name}&applicationIdcard=${this.idcard}&recommendUid=${sid}&blankname=${cname}&applicationPhone=${this.userphone}&channel=${channel}&creditcardId=${creditcardId}&reward=${reward}`).then(e=>{
-        console.log(e)
-        if (e.data.status==200){
-          window.location.href = this.blankurl
+      if(this.frames==false) {
+        let sid = this.$route.query.sid
+        let cid = this.$route.query.cid
+        let creditcardId = this.$route.query.creditcardId
+        let cname = this.$route.query.cname
+        let channel = this.$route.query.channel
+        let reward = this.$route.query.reward
+        this.blankurl = this.$route.query.blankurl
+        console.log(this.blankurl)
+        if (this.name && this.userphone && this.idcard) {
+          this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/savenApplicationDetails?applicationName=${this.name}&applicationIdcard=${this.idcard}&recommendUid=${sid}&blankname=${cname}&applicationPhone=${this.userphone}&channel=${channel}&creditcardId=${creditcardId}&reward=${reward}`).then(e => {
+            console.log(e)
+            if (e.data.status == 200) {
+              window.location.href = this.blankurl
+            }
+          })
         }
-      })
+      }
+      else if(this.frames=true){
+        this.show2 = true
+        this.messages = '必须选择服务条款';
       }
     },
     vadait(){
@@ -99,6 +107,12 @@ export default {
     },
     toincetext(){
       this.$router.push('/incetext')
+    },
+    framesit(){
+      this.frames=!this.frames
+    },
+    gun(){
+      window.scrollTo(0, 0);
     }
   }
 

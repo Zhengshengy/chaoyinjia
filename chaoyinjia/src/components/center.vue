@@ -10,7 +10,7 @@
       <x-input title="手机号码" name="mobile" placeholder="请输入申请人手机号" keyboard="number" is-type="china-mobile" v-model="userphone"></x-input>
       <x-input title="验证码" :show-clear='false'   placeholder="请输入验证码" v-model="checkCode">
       <div slot="right" v-show="huocode==true">
-         <div @click="checkcode"    style="color: rgb(251,203,31);border: 1px solid;padding: 5px;font-size: 12px" >获取验证码
+         <div @click="checkcode"  style="color: rgb(251,203,31);border: 1px solid;padding: 5px;font-size: 12px" >获取验证码
   </div>
       </div>
         <div slot="right" v-show="huocode==false">
@@ -18,13 +18,14 @@
         <span>s</span>
         </div>
       </x-input>
-      <x-input title="微信号" placeholder="请输入微信号（选填）" v-model="wechatno"></x-input>
+      <x-input title="微信号" placeholder="请输入微信号" v-model="wechatno" @on-blur="gun" ></x-input>
     </group>
       <div style="margin-top: 5px;background: #fff;padding: 10px 20px">
         <flexbox>
         <flexbox-item :span="1"><div class="flex-demo">
-          <div>
-            <img src="../assets/agree.png" style="width: 60%;height: auto;float: right" alt="">
+          <div @click="framesit">
+            <img src="../assets/kuang.png" alt="" style="width: 75%;height: auto;float: right" v-if="frames==true">
+            <img src="../assets/agree.png" style="width: 60%;height: auto;float: right" alt="" v-else>
           </div>
         </div></flexbox-item>
           <flexbox-item><div class="flex-demo"><div style="color: #5D5D5D">我已认真阅读并完全同意<span style="color: rgb(251,203,31)" @click="toincetext">《芝麻银家服务条款》</span>的所有条款</div></div></flexbox-item>
@@ -68,6 +69,7 @@ export default {
   data () {
     return {
       show2:false,
+      frames:false,
       huocode:true,
       time: 180,
       value: '',
@@ -154,16 +156,20 @@ export default {
   },
   methods:{
     submit(){
-      if (this.sub3==true){
-      this.$ajax.get(`https://www.xiaofeishuwangluo.com/agentdetails/saveAgetDetails?uid=${this.uid}&superior_uid=${this.superior_uid}&username=${this.username}&idcard=${this.idcard}&wechatno=${this.wechatno}&userphone=${this.userphone}&checkCode=${this.checkCode}`).then(e=>{
-        if (e.data.status==200){
-          this.$router.push('/been')
-        } else if (e.data.status==500)
-          this.show2 = true
-          this.messages = e.data.msg
-      })
+      if(this.frames==false) {
+        if (this.sub3 == true) {
+          this.$ajax.get(`https://www.xiaofeishuwangluo.com/agentdetails/saveAgetDetails?uid=${this.uid}&superior_uid=${this.superior_uid}&username=${this.username}&idcard=${this.idcard}&wechatno=${this.wechatno}&userphone=${this.userphone}&checkCode=${this.checkCode}`).then(e => {
+            if (e.data.status == 200) {
+              this.$router.push('/been')
+            } else if (e.data.status == 500)
+              this.show2 = true
+            this.messages = e.data.msg
+          })
+        }
+      }else if(this.frames=true){
+        this.show2 = true
+        this.messages = '必须选择服务条款';
       }
-
     },
     checkcode(){
       if (this.userphone){
@@ -190,6 +196,12 @@ export default {
     },
     toincetext(){
       this.$router.push('/incetext')
+    },
+    framesit(){
+      this.frames=!this.frames
+    },
+    gun(){
+      window.scrollTo(0, 0);
     }
   }
 }

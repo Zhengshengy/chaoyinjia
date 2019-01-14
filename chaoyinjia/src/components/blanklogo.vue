@@ -56,7 +56,7 @@
           this.src = this.$route.query.src
           this.cid = this.$route.query.cid
           let uid = localStorage.getItem('userid')
-          this.copyurl = `https://www.xiaofeishuwangluo.com/blank/#/recommend?userid=${uid}&cid=${this.cid}`
+          this.copyurl = `https://www.xiaofeishuwangluo.com/blank/#/recommain?userid=${uid}&cid=${this.cid}`
       },
       methods:{
           add(){

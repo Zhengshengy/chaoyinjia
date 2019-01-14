@@ -34,7 +34,10 @@
 
         </div>
 
-            <div @click="submit" :class="{ 'sub': sub2, 'sub1': sub3} ">
+            <div v-if="sub2==false" @click="submit" class="sub1">
+            <span>确认</span>
+            </div>
+          <div  v-else class="sub">
             <span>确认</span>
             </div>
             <div class="bots">
@@ -129,7 +132,6 @@ export default {
       value: '',
       start: false,
       sub2:false,
-      sub3:true,
       username:'',
       idcard:'',
       userphone:'',
@@ -246,21 +248,19 @@ export default {
         }
         },
     submit(){
-      this.sub2 = true
-      this.sub3 = false
       this.subphone = this.$route.params.userphone ?this.$route.params.userphone:this.userphone
       this.subidcard = this.$route.params.idcard?this.$route.params.idcard:this.idcard
-      this.show3 = true
       switch (this.pid) {
         case '1':
           if (this.idcard && this.piccode){
+              this.sub2 = true
+              this.show3 = true
             this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackDetailsByPuFa?token=${this.token}&idcard=${this.subidcard}&code=${this.piccode}`).then(e=>{
               console.log(e)
               this.sub2 = false
-              this.sub3 = true
               this.show3 = false
               if (e.data.status == 200){
-                this.endTime = e.data.data.endtime
+                this.endTime = e.data.data.createtime
                 this.type = e.data.data.type
                 this.state = e.data.data.state
                 this.chaxun = true
@@ -274,13 +274,14 @@ export default {
           break;
         case '9':
           if (this.idcard && this.piccode && this.username && this.checkCode && this.userphone){
+            this.sub2 = true
+              this.show3 = true
             this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackDetailsGuangda?code=${this.piccode}&idcard=${this.subidcard}&name=${this.username}&mobCode=${this.checkCode}`).then(e=>{
               console.log(e)
               this.sub2 = false
-              this.sub3 = true
               this.show3 = false
               if (e.data.status == 200){
-                this.endTime = e.data.data.endtime
+                this.endTime = e.data.data.createtime
                 this.type = e.data.data.type
                 this.state = e.data.data.state
                 this.chaxun = true
@@ -293,13 +294,14 @@ export default {
           break;
         case '13':
           if (this.idcard){
+            this.sub2 = true
+              this.show3 = true
             this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackDetailsByShangHai?idcard=${this.subidcard}`).then(e=>{
               console.log(e)
               this.sub2 = false
-              this.sub3 = true
               this.show3 = false
               if (e.data.status == 200){
-                this.endTime = e.data.data.endtime
+                this.endTime = e.data.data.createtime
                 this.type = e.data.data.type
                 this.state = e.data.data.state
                 this.chaxun = true
@@ -312,13 +314,14 @@ export default {
           break;
         case '7':
           if (this.idcard && this.checkCode && this.userphone){
+            this.sub2 = true
+              this.show3 = true
             this.$ajax.get(`https://www.xiaofeishuwangluo.com/applicationdetails/selectBlackDetailsZhongXin?idcard=${this.subidcard}&code=${this.checkCode}`).then(e=>{
               console.log(e)
               this.sub2 = false
-              this.sub3 = true
               this.show3 = false
               if (e.data.status == 200){
-                this.endTime = e.data.data.endtime
+                this.endTime = e.data.data.createtime
                 this.type = e.data.data.type
                 this.state = e.data.data.state
                 this.chaxun = true
